@@ -1,0 +1,26 @@
+.headphone1 {
+    background-image: url("./headphone1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.headphone2 {
+    background-image: url("./headphone2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.liftCounter{
+    background-image: url("./3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+.rightCounter{
+
+    background-image: url("./4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
