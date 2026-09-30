@@ -15,8 +15,8 @@ CREATE TABLE identity.users (
     id uuid PRIMARY KEY,
     email_normalized varchar(254) COLLATE "C" NOT NULL,
     password_hash text NOT NULL,
-    role varchar(16) NOT NULL CHECK (role IN ('Customer', 'Admin')),
-    status varchar(16) NOT NULL CHECK (status IN ('Active', 'Disabled')),
+    role varchar(16) NOT NULL DEFAULT 'Customer' CHECK (role IN ('Customer', 'Admin')),
+    status varchar(16) NOT NULL DEFAULT 'Active' CHECK (status IN ('Active', 'Disabled')),
     security_version integer NOT NULL DEFAULT 1 CHECK (security_version > 0),
     created_at timestamptz NOT NULL DEFAULT clock_timestamp(),
     updated_at timestamptz NOT NULL DEFAULT clock_timestamp(),
@@ -84,6 +84,7 @@ CREATE TABLE identity.audit_events (
 );
 CREATE INDEX audit_target_time_idx ON identity.audit_events (target_user_id, occurred_at DESC, id);
 CREATE INDEX audit_cleanup_idx ON identity.audit_events (occurred_at, id);
+CREATE INDEX audit_request_idx ON identity.audit_events (request_id);
 
 CREATE TABLE identity.rate_limit_windows (
     scope varchar(40) NOT NULL,
@@ -155,7 +156,9 @@ The application transaction MUST enforce: token expiry ≤ session absolute expi
 - **Rate counters:** retain until `window_end + 1 hour`, then delete. Counters are admission records, not durable identity facts.
 - **Users:** no automated account deletion in this phase. Disable when necessary; a reset preserves the user ID for future domain references.
 
-Run cleanup every 15 minutes, at most 100 session parents or 500 audit/counter rows per transaction, at most ten batches per run. Discover eligible users without locking child rows; acquire one user with `FOR UPDATE SKIP LOCKED`, then at most 100 eligible sessions for that user. Other replicas may skip it and handle another user. Audit/counter cleanup locks rows in stable primary-key order with `SKIP LOCKED`. The next run resumes remaining work. Large refresh chains make cascades costly: enforce refresh admission, measure deleted child counts and duration, and keep the transaction deadline. Do not claim a bounded parent count also bounds all child-row work.
+Run cleanup every 15 minutes, at most ten transactions per record class per run. A session-cleanup transaction may delete at most 500 refresh-token rows and at most 100 already-empty session parents. Discover eligible users without locking child rows; acquire one user with `FOR UPDATE SKIP LOCKED`, then at most 100 of its eligible session rows in ID order. Delete child rows in bounded ID-ordered batches only for sessions past absolute expiry plus 24 hours. Delete a parent only after no child rows remain, so the cascade never performs an unbounded hidden delete. Other replicas may skip the locked user and handle another user. The next run resumes a partially cleared expired session safely.
+
+Audit/counter cleanup deletes at most 500 rows per transaction using stable primary-key order and `SKIP LOCKED`. Retention predicates are rechecked inside every batch. Each record class has its own ten-transaction budget so a token backlog cannot starve audit/counter cleanup. Keep the normal transaction deadline and report remaining eligible rows/oldest age.
 
 Cleanup failure never grants access. An interrupted delete rolls back its batch. A restored database may contain previously revoked credentials; before reopening a restored sandbox, revoke all restored sessions through the operator recovery procedure and rotate compromised keys if applicable.
 

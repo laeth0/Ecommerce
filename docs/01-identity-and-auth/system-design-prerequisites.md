@@ -58,11 +58,11 @@ Use the [global actor model](../00-project-overview/system-actors-and-roles.md) 
 
 ## 5. Single-use secrets and concurrent consumption
 
-**Concept:** a refresh, verification, recovery, or MFA challenge may grant authority only once. Checking “unused” before starting a transaction does not serialize concurrent consumers.
+**Concept:** a rotating refresh credential grants renewal authority only once. Checking “unused” before starting a transaction does not serialize concurrent consumers.
 
 **Under the hood:** locate a candidate by a digest; acquire the documented account/credential locks; recheck eligibility against database time; commit consumption and its effect together. Retain the evidence needed to distinguish safe repetition from replay where the selected protocol requires it.
 
-**Triggering problem:** two requests can both pass the same pre-check and create multiple sessions, reset a password twice, or rotate a credential inconsistently.
+**Triggering problem:** two requests can both pass the same pre-check and rotate one credential inconsistently.
 
 **Alternatives and rationale:** guarded updates and row locks can both establish an atomic decision. Choose a consistent lock order across flows. An application-process mutex cannot coordinate multiple replicas.
 
@@ -104,21 +104,21 @@ Use the [global actor model](../00-project-overview/system-actors-and-roles.md) 
 
 **Study:** [OWASP CSRF prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html).
 
-## 8. Recovery, multifactor authentication, and durable work
+## 8. Operator recovery and administrative authority
 
-**Concept:** recovery is another path to account authority. MFA is ineffective if recovery silently bypasses it. Sending a message and committing a database record are independent operations.
+**Concept:** recovery is another path to account authority. An unverified email address cannot establish that a caller owns the account. A locally privileged operator and an application administrator are different authorities.
 
-**Under the hood:** establish the allowed recovery authority; issue a bounded single-use challenge; validate it atomically with the credential change; revoke affected access; deliver any required message through durable, bounded work. Protect retrievable MFA secrets separately from one-way password verifiers.
+**Under the hood:** identify the intended synthetic fixture through controlled operator access; validate the new password; lock the user; replace its verifier and security version; revoke its sessions; commit the audit record with the change. Public API callers have no access to this command.
 
-**Triggering problem:** retries can send duplicate messages, email outages can strand new accounts, and a weak reset flow can defeat stronger login protection.
+**Triggering problem:** an operator reset can race with credential issuance, or accidentally target the wrong account. A startup seeder that repeatedly replaces an Admin password can also undo deliberate recovery actions.
 
-**Alternatives and rationale:** compare self-service verified-channel recovery with operator-assisted recovery for a restricted sandbox. For administrator MFA, compare TOTP's interoperability with stronger phishing-resistant authenticators; select a mechanism with an explicit recovery procedure and operating limits.
+**Alternatives and rationale:** the user selected explicit operator-assisted recovery for the restricted sandbox. Self-service recovery needs a verified communication channel and additional contracts; it is deferred along with MFA. Explicit provisioning avoids repeated startup credential changes.
 
-**Costs and failure modes:** challenge expiry, delivery delays, stolen recovery tokens, clock drift, secret-key loss, and MFA replay require explicit behavior.
+**Costs and failure modes:** operator access becomes sensitive infrastructure authority. This process covers known synthetic accounts, not identity proofing for real customers. An uncertain commit requires audit inspection before repeating a reset.
 
-**Experiment:** delay recovery delivery beyond token expiry, submit the same challenge concurrently, and lose an administrator's second factor. Verify that each path uses its documented authority rather than a database edit or authentication bypass.
+**Experiment:** pause login after checking the old password, reset it through the operator command, and then resume login. Verify that no old authority remains usable and that the audit identifies the operator and target without recording the password.
 
-**Study:** [OWASP password recovery](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html), [OWASP MFA](https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html), and the [TOTP specification](https://www.rfc-editor.org/rfc/rfc6238).
+**Study:** the distinction between credential replacement, access revocation, and recovery authority in [OWASP authentication guidance](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html). Email verification, self-service reset, and MFA require a separate later security design.
 
 ## 9. Readiness to implement
 
