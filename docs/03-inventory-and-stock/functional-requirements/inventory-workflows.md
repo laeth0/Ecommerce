@@ -75,13 +75,13 @@ The confirmed reservation lifetime is 15 minutes from database creation time. It
 
 ### STK-FR-05 — Consume once
 
-**Actor:** trusted Checkout completion after payment evidence and order-policy validation in later phases. Lock the group, obtain database time, apply the table above, and write Consume movements atomically with the group state. The internal result distinguishes `Consumed`, `Expired`, `Released`, and `NotFound`. Only `Consumed` is evidence of committed stock for fulfillment; Inventory itself does not mark an order paid.
+**Actor:** trusted Checkout completion after payment evidence and order-policy validation in later phases. Lock the group and its stock rows, obtain database time after all locks, apply the table above, and write Consume movements atomically with the group state. The internal result distinguishes `Consumed`, `Expired`, `Released`, and `NotFound`. Only `Consumed` is evidence of committed stock for fulfillment; Inventory itself does not mark an order paid.
 
 **Acceptance:** duplicate Consume has one effect; Consume racing Expire has one terminal winner. If payment succeeds after Expired, Phase 06/07 must keep a non-fulfillable recovery state and arrange compensation rather than claim inventory was committed.
 
 ### STK-FR-06 — Release once
 
-**Actor:** trusted Checkout cancellation/failure path. Supply a controlled reason code such as `CheckoutAborted`, `PaymentFailed`, or `CustomerCancellation`; the later order policy decides when each is permitted. Lock the group and apply the table above. No on-hand increment occurs because reservation never removed physical stock. A Consumed group cannot be released; any actual return/restock is a separate later business process.
+**Actor:** trusted Checkout cancellation/failure path. Supply a controlled reason code such as `CheckoutAborted`, `PaymentFailed`, or `CustomerCancellation`; the later order policy decides when each is permitted. Lock the group and its stock rows, then check database time and apply the table above. No on-hand increment occurs because reservation never removed physical stock. A Consumed group cannot be released; any actual return/restock is a separate later business process.
 
 **Acceptance:** duplicate Release does not increase availability twice. Release racing Consume/Expire yields exactly one terminal outcome and matching movements.
 

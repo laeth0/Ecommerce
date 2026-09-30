@@ -125,9 +125,24 @@ Compute the exact [line fingerprint](../functional-requirements/inventory-workfl
 
 For the new group, invoke Catalog's transactional sellability operation on the same connection: it locks each product `FOR SHARE` in sorted UUID order and each distinct category `FOR SHARE` in sorted UUID order, then rechecks Published/Active. Inventory locks each stock item `FOR UPDATE` in sorted product-ID order and requires `on_hand - reserved >= quantity` for every line. Insert lines, apply guarded `reserved = reserved + quantity` updates with version increments, append Reserve movements, and commit. A missing/non-sellable/insufficient line requires rollback of the caller-owned transaction as well as the new group; no partial Order/attempt may commit. No external provider call runs inside this transaction. A later Checkout caller must observe the same group→Catalog→stock order when combining its Order/attempt writes.
 
+Keep the database predicate on the write even after taking the lock. The reserve update has this essential shape; use its `RETURNING` values for the matching movement:
+
+```sql
+UPDATE inventory.stock_items
+SET reserved = reserved + @quantity,
+    version = version + 1,
+    updated_at = @database_time
+WHERE product_id = @product_id
+  AND on_hand - reserved >= @quantity
+  AND version < 9223372036854775807
+RETURNING on_hand, reserved, version;
+```
+
+Adjustment similarly guards `on_hand + @delta BETWEEN reserved AND 1000000000`; Consume guards `reserved >= @quantity` while subtracting quantity from both counters; Release/Expire guard it while subtracting from reserved only. Any missing `RETURNING` row aborts the complete operation and is classified after inspecting the locked state. Never clamp an invalid result or retry with a new operation identity.
+
 ### Consume, release and expire
 
-Lock one group `FOR UPDATE`, recheck state and `clock_timestamp()` after waiting. If Active but due, choose Expired regardless of the requested Consume/Release action. If Active and still eligible, choose the requested terminal state. Lock that group's stock rows in ascending product UUID, apply guarded deltas for every line, append one terminal movement per line, set state/ended_at/end_reason, then commit. If already terminal, return the stored outcome without a new movement. A competing terminal transition waits on the group and sees the winner's state. The group and all lines have one commit boundary.
+Lock one group `FOR UPDATE` and recheck state. If already terminal, return its stored outcome without stock locks or a new movement. Otherwise lock that group's stock rows in ascending product UUID, then read `clock_timestamp()` after the last lock. This is the terminal decision time and becomes `ended_at`. If Active but due, choose Expired regardless of the requested Consume/Release action; if still eligible, choose the requested terminal state. Apply guarded deltas for every line, append one terminal movement per line, set state/ended_at/end_reason, then commit. A competing terminal transition waits on the group and sees the winner's state. The group and all lines have one commit boundary. A command that began before expiry may still expire if its stock-lock wait crosses the deadline; a decision made before expiry may commit afterward because the locked transition time, rather than response time, defines eligibility.
 
 The worker reads database `clock_timestamp()` as `@scan_time`, then selects one eligible group per transaction with a shape equivalent to:
 
@@ -144,7 +159,7 @@ The bound `@scan_time` is a database-derived cutoff that permits an indexed due 
 
 ## Reconciliation and migrations
 
-For a bounded product-ID batch, use one statement snapshot to compare `stock_items.on_hand/reserved` with numeric `SUM(on_hand_delta/reserved_delta)` and the total of reservation lines whose group state is Active. Compare counts of Catalog products and stock items separately; inspect any missing row. The full scan pages by immutable product ID. Batches have different snapshots, so report per-item findings and time rather than a falsely atomic global total. A mismatch raises an incident; no automatic repair or movement rewrite runs.
+For a bounded product-ID batch, use one statement snapshot to compare `stock_items.on_hand/reserved` with numeric `SUM(on_hand_delta/reserved_delta)` and the total of reservation lines whose group state is Active. Aggregate movements and Active lines separately before joining to stock items, so multiple movement and line rows do not multiply each other's sums. Compare counts of Catalog products and stock items separately; inspect any missing row. The full scan pages by immutable product ID. Batches have different snapshots, so report per-item findings and time rather than a falsely atomic global total. A mismatch raises an incident; no automatic repair or movement rewrite runs.
 
 The migration owner applies schema/backfill before API replicas enable Inventory operations. Review generated EF SQL for check constraints, foreign keys, partial indexes and backfill locks; run against real PostgreSQL before acceptance. The API role can select and modify Inventory items/groups/lines through the module and append movements, but cannot update/delete movements, delete stock items, or perform DDL. The worker role needs group/line/item read and transition rights plus movement insert, without Admin adjustment rights. Operator reconciliation has read-only Inventory/Catalog access. Audit grants against actual SQL, not only intended roles.
 

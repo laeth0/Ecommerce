@@ -22,7 +22,7 @@ JSON Schema Draft 2020-12 describes wire structure. Semantic NFC/trim/control ru
   "$schema":"https://json-schema.org/draft/2020-12/schema",
   "$id":"urn:ecommerce:inventory:schemas:v1",
   "$defs":{
-    "Uuid":{"type":"string","format":"uuid","pattern":"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"},
+    "Uuid":{"type":"string","format":"uuid","pattern":"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"},
     "Instant":{"type":"string","format":"date-time","pattern":"Z$"},
     "AdjustStock":{
       "type":"object","additionalProperties":false,"required":["operationId","productId","delta","reason"],
@@ -112,6 +112,6 @@ The module exposes operations on a caller-owned PostgreSQL transaction; it does 
 | `Release` | Reservation UUID, expected intent UUID, controlled reason code | `Released` (including exact replay) or incompatible `Expired`, `Consumed`, `NotFound`, `IntentConflict` |
 | `ExpireDue` | Worker-controlled bounded selection | Number of groups terminally Expired; errors remain retryable and visible |
 
-The canonical reservation fingerprint is specified in [STK-FR-04](inventory-workflows.md#stk-fr-04--reserve-a-bounded-product-set). The server sets the deadline; callers cannot request extension. At exact `clock_timestamp() >= expires_at`, Consume fails and the group is made Expired in the same transaction. A replay of Reserve for an overdue Active group also materializes expiry before returning the current outcome. A terminal outcome is never converted to another terminal outcome. `GetReservation` may return an overdue stored Active state with `expiresAt` in the past; it is a read, not permission to consume. Only the locked transition determines eligibility.
+The canonical reservation fingerprint is specified in [STK-FR-04](inventory-workflows.md#stk-fr-04--reserve-a-bounded-product-set). The server sets the deadline; callers cannot request extension. At the terminal decision after group and stock locks, `clock_timestamp() >= expires_at` makes Consume fail and the group Expired in the same transaction. A replay of Reserve for an overdue Active group also materializes expiry before returning the current outcome. A terminal outcome is never converted to another terminal outcome. `GetReservation` may return an overdue stored Active state with `expiresAt` in the past; it is a read, not permission to consume. Only the locked transition determines eligibility.
 
 The future Checkout boundary is responsible for customer ownership, order policy, and mapping these typed outcomes to its public API. There is no direct external route for an arbitrary client to present an intent or reservation UUID.
