@@ -91,12 +91,12 @@ No queued waiting for a quota reset. PostgreSQL counter errors fail closed with 
 | --- | --- |
 | `GET /health/live` | Existing restricted management listener; no business effects. 200 `{"status":"ok"}` if responsive, otherwise 503 `{"status":"unavailable"}` |
 | `GET /health/ready` | Same restricted listener. Required config/schema/primary/local-worker checks; 200/503 with the same bounded Health body. Primary probe ≤1 second |
-| `GET /metrics` | New management-only Prometheus exposition; no retail JSON contract. Management network/proxy authentication; no cookies or anonymous public access; scrape deadline 5 seconds |
+| `GET /metrics` on the Collector exporter | Private Prometheus exposition of received safe application instruments; no new application/retail route or JSON contract. Management network/proxy authentication; scrape deadline 5 seconds |
 | OTLP receiver | Collector-internal endpoint; authorized application/collector network only, transport identity/TLS outside loopback development; no retail route |
 | Grafana/query backends | Private operator access with separate credentials and viewer/admin separation; never retail bearer/admin authorization reuse |
 | Release/backup/restore/owner recovery operations | Attributed protected local execution, reviewed artifact/configuration and normalized reason; outputs contain bounded status/evidence references. Existing owner recovery operations retain their own idempotency/audit rules |
 
-`/metrics` serves the process's safe cumulative instruments directly so Collector failure does not remove metric visibility. Collector handles trace/log export; Prometheus scrapes application/Collector/backend metrics and restricted PostgreSQL aggregates. Request SLIs include edge failures/maintenance separately and deduplicate by origin; do not double-count the same request from edge and application counters. Health exposes no schema version, credentials, debt, account or queue details.
+The SDK exports cumulative application metrics through OTLP to the Collector's Prometheus exporter. Prometheus also scrapes component self-health, safe edge counters and restricted PostgreSQL aggregates. Collector loss creates an explicit application-metric gap and an external scrape-health alert; cumulative counters may recover after reconnection while the source process remains alive, but missing intervals are never reported as 100% availability. Request SLIs include edge failures/maintenance separately and deduplicate by origin; do not double-count the same request from edge and application counters. Health exposes no schema version, credentials, debt, account or queue details.
 
 Operator plans are protected release/recovery artifacts, not a general public command API. No new endpoint creates a backup, changes paid state, resumes work, reveals raw audit or adjusts quotas. A maintenance response is an outage response, not proof of a cancelled business effect.
 

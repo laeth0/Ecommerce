@@ -8,6 +8,8 @@
 | Architecture | One modular monolith, one authoritative PostgreSQL primary |
 | Confirmed scope | Private sandbox accounts; PostgreSQL-only reads; caching requires later measurement and approval |
 
+Normative rules use MUST/MUST NOT/REQUIRED in the sense of [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119). Identified FR/NFR acceptance conditions and operating assertions are REQUIRED implementation gates; proposed targets remain unmeasured until their stated evidence exists.
+
 ## Objective and scope
 
 Establish a measured, observable and recoverable operating baseline for the complete sandbox purchase path. This phase strengthens existing controls and supplies evidence for their resource limits. The roadmap label does not establish public-service, live-money or production readiness.

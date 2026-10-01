@@ -1,6 +1,6 @@
 # Monolith System Design
 
-**Status:** target architecture for Phase 08. Owner tables, APIs, financial source rules and [global invariants](../00-project-overview/global-architecture-and-evolution.md#3-consistency-and-invariants) remain in force.
+**Status:** target architecture for Phase 08. Owner tables, APIs, financial source rules and [global invariants](../00-project-overview/global-architecture-and-evolution.md#32-global-invariants-and-consistency) remain in force.
 
 ## Problem and design
 

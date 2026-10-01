@@ -52,7 +52,7 @@ JSON Schema Draft 2020-12 validates structural shape. Semantic normalization, Un
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:ecommerce:catalog:schemas:v1",
   "$defs": {
-    "Uuid": {"type":"string","format":"uuid","pattern":"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"},
+    "Uuid": {"type":"string","format":"uuid","pattern":"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"},
     "Instant": {"type":"string","format":"date-time","pattern":"Z$"},
     "CategorySlug": {"type":"string","minLength":3,"maxLength":48,"pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},
     "Sku": {"type":"string","minLength":3,"maxLength":32,"pattern":"^[A-Z0-9][A-Z0-9-]*[A-Z0-9]$"},
