@@ -46,7 +46,7 @@ Stripe's amount range requires a Sandbox admission restriction described in the 
 
 ## Scrum work packages
 
-Execute PAY-E1 through PAY-E5 in order; each is a coherent sprint-sized package whose size is estimated during planning.
+Execute PAY-E1 through PAY-E5 in order. These are logical work packages; estimate and split them into useful Sprint increments during planning. A package may span several Sprints, as the [shared roadmap](../00-project-overview/phase-roadmap-and-scrum-plan.md#1-how-to-use-the-roadmap) specifies.
 
 1. **PAY-E1 — Financial ownership:** accepted source binding, immutable facts, balances, state guards, grants and narrow owner operations.
 2. **PAY-E2 — Provider boundary:** sandbox adapter, durable dispatch admission, stable provider keys, finite retry window and safe no-capture classification.

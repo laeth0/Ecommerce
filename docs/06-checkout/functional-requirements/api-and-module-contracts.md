@@ -146,7 +146,7 @@ AttemptView uses one statement snapshot. Confirmed purchaseOutcome can accompany
 
 ## Error catalog and precedence
 
-Follow [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html). Type is `urn:ecommerce:problem:<code>`; instance is matched route template without raw IDs/query (unknown `/api/v1/unmatched`); traceId equals X-Request-Id. Only Validation.Failed has deduplicated field/code-sorted errors, maximum ten and no submitted values.
+Follow [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html). Type is `urn:ecommerce:problem:<code>`; instance is matched route template without raw IDs/query (unknown route reuses Identity's `/api/v1/unknown`); traceId equals X-Request-Id. Only Validation.Failed has deduplicated field/code-sorted errors, maximum ten and no submitted values.
 
 | Status/code | Title | Detail |
 | --- | --- | --- |

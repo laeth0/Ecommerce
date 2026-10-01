@@ -148,7 +148,7 @@ Line subtotal and component equations MUST match the workflow bounds; all curren
 
 ## Error catalog and precedence
 
-Follow [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html): type is `urn:ecommerce:problem:<code>`, instance the matched template without raw ID/query (unknown route `/api/v1/unmatched`), traceId equals X-Request-Id. Only Validation.Failed includes deduplicated, field/code-sorted errors, capped at ten and without submitted values.
+Follow [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html): type is `urn:ecommerce:problem:<code>`, instance the matched template without raw ID/query (unknown route reuses Identity's `/api/v1/unknown`), traceId equals X-Request-Id. Only Validation.Failed includes deduplicated, field/code-sorted errors, capped at ten and without submitted values.
 
 | Status/code | Title | Detail |
 | --- | --- | --- |

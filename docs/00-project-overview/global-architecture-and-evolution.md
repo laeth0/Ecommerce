@@ -16,7 +16,7 @@
 5. Preserve the existing purchase contract and correctness scenarios through each architecture change.
 6. Introduce essential security, diagnostics, deadlines, and recovery with the feature that requires them. Later phases improve depth and scale.
 
-The diagrams show planned architecture, not deployed resources. Optional components appear only in the stages that evaluate them. Frameworks, broker products, cache products, and hosting vendors remain unselected.
+The diagrams show planned architecture, not deployed resources. The [Identity specification](../01-identity-and-auth/README.md) selects ASP.NET Core/EF Core/Npgsql 10 with PostgreSQL 18; [Payments](../07-payments-and-refunds/README.md) selects Stripe sandbox/test mode. Broker products, cache products and hosting vendors remain deferred to their decision gates.
 
 ## 2. System context
 
@@ -79,7 +79,7 @@ One database simplifies atomic stock/order changes, migrations, and local develo
 | Identity | Accounts, credential state, privileges, sessions | Validated actor identity and authorization context | Orders, cart contents, payment state |
 | Catalog | Products, categories, publication state, current prices | Product lookup and authoritative price/version information | Historical order prices or available stock |
 | Inventory | Stock quantities, adjustments, reservations and their lifecycle | Reserve, consume, release, inspect reservation outcome | Payment-provider truth or product pricing |
-| Cart | Customer cart and item quantities | A versioned or otherwise concurrency-controlled checkout input | Guaranteed price, stock ownership, or payment intent |
+| Cart | Customer cart and item quantities | Whole-cart versioned checkout input and conditional cleanup of unchanged purchased intent | Guaranteed price, stock ownership, or payment intent |
 | Orders | Order identity, immutable purchase/address snapshots, fulfillment and cancellation lifecycle | Create order snapshot, inspect order, apply permitted transitions | Raw credentials or provider-specific callback processing |
 | Checkout | Attempt identity, idempotency coordination, progress across purchase steps | Start or resume a purchase attempt; inspect progress | Independent copies of stock balances or captured money |
 | Payments | Payment attempts, provider mappings, verified outcomes, refunds, reconciliation progress | Start an idempotent payment/refund operation; inspect authoritative local financial status | Permission to bypass order or stock invariants |
@@ -91,12 +91,12 @@ Checkout coordinates the workflow; it does not become a second source of truth f
 
 | ID | Invariant or consistency requirement | Owning boundary | Review evidence |
 | --- | --- | --- | --- |
-| INV-01 | Stock available for new reservation MUST NOT fall below zero under the proposed no-backorder policy | Inventory transaction | Final-unit contention scenario; conservation check across reserve/consume/release |
+| INV-01 | Stock available for new reservation MUST NOT fall below zero under the confirmed no-backorder policy | Inventory transaction | Final-unit contention scenario; conservation check across reserve/consume/release |
 | INV-02 | Each reservation MUST be consumed or released at most once; expiry and payment processing cannot both win incompatible transitions | Inventory lifecycle | Concurrent completion/expiry scenario with one final outcome |
 | INV-03 | Order quantities, accepted prices, currency, totals, and address snapshot MUST remain historically stable after acceptance | Orders | Catalog/address edits do not rewrite an accepted purchase |
 | INV-04 | One logical checkout submission MUST map to at most one order; same-key requests with different intent MUST NOT be treated as a successful replay | Checkout and database uniqueness | Concurrent duplicate submission and payload-mismatch scenarios |
-| INV-05 | Verified capture and refund outcomes MUST be recorded without duplicate financial effects; cumulative successful plus outstanding reserved refund amounts MUST NOT exceed refundable captured funds | Payments | Parallel refunds, duplicate callbacks, timeout and reconciliation scenarios |
-| INV-06 | An order MUST NOT become eligible for fulfillment unless payment and committed inventory satisfy the agreed purchase policy | Orders with evidence from Payments and Inventory | Late payment after reservation loss cannot authorize shipment |
+| INV-05 | Verified capture/refund/correction outcomes MUST be retained without duplicate financial effects; ordinary refund admission requires net successful refunds plus reserved obligations ≤ verified captured funds. Unexpected external anomalies MUST be recorded with an integrity hold rather than erased | Payments | Parallel refunds, duplicate callbacks, reversal, timeout and reconciliation scenarios |
+| INV-06 | New confirmation requires verified full capture, matching consumed stock, no cancellation request, and Payments' current confirmation guards. A refund accepted before historical confirmation stops that purchase and requires full remaining compensation | Orders/Checkout with evidence from Payments and Inventory | Late capture after stock loss or a winning preconfirmation refund cannot authorize fulfillment |
 | INV-07 | Refund success MUST NOT automatically restock an item | Orders/Inventory policy | Refund of a shipped item leaves stock unchanged unless a separate allowed stock operation occurs |
 | INV-08 | Durable internal state MUST distinguish an unresolved external outcome from confirmed success or failure | Payments and Checkout | Lost provider response leaves a recoverable attempt with a reconciliation path |
 
@@ -114,31 +114,37 @@ sequenceDiagram
     participant CO as Checkout
     participant Local as Catalog, Cart, Inventory, Orders
     participant P as Payments
+    participant W as Financial worker
     participant PSP as Sandbox provider
-    C->>CO: Submit purchase intent with idempotency identity
+    C->>CO: Preview owned cart and US address
+    CO-->>C: Stored five-minute quote and exact USD totals
+    C->>CO: Accept quote with original idempotency key
     CO->>Local: Validate actor, cart, current price, and availability
     CO->>Local: In one local transaction, reserve stock and create order snapshot
-    CO->>CO: Persist checkout progress in the same transaction
+    CO->>P: Freeze accepted sandbox source binding in the same transaction
+    CO->>CO: Persist accepted attempt, quote, audit and four work rows
     Note over CO,Local: Commit before any provider network call
-    CO->>P: Start or resume payment for accepted order
-    P->>P: Persist stable payment intent before external work
-    P->>PSP: Idempotent payment request
+    CO-->>C: 202 immutable attempt/order acceptance receipt
+    CO->>P: Worker ensures stable financial intent after acceptance
+    P->>P: Commit intent and durable financial work
+    W->>P: Admit original dispatch and commit Pending knowledge
+    W->>PSP: Original idempotent payment request outside DB transaction
     alt Provider result received
-        PSP-->>P: Provider evidence
+        PSP-->>W: Provider evidence
+        W->>P: Validate original mapping and observation
         P->>P: Validate and persist outcome
-        P-->>CO: Known outcome or further action required
     else Response lost or deadline exceeded
+        W->>P: Unknown observation for original operation
         P->>P: Retain unresolved outcome for reconciliation
-        P-->>CO: Pending or unknown outcome
     end
-    CO-->>C: Stable attempt/order reference and observed status
     PSP-->>P: Authenticated callback, possibly repeated or delayed
-    C->>CO: Inspect or resume the same attempt
+    P-->>CO: Postcommit wake; durable discovery repairs missed wake
+    C->>CO: Inspect attempt or replay original acceptance
 ```
 
-The customer submits intent; the server determines authoritative totals and stock eligibility. Checkout commits the local order/reservation/attempt before Payments contacts the provider. Payments persists its own durable intent before the call. A crash between those steps leaves recoverable Checkout progress.
+The customer explicitly accepts a stored quote; the server rechecks authoritative totals and stock eligibility. Checkout commits the local order/reservation/attempt/source binding and returns its immutable acceptance receipt before provider processing. Payments' bounded worker persists dispatch intent before contacting Stripe. A crash between those steps leaves discoverable durable work. A 202 receipt does not claim payment or order confirmation.
 
-All module operations before the provider call are synchronous; callbacks and reconciliation are asynchronous. Database locks MUST NOT be held while waiting for the provider. Exact transaction isolation, cart version policy, price-change confirmation, deadlines, and response schemas belong to phases 03–07.
+Owner operations inside a local transaction are synchronous. Financial dispatch, callbacks, reconciliation and Checkout resolution proceed independently of the acceptance request. Database locks MUST NOT be held while waiting for the provider. Exact transaction isolation, cart version policy, price-change confirmation, deadlines and response schemas are owned by phases 03–07.
 
 Phase 06 uses a bounded development payment simulator through the intended boundary. Phase 07 owns the real sandbox adapter and financial semantics. Simulator results are learning evidence only and MUST NOT be presented as completed provider integration.
 
@@ -169,7 +175,7 @@ sequenceDiagram
     end
 ```
 
-Payments records what happened to money, including success that arrives too late. Inventory decides whether its reservation can still change. Orders records the business consequence. The workflow MUST NOT erase a valid capture because stock has expired, or confirm fulfillment without stock.
+Payments records what happened to money, including success that arrives too late. Inventory decides whether its reservation can still change. Orders records the business consequence. The workflow MUST NOT erase a valid capture because stock has expired, or confirm fulfillment without stock. The diagram shows owner effects; an existing Order is locked before Inventory, then current Payments confirmation guards are checked under the financial lock through the local confirmation commit. A winning preconfirmation refund rolls back provisional consumption and restarts release/full-compensation resolution in the documented lock order; after historical confirmation, ordinary refunds leave Order lifecycle and stock unchanged.
 
 In the monolith, compatible local updates may share a transaction; after extraction, these steps use durable commands and outcomes with intermediate states. A compensation failure stays visible and retryable or explicitly escalated. Phase 06 specifies reservation expiry versus unknown-payment policy; phase 07 verifies it against the provider's behavior. A refund does not undo time or guarantee that an external operation never occurred.
 

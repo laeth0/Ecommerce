@@ -134,7 +134,7 @@ After a hide, the same version/time/quantity remains, the line is `Unavailable`,
 
 ## Error catalog and precedence
 
-Follow [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457): `type=urn:ecommerce:problem:<code>`, `traceId=X-Request-Id`, and `instance` is the matched route template with braces, without actual product ID/query. Unknown-route instance is `/api/v1/unmatched`. Only Validation.Failed has `errors`, sorted by field/code, deduplicated, capped at ten, without submitted values. Use the fixed titles/details below.
+Follow [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457): `type=urn:ecommerce:problem:<code>`, `traceId=X-Request-Id`, and `instance` is the matched route template with braces, without actual product ID/query. Unknown-route instance reuses Identity's `/api/v1/unknown`. Only Validation.Failed has `errors`, sorted by field/code, deduplicated, capped at ten, without submitted values. Use the fixed titles/details below.
 
 | Status/code | Title | Detail |
 | --- | --- | --- |

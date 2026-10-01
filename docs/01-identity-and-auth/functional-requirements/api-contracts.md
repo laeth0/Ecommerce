@@ -13,6 +13,7 @@
 - Dates are UTC RFC 3339 strings ending in `Z`; UUIDs are lowercase canonical strings. JSON member names and enum values are case-sensitive.
 - Each response includes `X-Request-Id`, a server-generated canonical UUID. The same value appears as `traceId` in a problem body. Do not reflect unvalidated client correlation strings.
 - Rate-limit responses include integer `Retry-After` seconds, rounded up to the latest applicable counter window boundary, minimum 1. Dependency/capacity `503` responses include `Retry-After: 1`; this header does not make credential issuance safe to replay after an unknown commit.
+- If an exact browser origin is explicitly configured, the host handles an allowed CORS OPTIONS preflight before Bearer authorization and business routing, returning bodyless `204` with the permitted negotiation headers. Preflight issues no credential, reads no resource and performs no mutation; the actual request retains every ordinary authority/validation check. The [security policy](../security/threat-model-and-controls.md#5-web-input-and-data-protection) defines phase-specific allowed/exposed headers. These host negotiation requests are separate from the endpoint matrix's method/error rules; denied negotiation never grants cross-origin access. Origins default to none. See [ASP.NET Core CORS](https://learn.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-10.0).
 
 ## 2. Endpoint matrix
 
@@ -138,7 +139,7 @@ Email/password wire limits bound work before normalization; semantic limits stil
 
 ## 4. Error catalog and precedence
 
-Use [RFC 9457 Problem Details](https://www.rfc-editor.org/rfc/rfc9457) with these fixed strings. `type` is `urn:ecommerce:problem:` followed by the exact code, `instance` is the matched route template without query values, and `traceId` is the server request ID. For an unmatched route use `/api/v1/unknown` to avoid reflecting attacker input.
+Use [RFC 9457 Problem Details](https://www.rfc-editor.org/rfc/rfc9457) with these fixed strings. `type` is `urn:ecommerce:problem:` followed by the exact code, `instance` is the matched route template without query values, and `traceId` is the server request ID. For an unmatched route use `/api/v1/unknown` across all domains to avoid reflecting attacker input; this marker is host-owned and is not a resource endpoint.
 
 | Status/code | Title | Detail |
 | --- | --- | --- |

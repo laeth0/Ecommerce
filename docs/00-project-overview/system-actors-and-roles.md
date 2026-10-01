@@ -11,7 +11,7 @@
 
 An actor is a person or system interacting with the platform. An application role is a permission grouping. An operator's infrastructure access is a separate concern from customer or administrator privileges.
 
-The proposed baseline has Customer and Admin application roles. Anonymous visitors have no role. Services, workers, provider callbacks, and deployment processes MUST use dedicated identities appropriate to their trust boundary. Their exact authentication mechanisms belong to the phase that introduces them.
+The [Identity baseline](../01-identity-and-auth/README.md) has mutually exclusive Customer and Admin application roles. An administrator shops through a separate Customer account. Anonymous visitors have no role. Services, workers, provider callbacks, and deployment processes MUST use dedicated identities appropriate to their trust boundary. Their exact authentication mechanisms belong to the phase that introduces them.
 
 | Actor | Purpose | Trust boundary | Owning phase |
 | --- | --- | --- | --- |
@@ -19,7 +19,7 @@ The proposed baseline has Customer and Admin application roles. Anonymous visito
 | Customer | Maintain their cart; buy; inspect their orders; request eligible cancellation | Authenticated public client, still untrusted for ownership and money values | 01, 04–07 |
 | Administrator | Maintain catalog and stock; perform permitted fulfillment and refund actions | Privileged application access with explicit authorization and audit | 01–07 |
 | Payment provider | Process sandbox financial operations and deliver outcomes | External system; each callback must be authenticated and matched to local records | 07 |
-| Background worker | Expire reservations, reconcile uncertain payments, dispatch durable work | Internal execution identity with bounded data access | First required in 03 or 07; expanded in 08–09 |
+| Background worker | Expire reservations, resolve accepted purchases, reconcile payments and dispatch durable work | Internal execution identity with bounded data access | Inventory in 03, Checkout in 06, Payments in 07; expanded in 08–09 |
 | Notification consumer | Handle committed order notifications through a local delivery sink | Internal consumer of untrusted message envelopes and validated payloads | 09 |
 | Extracted service | Own its domain data and operations | Independent network and database boundary | 10 |
 | Operator | Deploy, observe, restore, and execute documented recovery procedures | Infrastructure control plane, separate from ordinary business APIs | Baseline setup in 01; expanded in 08–13 |
@@ -36,8 +36,8 @@ For a solo learning project, one person may perform customer, administrator, ope
 | Browse published catalog | Allow | Allow | Allow | Only if explicitly required |
 | View unpublished products | Deny | Deny | Allow for catalog administration | Internal catalog workflow only |
 | Register and authenticate | Public flow subject to abuse controls | Supported account flows | Public registration MUST NOT grant Admin | Deny use of human login as service authentication |
-| Read or modify cart | Deny | Own cart only | No privileged access to another customer's cart | Checkout may read the authenticated customer's cart through its owner |
-| Submit checkout | Deny | Own cart and order context | Customer scope only when separately entitled; no impersonation | Internal orchestration under validated customer context |
+| Read or modify cart | Deny | Own cart only | Deny; use a separate Customer account | Checkout reads owned intent and conditionally clears unchanged purchased intent through Cart |
+| Submit checkout | Deny | Own cart and order context | Deny; use a separate Customer account | Internal orchestration acts on durable accepted Customer authority |
 | Read orders | Deny | Own orders only | Minimum data needed for fulfillment and refunds | Domain-specific reconciliation only |
 | Request cancellation | Deny | Own order when lifecycle permits | When lifecycle permits, with recorded reason | Recovery workflow only under its documented policy |
 | Create or modify products | Deny | Deny | Allow with audit | No generic worker permission |
@@ -65,7 +65,7 @@ The following controls apply from the first relevant feature. They follow the pr
 | AUTH-07 | Callback authenticity MUST be established before business processing | Invalid, tampered, replayed, or mismatched provider messages cannot alter money or order state; valid duplicates remain safe |
 | AUTH-08 | Internal services MUST authorize the requested operation independently of public ingress | Calling a service directly without the required service identity and actor context is denied |
 
-Exact password rules, MFA requirements, token/session format, CSRF handling, rate-limit algorithms, and HTTP denial semantics require the identity threat model. This overview does not prescribe a browser storage mechanism or a token transport before the client and authentication contracts are selected.
+The [Identity threat model](../01-identity-and-auth/security/threat-model-and-controls.md) owns password rules, JSON JWT/rotating-refresh Bearer transport, CSRF scope, rate limits and privileged-access controls. Phase 01 uses sandbox accounts, operator-assisted recovery and restricted Admin access; email verification, self-service reset and MFA are deferred. No browser credential-storage mechanism is approved by this backend specification.
 
 ## 4. Data access and ownership boundaries
 
@@ -80,7 +80,7 @@ Exact password rules, MFA requirements, token/session format, CSRF handling, rat
 | Audit events | The domain performing the sensitive action | Authorized investigation procedures | Sensitive payloads and secrets are excluded; retention and tamper controls are specified before public operation |
 | Logs, metrics, and traces | Operational telemetry systems | Operators with appropriate environment access | No passwords, tokens, card data, or full addresses in telemetry; unbounded customer IDs are not metric labels |
 
-The platform MUST avoid collecting raw card numbers or card security codes. Provider-hosted or provider-tokenized sandbox flows are the proposed payment boundary. This is an architectural scope choice, not a claim of payment-industry compliance.
+The platform MUST avoid collecting raw card numbers or card security codes. Phase 07 uses protected operator-assigned Stripe test-method tokens with backend-only confirmation. Customer card entry requires a later approved scope and contract. This is an architectural scope choice, not a claim of payment-industry compliance.
 
 ## 5. Machine identities and recovery authority
 

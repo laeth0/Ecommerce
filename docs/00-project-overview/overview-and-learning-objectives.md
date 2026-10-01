@@ -14,7 +14,7 @@ Build a small e-commerce backend that supports a complete purchase and refund jo
 
 The project begins with a modular monolith and PostgreSQL. Later increments introduce asynchronous processing, selected service extraction, distributed recovery, scaling, and production infrastructure. Feature count and service count are not measures of success.
 
-This document set defines the project baseline and proposed architecture. The project owner has confirmed one merchant, one stock location, one configured currency, and sandbox payments. The remaining assumptions require confirmation before their dependent phase specifications are accepted. These documents do not claim that application code, infrastructure, benchmarks, or operational controls exist.
+This document set defines the project baseline and proposed architecture. The project owner has confirmed one merchant, one stock location, USD with two decimal places, and sandbox payments. Phases 01–07 specify the backend stack, authentication, purchase and refund policies listed below. These documents do not claim that application code, infrastructure, benchmarks, or operational controls exist.
 
 ## 2. Read this folder in order
 
@@ -26,7 +26,7 @@ This document set defines the project baseline and proposed architecture. The pr
 | [Phase roadmap and Scrum plan](phase-roadmap-and-scrum-plan.md) | Ordered work packages, dependencies, prerequisites, milestone outcomes |
 | [Global Definition of Done](global-definition-of-done.md) | Documentation quality, implementation evidence, measurable quality targets, release gates |
 
-Only folder `00-project-overview` is being documented at this stage. The other numbered folders are reserved for later requests. Their roadmap entries are planning summaries, not complete domain specifications or Sprint Backlogs.
+Folders `00-project-overview` through `07-payments-and-refunds` contain specifications. Folders 08–13 remain empty until requested; their roadmap entries are planning summaries. Documentation completion is separate from implementation and operational evidence.
 
 Uppercase MUST, MUST NOT, SHOULD, and MAY express requirement strength using [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) and its [RFC 8174 clarification](https://www.rfc-editor.org/rfc/rfc8174). In a draft, these words describe the proposed contract; they do not indicate stakeholder approval or completed implementation.
 
@@ -71,22 +71,22 @@ Minimal shipping and notification capabilities MUST stay within the owning work 
 
 The brief's coupon-validation example is therefore inapplicable. It MUST NOT become an implicit checkout requirement. Refunds MUST NOT silently introduce returns, return labels, or warehouse inspections.
 
-## 4. Planning assumptions and decisions still required
+## 4. Current decisions and remaining gates
 
-The four operating-model decisions below are confirmed. Other entries are explicit proposals or decisions reserved for their owning phase. A proposed decision becomes accepted only when the project owner confirms it and the affected documents are updated.
+The table records the current baseline and links each decision to its owning specification. Detailed engineering contracts remain drafts for implementation review; a documented policy is not evidence that its software exists. Later technology choices still require measured justification.
 
-| ID | Proposed planning assumption or open decision | Why it matters | Required decision point |
+| ID | Current baseline or open decision | Why it matters | Owning specification or remaining gate |
 | --- | --- | --- | --- |
 | A-01 | Confirmed: one merchant operates the store; no marketplace sellers | Avoids marketplace settlement and tenant isolation scope | Confirmed for the project baseline |
-| A-02 | Confirmed: one stock location | Bounds inventory ownership and allocation | Confirmed; simple stock-item mapping and no-backorder policy are proposed for phase 03 |
-| A-03 | Confirmed: one configured currency | Avoids currency conversion and multi-currency settlement | Confirmed; exact currency and arithmetic policy are resolved in phase 02 |
-| A-04 | Anonymous catalog browsing; authenticated customer cart and checkout; no guest checkout | Bounds identity and cart ownership | Before phase 01 specification acceptance |
-| A-05 | Confirmed: payment experiments use sandbox payments | Makes failure experiments repeatable without moving real money | Confirmed; provider selection belongs to phase 07 |
-| A-06 | Basic address snapshot, one simple shipping-charge rule, manual fulfillment | Keeps logistics small while retaining a complete journey | Before phase 05 order and phase 06 checkout specifications are accepted |
-| D-01 | Backend language, framework, database access library, and supported runtime versions are not selected | These choices affect code layout and operational tooling | Before phase 01 implementation planning; no framework is implied by these documents |
-| D-02 | Exact currency, rounding policy, selling region, address rules, and tax treatment require a product decision | Totals cannot be implemented correctly from a generic e-commerce description | Before accepting price and checkout contracts; zero tax MUST NOT be assumed |
-| D-03 | Session/token mechanism, administrator provisioning, credential recovery, and privileged-access controls require the identity design | These affect security and client contracts | Before phase 01 implementation planning |
-| D-04 | Reservation lifetime, cancellation cutoff, refund eligibility, and late-payment compensation require coordinated domain decisions | These govern stock and money across failures | Before phase 06 specification acceptance; payment-provider details are resolved in phase 07 |
+| A-02 | Confirmed: one stock location, one stock record per product, whole units and no backorders | Bounds inventory ownership and allocation | [Inventory baseline](../03-inventory-and-stock/README.md) |
+| A-03 | Confirmed: USD with two decimal places; integer cents throughout; no multi-currency implementation | Avoids rounding loss, currency conversion and multi-currency settlement | [Catalog monetary contract](../02-catalog-and-products/README.md) |
+| A-04 | Anonymous catalog browsing; authenticated Customer cart and checkout; no guest checkout or Admin impersonation | Bounds identity and cart ownership | [Identity](../01-identity-and-auth/README.md) and [Cart](../04-shopping-cart/README.md) |
+| A-05 | Confirmed: Stripe sandbox/test mode with protected operator-assigned test methods; existing simulator purchases remain synthetic | Makes failure experiments repeatable without moving real money | [Payments source boundary](../07-payments-and-refunds/README.md) |
+| A-06 | Confirmed: immutable address snapshot and manual whole-order fulfillment; US destinations, USD 5.00 shipping and explicitly simulated 0% tax | Keeps logistics small while retaining a complete journey | [Orders](../05-orders/README.md) and [Checkout](../06-checkout/README.md); no real tax or deliverability claim |
+| D-01 | Selected: ASP.NET Core 10, EF Core/Npgsql 10 and PostgreSQL 18 | Fixes implementation and operational tooling | [Identity operations](../01-identity-and-auth/deployment-and-devops/configuration-and-operations.md); pin supported stable patches during implementation |
+| D-02 | Confirmed: five-minute preview quote and explicit acceptance; changed cart, prices or totals require a new preview | Prevents silent acceptance of changed purchase terms | [Checkout policy](../06-checkout/README.md) |
+| D-03 | Confirmed: JSON JWT access plus rotating refresh credentials; mutually exclusive Customer/Admin roles; restricted Admin sources and operator-assisted sandbox recovery | Defines security and client contracts | [Identity scope](../01-identity-and-auth/README.md); email verification, self-service reset and MFA remain deferred |
+| D-04 | Confirmed: fifteen-minute reservations without uncertainty extensions; cancellation before Processing; restricted Admin full/partial refunds; late success without stock is compensated; a refund before confirmation stops that purchase and requires full remaining compensation | Governs stock and money across failures | [Inventory](../03-inventory-and-stock/README.md), [Orders](../05-orders/README.md), [Checkout](../06-checkout/README.md), [Payments](../07-payments-and-refunds/README.md) |
 | D-05 | Broker, cache, hosting platform, resource budget, and service extraction candidates require evidence | Premature selection adds operating cost and failure modes | At phases 08, 09, 10, and 13 as applicable |
 
 The defaults keep the project small. Changing them is valid, but the roadmap and affected contracts MUST be reviewed before implementation. An unresolved decision may remain in the overview when it has an owner and deadline; it MUST NOT remain unresolved in an implementation-ready specification that depends on it.
@@ -102,7 +102,7 @@ The following outcomes define the intended learning product. Later phases own th
 | OUT-03 | Concurrent buyers cannot consume the same final unit | With one available unit and concurrent valid requests, at most one reservation succeeds; phase 03 and every subsequent architecture |
 | OUT-04 | A customer can complete a sandbox payment and observe the resulting order | The amount and currency match the order snapshot; duplicate submissions and callbacks do not duplicate financial effects; phases 06–07 |
 | OUT-05 | A delayed or uncertain provider result remains recoverable | A client timeout does not invent a failure or success; reconciliation reaches a documented terminal or explicit manual-review outcome; phases 07, 10–11 |
-| OUT-06 | Cancellation and refunds preserve stock and money invariants | Stock is released at most once; refund totals cannot exceed captured funds; restocking is a separate policy decision; phases 03, 05–07 |
+| OUT-06 | Cancellation and refunds preserve stock and money invariants | Stock is released at most once; ordinary refund admission cannot exceed captured funds; verified corrections remain visible; refunds do not restock, and consumed stock uses a separate reasoned Inventory adjustment; phases 03, 05–07 |
 | OUT-07 | A confirmed order can progress through minimal fulfillment | Only permitted actors and transitions can record shipment/delivery; fulfilled quantities never exceed committed quantities; phase 05 integrated by phase 07 |
 | OUT-08 | Optional work can fail without corrupting a purchase | A notification outage does not undo a paid order; backlog recovery produces no duplicate business record; phase 09 |
 | OUT-09 | Architecture changes retain earlier guarantees | The original purchase, access-control, concurrency, and recovery scenarios remain valid after service extraction and scaling; phases 08–13 |

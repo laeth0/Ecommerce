@@ -57,6 +57,8 @@ Orders may finish Failed/Cancelled after durable full compensation intent exists
 
 Default is Success. Before acceptance, an isolated operator may assign one plan to `(Customer UUID, Idempotency-Key)` through a protected local entry point. The assignment is consumed/read into the financial intent in the acceptance/preparation path and thereafter immutable. No HTTP field/header other than the normal key selects a plan. Unassigned keys use Success. The exact selected plan must survive restart; changing global defaults cannot rewrite an existing intent.
 
+Assignment takes the target Customer Identity user FOR UPDATE before a trusted ordinary accepted-key lookup and assignment insert. Acceptance holds that user's FOR SHARE lock before source selection. A waiting assignment is rejected after committed acceptance; no scenario can be attached retroactively to an accepted default plan. The [database protocol](../database/schema-and-transactions.md#simulator-owned-persistence) owns the full lock rule.
+
 | Scenario | Payment schedule/result | Expected Checkout consequence |
 | --- | --- | --- |
 | Success | Captured at dispatch database time +100 ms; normal response after that delay | Consume eligible stock and confirm; conditional cleanup |

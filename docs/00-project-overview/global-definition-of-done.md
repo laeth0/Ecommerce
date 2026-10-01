@@ -15,7 +15,7 @@ The Definition of Done applies to the increment being delivered and all affected
 
 Use these evidence states consistently: **Passed**, **Failed**, **Not run**, and **Not applicable with reason**. A simulated dependency MUST be identified. A failed or unavailable required check leaves that completion gate open.
 
-This phase creates documentation only. Testing expectations below define future evidence; they do not authorize creating test projects, fixtures, dependencies, or automated test files. Existing repository tests must be preserved and run where relevant. New tests require the project owner's explicit request under the repository instructions.
+The current phase deliveries create documentation only. Testing expectations below define future evidence; they do not authorize creating test projects, fixtures, dependencies, or automated test files. Existing repository tests must be preserved and run where relevant. New tests require the project owner's explicit request under the repository instructions.
 
 ## 2. Specification readiness
 
@@ -36,7 +36,7 @@ Before a later domain specification is described as implementation-ready, all ap
 | SPEC-11 | Dependencies and unresolved decisions are controlled | No unresolved product, security, stack, or contract decision blocks the work being marked ready; later decisions have owners and deadlines |
 | SPEC-12 | The document set remains consistent | Local links resolve, ownership is unique, examples match schemas, terms are defined, and no placeholder replaces an implementation decision |
 
-The brief asks for RFC 7807 Problem Details. [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) supersedes RFC 7807. Phase 01's API design SHOULD use the current specification for that error model and explicitly define its adopted members and extensions. This overview does not introduce an API response contract.
+The brief asks for RFC 7807 Problem Details. [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) supersedes RFC 7807. The [Phase 01 API contract](../01-identity-and-auth/functional-requirements/api-contracts.md) adopts RFC 9457 and defines its members/extensions; later domain contracts extend its error catalog explicitly.
 
 For integration events, the owning phase must define the [CloudEvents envelope](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md), payload schema/version, producer/consumer ownership, ordering scope, deduplication identity, retry policy, retention, and replay procedure. Envelope conformance alone does not establish reliable processing.
 
@@ -66,7 +66,7 @@ These are proposed learning acceptance targets, not industry guarantees or measu
 - **Dataset:** 10,000 published products, 100 categories, 10,000 synthetic customer accounts, and 100,000 historical orders. Use sufficient stock for the normal-load run; final-unit contention is a separate scenario.
 - **Resources:** proposed starting envelope of 2 vCPU/2 GiB for application processes in aggregate and 2 vCPU/4 GiB for PostgreSQL. Record host details, storage, database settings, worker limits, observability overhead, and any additional component resources. Run the load generator outside these budgets.
 - **Clients:** 100 concurrent virtual users, at most one in-flight request per user, with one second of think time between requests. Authenticate before measurement; measure login separately during identity verification.
-- **Request mix:** 70% catalog detail/list reads, 10% catalog search, 10% cart operations, 5% order-history reads, and 5% checkout submissions. Prepare valid customer carts and use unique purchase intents; complete/reconcile attempts through background processing.
+- **Request mix:** 65% catalog detail/list reads, 10% catalog search, 10% cart operations, 5% order-history reads, 5% checkout previews and 5% checkout submissions. Each new submission explicitly accepts its own fresh preview quote and uses a unique purchase key; do not omit preview or cart-preparation traffic from reporting. Prepare sufficient eligible carts and replenish them within the declared cart-operation class. Complete/reconcile attempts through background processing.
 - **Provider:** deterministic sandbox simulator with a configured 100 ms response delay and successful outcomes for the baseline. Real-provider latency and sandbox behavior are measured separately in phase 07; they are not represented by this simulator result.
 - **Window:** two-minute warm-up followed by ten minutes of steady measurement, repeated three times. Report every run and include at least 1,000 observations per reported operation class; extend the run when necessary.
 - **Reporting:** measure client-observed latency, achieved requests/second, unexpected errors/timeouts, response sizes, resource saturation, database waits/connections, and worker lag. Report cold-start behavior separately; do not silently remove slow requests.
@@ -152,6 +152,6 @@ Phase 00 documentation is ready for review when:
 - The overview contains prerequisites, decision rationale, meaningful diagrams, measurable proposed targets, and acceptance evidence.
 - Decisions that belong to later phases have named decision points and are not represented as accepted implementation contracts.
 - Relative links and document structure have been checked; diagrams have been inspected, with rendering verification reported separately if performed.
-- No application code, test files, dependencies, deployment resources, or content in phases 01–13 was created.
+- The original phase 00 delivery created no application code, test files, dependencies, deployment resources or later-phase content. Subsequent authorized specifications in phases 01–07 are separate deliveries; phase 00 review may update shared decisions and references as those specifications settle them.
 
 Project-owner acceptance of the drafts and future implementation completion are separate from these documentation checks.

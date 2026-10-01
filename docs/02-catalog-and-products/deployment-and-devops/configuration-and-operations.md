@@ -20,7 +20,7 @@ Use named .NET Options bound at startup. Keep secret bytes outside source contro
 | `Catalog:Database:CommandTimeoutSeconds` | `2` | Matches the Phase 01 two-second database statement limit; below the ten-second request deadline |
 | `Catalog:Request:MaximumBodyBytes` | `16384` | Exact API limit for decoded JSON; edge and app limits agree |
 
-The existing Phase 01 identity, Admin network, reverse-proxy, CORS, request deadline and concurrency settings still apply. Catalog uses the existing primary PostgreSQL connection and a separate `catalog` schema; account for catalog traffic in the shared pool budget. A deployment may place cursor keys in a secret manager instead of a file only if startup validation, access restriction and replica consistency remain equivalent. Changing public contract limits requires updating the API version/contract, not a silent environment override.
+The existing Phase 01 identity, Admin network, reverse-proxy, CORS, request deadline and concurrency settings still apply. For an explicitly allowed browser origin, the shared CORS policy must permit Catalog's `If-Match` request header and expose `ETag` alongside the common response headers; keep the default origin list empty. Catalog uses the existing primary PostgreSQL connection and a separate `catalog` schema; account for catalog traffic in the shared pool budget. A deployment may place cursor keys in a secret manager instead of a file only if startup validation, access restriction and replica consistency remain equivalent. Changing public contract limits requires updating the API version/contract, not a silent environment override.
 
 ## Release and migration
 

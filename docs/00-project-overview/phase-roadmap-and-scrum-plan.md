@@ -3,7 +3,7 @@
 | Field | Value |
 | --- | --- |
 | Document | MAP-001 |
-| Status | Draft roadmap; only phase 00 documentation is in scope now |
+| Status | Shared roadmap; phases 00–07 documented; implementation evidence remains pending |
 | Scope | Ordered work packages, architectural milestones, learning prerequisites, and exit evidence |
 | Related documents | [Overview](overview-and-learning-objectives.md), [Architecture](global-architecture-and-evolution.md), [Definition of Done](global-definition-of-done.md) |
 
@@ -13,7 +13,7 @@ The numbered folders are ordered work packages, called “Scrums” in the proje
 
 The project has seven architecture stages. Stage 1 contains work packages 01–07; stages 2–7 map to folders 08–13. Folder 00 establishes the shared project context.
 
-Execution follows the existing folder numbers. Later folders remain empty until explicitly requested. A roadmap entry defines an outcome and its dependencies; it does not authorize application implementation, additional documentation folders, test files, or infrastructure purchases.
+Execution follows the existing folder numbers. Phases 00–07 contain specifications; phases 08–13 remain empty until explicitly requested. Each phase's implementation and operational gates remain open until actual evidence is recorded. A roadmap entry defines an outcome and its dependencies; it does not authorize application implementation, additional documentation folders, test files, or infrastructure purchases.
 
 ## 2. Architecture stages and dependencies
 
@@ -77,7 +77,7 @@ Distinguish product behavior from implementation decisions, invariants from happ
 
 **Work packages:** registration and authentication; session lifecycle and revocation; object ownership and roles; controlled administrator provisioning; application/database bootstrap.
 
-**Dependencies and decisions:** 00; select the supported backend stack, client authentication contract, recovery policy, and administrator protection before implementation planning.
+**Dependencies and decisions:** 00; [Phase 01](../01-identity-and-auth/README.md) specifies ASP.NET Core/EF Core/Npgsql 10 with PostgreSQL 18, JSON JWT/rotating-refresh Bearer authentication, operator-assisted sandbox recovery and restricted Admin access. Pin supported stable patches and demonstrate the security contract during implementation.
 
 #### System Design Prerequisites & Concepts to Learn
 
@@ -93,7 +93,7 @@ Authentication establishes identity; authorization checks an operation and resou
 
 **Work packages:** products and categories; publication rules; price representation; bounded listing and basic search.
 
-**Dependencies and decisions:** 01; choose the configured currency, exact monetary representation, rounding rules, and price-change semantics before accepting contracts.
+**Dependencies and decisions:** 01; [Phase 02](../02-catalog-and-products/README.md) specifies USD integer cents with two decimal places and no silent rounding. Current Catalog prices remain distinct from later immutable accepted Order prices.
 
 #### System Design Prerequisites & Concepts to Learn
 
@@ -109,7 +109,7 @@ An index trades write/storage cost for a shorter read path. Pagination needs det
 
 **Work packages:** stock adjustments; reservation; consumption; release; expiry; reconciliation of reservation state.
 
-**Dependencies and decisions:** 01–02; confirm stock-item mapping, the proposed no-backorder policy, and reservation lifecycle rules. Inventory exposes outcomes required by later checkout.
+**Dependencies and decisions:** 01–02; [Phase 03](../03-inventory-and-stock/README.md) specifies one whole-unit stock record per product at the single location, no backorders and a fifteen-minute reservation deadline. Inventory exposes outcomes required by later checkout.
 
 #### System Design Prerequisites & Concepts to Learn
 
@@ -125,7 +125,7 @@ Study row locks, guarded writes, isolation, deadlocks, and optimistic concurrenc
 
 **Work packages:** cart reads and mutations; quantity validation; ownership; concurrent update behavior; checkout input.
 
-**Dependencies and decisions:** 01–03; define cart mutation concurrency and stale-data presentation. Wishlists and guest-cart merging remain excluded.
+**Dependencies and decisions:** 01–03; [Phase 04](../04-shopping-cart/README.md) specifies one persistent Customer cart, at most 20 products and 100 units per product, whole-cart expectedVersion checks with stale-write 409, current display prices and removable blocked lines. Carts have no automatic expiry. Wishlists and guest-cart merging remain excluded.
 
 #### System Design Prerequisites & Concepts to Learn
 
@@ -141,7 +141,7 @@ Study lost updates and optimistic version checks. Two clients can edit the same 
 
 **Work packages:** order snapshots; customer history; cancellation; minimal fulfillment and address handling; lifecycle constraints.
 
-**Dependencies and decisions:** 01–04; define cancellation cutoff, fulfillment eligibility, and separation of order/payment/refund states. Detailed financial outcomes are integrated in 07.
+**Dependencies and decisions:** 01–04; [Phase 05](../05-orders/README.md) specifies PendingPayment → Confirmed → Processing → Shipped → Delivered, with Cancelled/Failed outcomes. Cancellation is requested before Processing and blocks fulfillment while Checkout resolves it. Confirmation requires verified full capture and consumed stock; payment/refund states remain separate. Detailed financial outcomes are integrated in 07.
 
 #### System Design Prerequisites & Concepts to Learn
 
@@ -157,7 +157,7 @@ Study aggregates, state machines, historical snapshots, and transition concurren
 
 **Work packages:** total calculation and customer confirmation; order/reservation transaction; request idempotency; durable workflow progress; development payment boundary.
 
-**Dependencies and decisions:** 01–05; resolve shipping, taxes, price-change confirmation, reservation expiry, cancellation/payment races, and the payment contract before implementation planning.
+**Dependencies and decisions:** 01–05; [Phase 06](../06-checkout/README.md) specifies five-minute preview quotes and explicit acceptance, US destinations, USD 5.00 flat shipping and simulated 0% tax. Unknown payment leaves the fifteen-minute reservation deadline unchanged; late success without stock requires compensation. Confirmed cleanup clears only the unchanged purchased cart. The development simulator supplies the financial boundary until 07.
 
 #### System Design Prerequisites & Concepts to Learn
 
@@ -173,7 +173,7 @@ Study transaction scope, idempotency identities, request fingerprints, and ambig
 
 **Work packages:** provider integration; payment attempts; authenticated callbacks; reconciliation; full/partial refunds; late-success compensation.
 
-**Dependencies and decisions:** 01–06; select one provider and validate its idempotency, authentication, callback, retention, and reconciliation contracts from primary documentation.
+**Dependencies and decisions:** 01–06; [Phase 07](../07-payments-and-refunds/README.md) specifies Stripe sandbox/test mode with protected backend-only test methods and restricted Admin full/partial refunds, including after shipment/delivery. A refund before historical confirmation stops that purchase and requires full remaining compensation. Validate the pinned provider/SDK contracts and preserve the original operation identity across uncertainty; existing simulator purchases keep their source.
 
 #### System Design Prerequisites & Concepts to Learn
 
