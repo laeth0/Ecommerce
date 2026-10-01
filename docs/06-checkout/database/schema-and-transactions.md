@@ -90,6 +90,37 @@ CREATE TABLE checkout.attempts (
 CREATE UNIQUE INDEX checkout_one_accepted_quote
     ON checkout.attempts (quote_id) WHERE stage = 'Accepted';
 
+CREATE FUNCTION checkout.protect_attempt_identity() RETURNS trigger
+LANGUAGE plpgsql AS $$
+BEGIN
+    IF ROW(NEW.id, NEW.customer_id, NEW.idempotency_key, NEW.quote_id,
+           NEW.request_fingerprint, NEW.payment_operation_id,
+           NEW.compensation_operation_id, NEW.cancellation_resolution_id,
+           NEW.payment_mode, NEW.simulation_scenario, NEW.created_at)
+       IS DISTINCT FROM
+       ROW(OLD.id, OLD.customer_id, OLD.idempotency_key, OLD.quote_id,
+           OLD.request_fingerprint, OLD.payment_operation_id,
+           OLD.compensation_operation_id, OLD.cancellation_resolution_id,
+           OLD.payment_mode, OLD.simulation_scenario, OLD.created_at)
+       OR (OLD.stage = 'Accepted' AND
+           ROW(NEW.stage, NEW.accepted_cart_version, NEW.order_id,
+               NEW.reservation_id, NEW.reservation_expires_at,
+               NEW.currency_code, NEW.total_minor, NEW.accepted_at)
+           IS DISTINCT FROM
+           ROW(OLD.stage, OLD.accepted_cart_version, OLD.order_id,
+               OLD.reservation_id, OLD.reservation_expires_at,
+               OLD.currency_code, OLD.total_minor, OLD.accepted_at)) THEN
+        RAISE EXCEPTION USING ERRCODE = '23514',
+            MESSAGE = 'Checkout attempt identity is immutable';
+    END IF;
+    RETURN NEW;
+END;
+$$;
+
+CREATE TRIGGER checkout_attempt_identity_immutable
+BEFORE UPDATE ON checkout.attempts
+FOR EACH ROW EXECUTE FUNCTION checkout.protect_attempt_identity();
+
 CREATE TABLE checkout.work (
     attempt_id uuid NOT NULL REFERENCES checkout.attempts(id) ON DELETE RESTRICT,
     kind text NOT NULL CHECK (kind IN ('CartCleanup','Cancellation','Compensation','Purchase')),
@@ -144,7 +175,9 @@ CREATE INDEX checkout_audit_history ON checkout.progress_audit (attempt_id, occu
 
 The Order/reservation unique constraints already index those lookup columns. Do not add duplicate indexes for those access paths; [index review](../performance-and-scalability/capacity-and-contention.md) verifies the actual plans.
 
-Quotes intentionally have no Cart FK; persistent version/lines are verified through Cart. Attempts have no quote FK: exact key replay uses immutable receipt fields independently, and expired unused quote cleanup must not lock a replaying attempt. Used quotes are retained with the purchase. No Preparing attempt may commit; the application only commits Accepted/all four work rows or rolls back. DDL row checks cannot guarantee that commit rule, quote/owner/reservation/Order mappings, line count/sum, JSON field shapes/canonical values, four-row completeness, real financial proof, transition legality or audit completeness. Enforce those through owner operations and narrow grants; inspect actual migrations and [PostgreSQL constraint semantics](https://www.postgresql.org/docs/18/ddl-constraints.html), including nullable CHECK behavior.
+Quotes intentionally have no Cart FK; persistent version/lines are verified through Cart. Attempts have no quote FK: exact key replay uses immutable receipt fields independently, and expired unused quote cleanup must not lock a replaying attempt. Used quotes are retained with the purchase. The before-update trigger preserves original key/source identity and accepted receipt even though the API needs initial Preparing→Accepted UPDATE permission. Ordinary column grants cannot distinguish those two row states; this concrete guard adds migration/server-code review and must be exercised on PostgreSQL. Mutable outcome/cleanup/work metadata still uses owner guards. Review [PostgreSQL trigger behavior](https://www.postgresql.org/docs/18/plpgsql-trigger.html).
+
+No Preparing attempt may commit; the application only commits Accepted/all four work rows or rolls back. DDL row checks/immutability guard cannot guarantee that commit rule, quote/owner/reservation/Order mappings, line count/sum, JSON field shapes/canonical values, four-row completeness, real financial proof, transition legality or audit completeness. Enforce those through owner operations and narrow grants; inspect actual migrations and [PostgreSQL constraint semantics](https://www.postgresql.org/docs/18/ddl-constraints.html), including nullable CHECK behavior.
 
 ## Simulator-owned persistence
 
@@ -249,7 +282,7 @@ Fixed work order is CartCleanup, Cancellation, Compensation, Purchase. Acquire i
 
 ### Acceptance and replay
 
-After locked authority, insert a Preparing attempt using `ON CONFLICT (customer_id,idempotency_key) DO NOTHING RETURNING id`. A conflict waits within the lock budget; then lock/read the committed winner in a new READ COMMITTED statement. Accepted exact canonical input returns the original receipt. A committed Preparing row is integrity failure. For a new row, lock only the quote matching customer/id; another owner's ID is QuoteNotFound even though the temporary row carries that UUID. Quote accepted_at arbitrates different-key attempts before Cart/Inventory; the partial unique accepted-quote index is the final guard.
+After locked authority, first look up the Customer/key attempt FOR UPDATE; a known accepted binding replays before source-mode or current business checks. If absent, require admissible new-purchase mode, select/freeze the protected scenario/default and financial IDs, then insert Preparing with those values using `ON CONFLICT (customer_id,idempotency_key) DO NOTHING RETURNING id`. A conflict waits within the lock budget; then lock/read the committed winner in a new READ COMMITTED statement. Accepted exact canonical input returns the original receipt. A committed Preparing row is integrity failure. The initial lookup is an optimization/admission distinction; uniqueness remains the concurrency guard. For a new row, lock only the quote matching customer/id; another owner's ID is QuoteNotFound even though the temporary row carries that UUID. Quote accepted_at arbitrates different-key attempts before Cart/Inventory; the partial unique accepted-quote index is the final guard.
 
 Inventory Reserve owns its group-first creation/price-eligibility locks. Current Catalog comparison reuses those held rows with an ordinary owner batch read; do not acquire new/different Catalog category locks after stock. Quoted accepted price/name/address becomes Orders' snapshot. At final acceptance database time, recheck quote still unexpired, identity/session eligible and mapped reservation Active/unexpired. Update quote accepted_at, fill immutable attempt receipt/version 1/Pending, insert all four work rows and Accepted audit, then commit. Rejected domain/dependency outcome rolls the whole caller back. Unexpected uniqueness failure is reconciled outside that aborted transaction using the original Customer/key and owned quote.
 

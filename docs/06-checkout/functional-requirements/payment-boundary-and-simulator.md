@@ -68,7 +68,7 @@ Default is Success. Before acceptance, an isolated operator may assign one plan 
 
 Ordinary compensation succeeds at refund dispatch +100 ms. These delays are persisted relative to database timestamps; each replay does not start another timer. Bounded response delays do not hold a connection. Operator scenarios use synthetic accounts/data and fixed plans; there is no random percentage failure or general callback injection endpoint.
 
-The isolated settlement driver checks due Pending payment/refund records once per second, at most 100 discoveries of each class per pass, and applies one record per short transaction using financial row locks. It shares the bounded Checkout worker pool. After financial commit, it invokes trusted Checkout wake outside those locks. It observes due late outcomes even when purchase work is Idle/ManualReview. At least-once observation cannot create a second terminal proof/refund effect.
+The isolated settlement driver checks due Pending payment/refund records once per second, at most 100 discoveries of each class per pass, and applies one record per short transaction using financial row locks. Payment settlement locks its payment. Refund discovery is an ordinary bounded read; application locks the parent payment first, then refund, rechecking due/state after both. Skip a busy parent/refund without taking a child lock first. It shares the bounded Checkout worker pool. After financial commit, it invokes trusted Checkout wake outside those locks. It observes due late outcomes even when purchase work is Idle/ManualReview. At least-once observation cannot create a second terminal proof/refund effect.
 
 ## Verification and replacement gate
 
