@@ -1,68 +1,46 @@
 ---
-description: session handoff, regenerate with /handoff when a quest finishes
+description: session handoff
 budget_tokens: 1000
 ---
 # STATUS — ecommerce
 
-> Single source of truth for resuming work. Read this FIRST when starting a session.
-> Update this file at the end of every work phase so the next `/clear` resumes in 1 read.
 > Last updated: 2026-10-02
 
----
+## Done
 
-## ✅ Done
+- Corrected the source layout per user request: this repository is already the backend, so removed the redundant `backend/` directory. Source is under root `src` and shared build settings are at the root.
+- Removed documentation solution folders/items per the latest user request. Files remain under `docs/`; all 36 source projects remain in the solution.
+- After this correction, Release solution build passed with zero warnings/errors; Docker image build/publish and Compose configuration passed; all 36 project paths/references and 216 documentation entries resolved; diff whitespace passed. IDE rendering was not inspected.
 
-<!-- Move items here from "🚀 Next phase" when finished. Group by area. -->
+- Added root Docker Compose configuration for the single backend deployment.
+- Restructured the backend into a modular-monolith scaffold under `src` with Identity, Catalog, Inventory, Cart, Orders, Checkout, and Payments modules.
+- Each module has Contracts, Domain, Application, Infrastructure, and Presentation projects. Application and Presentation have feature folders for vertical slices; Application also has Abstractions and Infrastructure has Persistence.
+- The API remains the sole composition root and registers all seven controller assemblies. Removed the three empty global layer projects.
+- Updated the root solution, Docker build paths, and Visual Studio Docker context. Centralized common .NET settings in `Directory.Build.props`.
+- Removed the backend structure guide at the latest user request; removed its link from the global architecture document.
+- Verification: Release solution build and Linux Docker build/publish passed with zero warnings/errors; Compose configuration passed; all 36 project references and new document links passed static checks; diff whitespace passed.
+- A temporary Production container started and returned HTTP 401 with a Negotiate challenge to an anonymous request. Removed the temporary container.
 
-- Added root `docker-compose.yml` for the backend using the existing .NET 10 Dockerfile, Production environment, and localhost port 8080. Compose configuration validation and Docker image build passed (0 warnings/errors). Container startup and HTTP behavior were not checked.
+## Next phase
 
----
+Await the next user-requested feature or change. No business implementation is implied by this restructuring.
 
-## 🚀 Next phase
+## Active architecture
 
-**Goal:** Await the next requested task. Start the backend with `docker compose up --build -d` when needed.
+- .NET/ASP.NET Core 10, one API host, seven modules, inward Clean Architecture dependencies, vertical slices inside each module.
+- Only Presentation depends on the ASP.NET Core shared framework. Domain and Contracts have no project dependencies. No new NuGet packages or tests were added.
+- Module collaboration must use the owning module's Contracts; do not reference another module's implementations or write its tables.
+- Host authentication remains the original Negotiate/default-deny policy. The documented JWT flow, PostgreSQL persistence, migrations, workers, and purchase/refund operations are not implemented.
 
-### Acceptance criteria
-1. _<concrete user-visible outcome>_
-2. _<...>_
-
-### Files to create / edit
-| Type | File | Content |
-|---|---|---|
-| new | `path/to/file.ts` | _what it does_ |
-
-### Closed decisions
-- _<choice + reasoning>_
-
-### Open decisions
-- _<question to ask the user before coding>_
-
----
-
-## 📁 Active architecture
-
-- **Stack:** _<frameworks, libraries, runtime>_
-- **Key tables / modules:** _<list>_
-- **Patterns:** _<conventions enforced project-wide>_
-
----
-
-## ⚠️ External blockers (don't block coding)
-
-- _<env vars, secrets, external accounts, manual steps>_
-
----
-
-## 🔧 Useful commands
+## Useful commands
 
 ```bash
-# add the most-used commands here so the next session has them ready
+dotnet build ecommerce.slnx --configuration Release
+dotnet run --project src/Ecommerce.Api/Ecommerce.Api.csproj
+docker compose config --quiet
+docker compose up --build -d
 ```
 
----
+## References
 
-## 📚 References (read IF needed)
-
-- `.wolf/cerebrum.md` — User Preferences + Do-Not-Repeat + Decision Log
-- `.wolf/anatomy.md` — token-efficient file index
-- `.wolf/buglog.json` — known bugs + fixes
+- `docs/00-project-overview/global-architecture-and-evolution.md`

@@ -1,8 +1,54 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/Ecommerce.Api/Ecommerce.Api.csproj" />
-    <Project Path="src/Ecommerce.Application/Ecommerce.Application.csproj" />
-    <Project Path="src/Ecommerce.Domain/Ecommerce.Domain.csproj" />
-    <Project Path="src/Ecommerce.Infrastructure/Ecommerce.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Identity/">
+    <Project Path="src/Modules/Identity/Ecommerce.Modules.Identity.Contracts/Ecommerce.Modules.Identity.Contracts.csproj" />
+    <Project Path="src/Modules/Identity/Ecommerce.Modules.Identity.Domain/Ecommerce.Modules.Identity.Domain.csproj" />
+    <Project Path="src/Modules/Identity/Ecommerce.Modules.Identity.Application/Ecommerce.Modules.Identity.Application.csproj" />
+    <Project Path="src/Modules/Identity/Ecommerce.Modules.Identity.Infrastructure/Ecommerce.Modules.Identity.Infrastructure.csproj" />
+    <Project Path="src/Modules/Identity/Ecommerce.Modules.Identity.Presentation/Ecommerce.Modules.Identity.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Catalog/">
+    <Project Path="src/Modules/Catalog/Ecommerce.Modules.Catalog.Contracts/Ecommerce.Modules.Catalog.Contracts.csproj" />
+    <Project Path="src/Modules/Catalog/Ecommerce.Modules.Catalog.Domain/Ecommerce.Modules.Catalog.Domain.csproj" />
+    <Project Path="src/Modules/Catalog/Ecommerce.Modules.Catalog.Application/Ecommerce.Modules.Catalog.Application.csproj" />
+    <Project Path="src/Modules/Catalog/Ecommerce.Modules.Catalog.Infrastructure/Ecommerce.Modules.Catalog.Infrastructure.csproj" />
+    <Project Path="src/Modules/Catalog/Ecommerce.Modules.Catalog.Presentation/Ecommerce.Modules.Catalog.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Inventory/">
+    <Project Path="src/Modules/Inventory/Ecommerce.Modules.Inventory.Contracts/Ecommerce.Modules.Inventory.Contracts.csproj" />
+    <Project Path="src/Modules/Inventory/Ecommerce.Modules.Inventory.Domain/Ecommerce.Modules.Inventory.Domain.csproj" />
+    <Project Path="src/Modules/Inventory/Ecommerce.Modules.Inventory.Application/Ecommerce.Modules.Inventory.Application.csproj" />
+    <Project Path="src/Modules/Inventory/Ecommerce.Modules.Inventory.Infrastructure/Ecommerce.Modules.Inventory.Infrastructure.csproj" />
+    <Project Path="src/Modules/Inventory/Ecommerce.Modules.Inventory.Presentation/Ecommerce.Modules.Inventory.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Cart/">
+    <Project Path="src/Modules/Cart/Ecommerce.Modules.Cart.Contracts/Ecommerce.Modules.Cart.Contracts.csproj" />
+    <Project Path="src/Modules/Cart/Ecommerce.Modules.Cart.Domain/Ecommerce.Modules.Cart.Domain.csproj" />
+    <Project Path="src/Modules/Cart/Ecommerce.Modules.Cart.Application/Ecommerce.Modules.Cart.Application.csproj" />
+    <Project Path="src/Modules/Cart/Ecommerce.Modules.Cart.Infrastructure/Ecommerce.Modules.Cart.Infrastructure.csproj" />
+    <Project Path="src/Modules/Cart/Ecommerce.Modules.Cart.Presentation/Ecommerce.Modules.Cart.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Orders/">
+    <Project Path="src/Modules/Orders/Ecommerce.Modules.Orders.Contracts/Ecommerce.Modules.Orders.Contracts.csproj" />
+    <Project Path="src/Modules/Orders/Ecommerce.Modules.Orders.Domain/Ecommerce.Modules.Orders.Domain.csproj" />
+    <Project Path="src/Modules/Orders/Ecommerce.Modules.Orders.Application/Ecommerce.Modules.Orders.Application.csproj" />
+    <Project Path="src/Modules/Orders/Ecommerce.Modules.Orders.Infrastructure/Ecommerce.Modules.Orders.Infrastructure.csproj" />
+    <Project Path="src/Modules/Orders/Ecommerce.Modules.Orders.Presentation/Ecommerce.Modules.Orders.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Checkout/">
+    <Project Path="src/Modules/Checkout/Ecommerce.Modules.Checkout.Contracts/Ecommerce.Modules.Checkout.Contracts.csproj" />
+    <Project Path="src/Modules/Checkout/Ecommerce.Modules.Checkout.Domain/Ecommerce.Modules.Checkout.Domain.csproj" />
+    <Project Path="src/Modules/Checkout/Ecommerce.Modules.Checkout.Application/Ecommerce.Modules.Checkout.Application.csproj" />
+    <Project Path="src/Modules/Checkout/Ecommerce.Modules.Checkout.Infrastructure/Ecommerce.Modules.Checkout.Infrastructure.csproj" />
+    <Project Path="src/Modules/Checkout/Ecommerce.Modules.Checkout.Presentation/Ecommerce.Modules.Checkout.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Payments/">
+    <Project Path="src/Modules/Payments/Ecommerce.Modules.Payments.Contracts/Ecommerce.Modules.Payments.Contracts.csproj" />
+    <Project Path="src/Modules/Payments/Ecommerce.Modules.Payments.Domain/Ecommerce.Modules.Payments.Domain.csproj" />
+    <Project Path="src/Modules/Payments/Ecommerce.Modules.Payments.Application/Ecommerce.Modules.Payments.Application.csproj" />
+    <Project Path="src/Modules/Payments/Ecommerce.Modules.Payments.Infrastructure/Ecommerce.Modules.Payments.Infrastructure.csproj" />
+    <Project Path="src/Modules/Payments/Ecommerce.Modules.Payments.Presentation/Ecommerce.Modules.Payments.Presentation.csproj" />
   </Folder>
 </Solution>

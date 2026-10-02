@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="../Ecommerce.Modules.Identity.Domain/Ecommerce.Modules.Identity.Domain.csproj" />
+    <ProjectReference Include="../Ecommerce.Modules.Identity.Contracts/Ecommerce.Modules.Identity.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

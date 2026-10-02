@@ -1,4 +1,65 @@
 {
   "version": 1,
-  "bugs": []
+  "bugs": [
+    {
+      "id": "backend-source-layout-20261002",
+      "timestamp": "2026-10-02T15:28:03.814240+00:00",
+      "error_message": "Backend used global shared layers instead of module-owned Clean Architecture boundaries.",
+      "file": "ecommerce.slnx",
+      "root_cause": "Initial scaffolding grouped all future domains under shared Application, Domain, and Infrastructure projects.",
+      "fix": "Moved the single API host into backend/src; created seven module-owned Contracts, Domain, Application, Infrastructure, and Presentation project sets; updated solution, Docker paths, controller discovery, and structure documentation.",
+      "tags": [
+        "architecture",
+        "modular-monolith",
+        "folder-structure"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-10-02T15:28:03.814240+00:00"
+    },
+    {
+      "id": "obsolete-source-cleanup-20261002",
+      "timestamp": "2026-10-02T15:28:03.814240+00:00",
+      "error_message": "FileNotFoundError: [Errno 2] No such file or directory: 'src'",
+      "file": "src",
+      "root_cause": "A redundant cleanup verification assumed the old directory still existed after the migration had already removed its empty directories.",
+      "fix": "Verify that the retired src directory is absent; no further cleanup is needed.",
+      "tags": [
+        "verification",
+        "filesystem"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-10-02T15:28:03.814240+00:00"
+    },
+    {
+      "id": "redundant-backend-wrapper-20261002",
+      "timestamp": "2026-10-02T15:40:31.967832+00:00",
+      "error_message": "User correction: repository is already the backend; backend/ wrapper is unnecessary.",
+      "file": "ecommerce.slnx",
+      "root_cause": "The initial restructuring assumed a parent repository containing a separate backend directory.",
+      "fix": "Move source to root src and shared settings to root Directory.Build.props; update solution, Docker, container tooling, and documentation. Include all docs as solution items.",
+      "tags": [
+        "architecture",
+        "layout",
+        "user-correction"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-10-02T15:40:31.967832+00:00"
+    },
+    {
+      "id": "wsl-directory-move-20261002",
+      "timestamp": "2026-10-02T15:40:31.967832+00:00",
+      "error_message": "WSL shutil.move failed with PermissionError while moving backend/src; an old obj tree reappeared before final rmdir.",
+      "file": "backend/src",
+      "root_cause": "Windows-mounted directory operations rejected WSL rename/removal, and design-time build artifacts were regenerated under paths still referenced by the solution.",
+      "fix": "Verify copied source contents, use native Windows Node filesystem operations, update solution paths, and remove only the regenerated old build artifacts.",
+      "tags": [
+        "filesystem",
+        "wsl",
+        "windows",
+        "tooling"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-10-02T15:40:31.967832+00:00"
+    }
+  ]
 }

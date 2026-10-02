@@ -1,11 +1,22 @@
+using Ecommerce.Modules.Identity.Presentation;
+using Ecommerce.Modules.Catalog.Presentation;
+using Ecommerce.Modules.Inventory.Presentation;
+using Ecommerce.Modules.Cart.Presentation;
+using Ecommerce.Modules.Orders.Presentation;
+using Ecommerce.Modules.Checkout.Presentation;
+using Ecommerce.Modules.Payments.Presentation;
 using Microsoft.AspNetCore.Authentication.Negotiate;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddControllers()
+    .AddIdentityPresentation()
+    .AddCatalogPresentation()
+    .AddInventoryPresentation()
+    .AddCartPresentation()
+    .AddOrdersPresentation()
+    .AddCheckoutPresentation()
+    .AddPaymentsPresentation();
 builder.Services.AddOpenApi();
 
 builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
@@ -19,7 +30,6 @@ builder.Services.AddAuthorization(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();

@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="../Ecommerce.Modules.Catalog.Application/Ecommerce.Modules.Catalog.Application.csproj" />
+  </ItemGroup>
+
+</Project>

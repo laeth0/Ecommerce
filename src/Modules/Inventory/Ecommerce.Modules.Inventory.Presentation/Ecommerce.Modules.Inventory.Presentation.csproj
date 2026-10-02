@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Ecommerce.Modules.Inventory.Application/Ecommerce.Modules.Inventory.Application.csproj" />
+    <ProjectReference Include="../Ecommerce.Modules.Inventory.Contracts/Ecommerce.Modules.Inventory.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

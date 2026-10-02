@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="../Ecommerce.Modules.Checkout.Domain/Ecommerce.Modules.Checkout.Domain.csproj" />
+    <ProjectReference Include="../Ecommerce.Modules.Checkout.Contracts/Ecommerce.Modules.Checkout.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,9 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>bc0b7d38-e3db-4001-bb34-d97bd9015398</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfilePath>../../Dockerfile</DockerfilePath>
@@ -17,8 +14,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../Ecommerce.Application/Ecommerce.Application.csproj" />
-    <ProjectReference Include="../Ecommerce.Infrastructure/Ecommerce.Infrastructure.csproj" />
+    <ProjectReference Include="../Modules/Identity/Ecommerce.Modules.Identity.Presentation/Ecommerce.Modules.Identity.Presentation.csproj" />
+    <ProjectReference Include="../Modules/Identity/Ecommerce.Modules.Identity.Infrastructure/Ecommerce.Modules.Identity.Infrastructure.csproj" />
+    <ProjectReference Include="../Modules/Catalog/Ecommerce.Modules.Catalog.Presentation/Ecommerce.Modules.Catalog.Presentation.csproj" />
+    <ProjectReference Include="../Modules/Catalog/Ecommerce.Modules.Catalog.Infrastructure/Ecommerce.Modules.Catalog.Infrastructure.csproj" />
+    <ProjectReference Include="../Modules/Inventory/Ecommerce.Modules.Inventory.Presentation/Ecommerce.Modules.Inventory.Presentation.csproj" />
+    <ProjectReference Include="../Modules/Inventory/Ecommerce.Modules.Inventory.Infrastructure/Ecommerce.Modules.Inventory.Infrastructure.csproj" />
+    <ProjectReference Include="../Modules/Cart/Ecommerce.Modules.Cart.Presentation/Ecommerce.Modules.Cart.Presentation.csproj" />
+    <ProjectReference Include="../Modules/Cart/Ecommerce.Modules.Cart.Infrastructure/Ecommerce.Modules.Cart.Infrastructure.csproj" />
+    <ProjectReference Include="../Modules/Orders/Ecommerce.Modules.Orders.Presentation/Ecommerce.Modules.Orders.Presentation.csproj" />
+    <ProjectReference Include="../Modules/Orders/Ecommerce.Modules.Orders.Infrastructure/Ecommerce.Modules.Orders.Infrastructure.csproj" />
+    <ProjectReference Include="../Modules/Checkout/Ecommerce.Modules.Checkout.Presentation/Ecommerce.Modules.Checkout.Presentation.csproj" />
+    <ProjectReference Include="../Modules/Checkout/Ecommerce.Modules.Checkout.Infrastructure/Ecommerce.Modules.Checkout.Infrastructure.csproj" />
+    <ProjectReference Include="../Modules/Payments/Ecommerce.Modules.Payments.Presentation/Ecommerce.Modules.Payments.Presentation.csproj" />
+    <ProjectReference Include="../Modules/Payments/Ecommerce.Modules.Payments.Infrastructure/Ecommerce.Modules.Payments.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

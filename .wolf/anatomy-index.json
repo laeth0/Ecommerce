@@ -1,13 +1,13 @@
 {
   "version": 1,
   "meta": {
-    "lastScanned": "2026-10-02T11:28:10.078Z",
-    "fileCount": 230,
+    "lastScanned": "2026-10-02T15:41:30.036Z",
+    "fileCount": 299,
     "hits": 0,
     "misses": 0,
-    "renderedHash": "3f86a3daf580b40ef6f4559a5bc39453bbc635c6fffa678df905672f99bf0e8f",
-    "storeUpdatedAt": "2026-10-02T11:28:10.080Z",
-    "rootHash": "b73a9ec24a645923"
+    "renderedHash": "4f766ec6c754453a6c2c2198e5ee2067803a7dba78655efa7ca02771279f8e35",
+    "storeUpdatedAt": "2026-10-02T15:41:30.041Z",
+    "rootHash": "6f34f7e870d9bd51"
   },
   "files": {
     ".dockerignore": {
@@ -16,7 +16,7 @@
       "hash": "509b9109868f0684",
       "size": 422,
       "mtimeMs": 1790939629733.4065,
-      "updatedAt": "2026-10-02T11:28:09.987Z",
+      "updatedAt": "2026-10-02T15:41:29.822Z",
       "source": "scan"
     },
     ".gitignore": {
@@ -25,7 +25,7 @@
       "hash": "f58f4e85c96c0c28",
       "size": 299,
       "mtimeMs": 1790939830982.2673,
-      "updatedAt": "2026-10-02T11:28:09.988Z",
+      "updatedAt": "2026-10-02T15:41:29.824Z",
       "source": "scan"
     },
     "AGENTS.md": {
@@ -34,7 +34,7 @@
       "hash": "e401f79554a8d796",
       "size": 297,
       "mtimeMs": 1790940489906.6255,
-      "updatedAt": "2026-10-02T11:28:09.989Z",
+      "updatedAt": "2026-10-02T15:41:29.824Z",
       "source": "scan"
     },
     "CLAUDE.md": {
@@ -43,25 +43,43 @@
       "hash": "074d6b42b583729a",
       "size": 395,
       "mtimeMs": 1790940489855.8943,
-      "updatedAt": "2026-10-02T11:28:09.989Z",
+      "updatedAt": "2026-10-02T15:41:29.825Z",
+      "source": "scan"
+    },
+    "Directory.Build.props": {
+      "description": "",
+      "tokens": 49,
+      "hash": "30b55e97814a29c5",
+      "size": 181,
+      "mtimeMs": 1790954541440.2847,
+      "updatedAt": "2026-10-02T15:41:29.826Z",
+      "source": "scan"
+    },
+    "docker-compose.yml": {
+      "description": "Docker Compose services",
+      "tokens": 75,
+      "hash": "73d76bb158052cef",
+      "size": 261,
+      "mtimeMs": 1790940824501.7083,
+      "updatedAt": "2026-10-02T15:41:29.827Z",
       "source": "scan"
     },
     "Dockerfile": {
       "description": "Docker container definition",
-      "tokens": 413,
-      "hash": "c84699df0b434ef7",
-      "size": 1546,
-      "mtimeMs": 1790940140465.2778,
-      "updatedAt": "2026-10-02T11:28:09.989Z",
+      "tokens": 331,
+      "hash": "43d0403dbcdb2d56",
+      "size": 1241,
+      "mtimeMs": 1790955442205.6216,
+      "updatedAt": "2026-10-02T15:41:29.827Z",
       "source": "scan"
     },
     "docs/00-project-overview/global-architecture-and-evolution.md": {
       "description": "Global Architecture and Evolution",
-      "tokens": 8090,
-      "hash": "9692002430c85810",
-      "size": 32386,
-      "mtimeMs": 1790874031374.904,
-      "updatedAt": "2026-10-02T11:28:09.990Z",
+      "tokens": 8169,
+      "hash": "359c0bf1a7e5753a",
+      "size": 32700,
+      "mtimeMs": 1790955687750.3318,
+      "updatedAt": "2026-10-02T15:41:29.829Z",
       "source": "scan"
     },
     "docs/00-project-overview/global-definition-of-done.md": {
@@ -70,7 +88,7 @@
       "hash": "e83ba609dd97f80a",
       "size": 19119,
       "mtimeMs": 1790873942650.0845,
-      "updatedAt": "2026-10-02T11:28:09.990Z",
+      "updatedAt": "2026-10-02T15:41:29.829Z",
       "source": "scan"
     },
     "docs/00-project-overview/overview-and-learning-objectives.md": {
@@ -79,7 +97,7 @@
       "hash": "d7e236a611c81f24",
       "size": 17494,
       "mtimeMs": 1790873942618.6155,
-      "updatedAt": "2026-10-02T11:28:09.991Z",
+      "updatedAt": "2026-10-02T15:41:29.830Z",
       "source": "scan"
     },
     "docs/00-project-overview/phase-roadmap-and-scrum-plan.md": {
@@ -88,7 +106,7 @@
       "hash": "e0ee9892aca9784f",
       "size": 26880,
       "mtimeMs": 1790873942636.3206,
-      "updatedAt": "2026-10-02T11:28:09.991Z",
+      "updatedAt": "2026-10-02T15:41:29.832Z",
       "source": "scan"
     },
     "docs/00-project-overview/system-actors-and-roles.md": {
@@ -97,7 +115,7 @@
       "hash": "f01caac39259b1c9",
       "size": 12984,
       "mtimeMs": 1790874031412.8054,
-      "updatedAt": "2026-10-02T11:28:09.991Z",
+      "updatedAt": "2026-10-02T15:41:29.832Z",
       "source": "scan"
     },
     "docs/01-identity-and-auth/architecture-decisions.md": {
@@ -106,7 +124,7 @@
       "hash": "9ba9367da30883f1",
       "size": 10950,
       "mtimeMs": 1790797559684.493,
-      "updatedAt": "2026-10-02T11:28:09.992Z",
+      "updatedAt": "2026-10-02T15:41:29.833Z",
       "source": "scan"
     },
     "docs/01-identity-and-auth/database/schema-and-transactions.md": {
@@ -115,7 +133,7 @@
       "hash": "cfd58a43c390dcc4",
       "size": 13628,
       "mtimeMs": 1790798577337.5796,
-      "updatedAt": "2026-10-02T11:28:09.992Z",
+      "updatedAt": "2026-10-02T15:41:29.833Z",
       "source": "scan"
     },
     "docs/01-identity-and-auth/deployment-and-devops/configuration-and-operations.md": {
@@ -124,7 +142,7 @@
       "hash": "945482cd7f318f5d",
       "size": 13750,
       "mtimeMs": 1790798345838.7256,
-      "updatedAt": "2026-10-02T11:28:09.992Z",
+      "updatedAt": "2026-10-02T15:41:29.834Z",
       "source": "scan"
     },
     "docs/01-identity-and-auth/functional-requirements/api-contracts.md": {
@@ -133,7 +151,7 @@
       "hash": "5d9af8ddfc1e0954",
       "size": 13396,
       "mtimeMs": 1790874522543.1736,
-      "updatedAt": "2026-10-02T11:28:09.993Z",
+      "updatedAt": "2026-10-02T15:41:29.835Z",
       "source": "scan"
     },
     "docs/01-identity-and-auth/functional-requirements/identity-workflows.md": {
@@ -142,7 +160,7 @@
       "hash": "c5eadb1dd90b483f",
       "size": 15666,
       "mtimeMs": 1790797709501.655,
-      "updatedAt": "2026-10-02T11:28:09.993Z",
+      "updatedAt": "2026-10-02T15:41:29.835Z",
       "source": "scan"
     },
     "docs/01-identity-and-auth/non-functional-requirements/quality-targets.md": {
@@ -151,7 +169,7 @@
       "hash": "219253ef8a6b1f92",
       "size": 6777,
       "mtimeMs": 1790798577352.735,
-      "updatedAt": "2026-10-02T11:28:09.993Z",
+      "updatedAt": "2026-10-02T15:41:29.836Z",
       "source": "scan"
     },
     "docs/01-identity-and-auth/performance-and-scalability/capacity-and-rate-limiting.md": {
@@ -160,7 +178,7 @@
       "hash": "1ad25cc768c8d8ef",
       "size": 7038,
       "mtimeMs": 1790798129116.9688,
-      "updatedAt": "2026-10-02T11:28:09.994Z",
+      "updatedAt": "2026-10-02T15:41:29.836Z",
       "source": "scan"
     },
     "docs/01-identity-and-auth/README.md": {
@@ -169,7 +187,7 @@
       "hash": "79cbb3310aa1788f",
       "size": 7863,
       "mtimeMs": 1790797559644.191,
-      "updatedAt": "2026-10-02T11:28:09.994Z",
+      "updatedAt": "2026-10-02T15:41:29.836Z",
       "source": "scan"
     },
     "docs/01-identity-and-auth/reliability-and-failure-scenarios/recovery-and-concurrency.md": {
@@ -178,7 +196,7 @@
       "hash": "c78db2fcbda69e22",
       "size": 7200,
       "mtimeMs": 1790798345796.4763,
-      "updatedAt": "2026-10-02T11:28:09.994Z",
+      "updatedAt": "2026-10-02T15:41:29.837Z",
       "source": "scan"
     },
     "docs/01-identity-and-auth/security/threat-model-and-controls.md": {
@@ -187,7 +205,7 @@
       "hash": "fff5f991ecaae293",
       "size": 11188,
       "mtimeMs": 1790874161667.4485,
-      "updatedAt": "2026-10-02T11:28:09.994Z",
+      "updatedAt": "2026-10-02T15:41:29.838Z",
       "source": "scan"
     },
     "docs/01-identity-and-auth/system-design-prerequisites.md": {
@@ -196,7 +214,7 @@
       "hash": "d783cf347b2be2f8",
       "size": 13049,
       "mtimeMs": 1790798432777.7566,
-      "updatedAt": "2026-10-02T11:28:09.995Z",
+      "updatedAt": "2026-10-02T15:41:29.838Z",
       "source": "scan"
     },
     "docs/01-identity-and-auth/testing-strategy/verification-scenarios.md": {
@@ -205,7 +223,7 @@
       "hash": "56aee6d497f34015",
       "size": 7900,
       "mtimeMs": 1790874417881.8853,
-      "updatedAt": "2026-10-02T11:28:09.995Z",
+      "updatedAt": "2026-10-02T15:41:29.838Z",
       "source": "scan"
     },
     "docs/02-catalog-and-products/architecture-decisions.md": {
@@ -214,7 +232,7 @@
       "hash": "4767e5e9a222b2aa",
       "size": 9218,
       "mtimeMs": 1790799540631.7024,
-      "updatedAt": "2026-10-02T11:28:09.995Z",
+      "updatedAt": "2026-10-02T15:41:29.839Z",
       "source": "scan"
     },
     "docs/02-catalog-and-products/database/schema-and-transactions.md": {
@@ -223,7 +241,7 @@
       "hash": "fdacac9b92fc5a52",
       "size": 11551,
       "mtimeMs": 1790799619815.9214,
-      "updatedAt": "2026-10-02T11:28:09.996Z",
+      "updatedAt": "2026-10-02T15:41:29.839Z",
       "source": "scan"
     },
     "docs/02-catalog-and-products/deployment-and-devops/configuration-and-operations.md": {
@@ -232,7 +250,7 @@
       "hash": "6ff3bf51b75b5411",
       "size": 6494,
       "mtimeMs": 1790874161685.0383,
-      "updatedAt": "2026-10-02T11:28:09.996Z",
+      "updatedAt": "2026-10-02T15:41:29.840Z",
       "source": "scan"
     },
     "docs/02-catalog-and-products/functional-requirements/api-contracts.md": {
@@ -241,7 +259,7 @@
       "hash": "821570ac7ba3a242",
       "size": 15708,
       "mtimeMs": 1790880692698.8457,
-      "updatedAt": "2026-10-02T11:28:09.996Z",
+      "updatedAt": "2026-10-02T15:41:29.840Z",
       "source": "scan"
     },
     "docs/02-catalog-and-products/functional-requirements/catalog-workflows.md": {
@@ -250,7 +268,7 @@
       "hash": "1c1b4a46903a9932",
       "size": 13704,
       "mtimeMs": 1790799684082.5427,
-      "updatedAt": "2026-10-02T11:28:09.997Z",
+      "updatedAt": "2026-10-02T15:41:29.840Z",
       "source": "scan"
     },
     "docs/02-catalog-and-products/non-functional-requirements/quality-targets.md": {
@@ -259,7 +277,7 @@
       "hash": "963849efa684b5ee",
       "size": 5045,
       "mtimeMs": 1790799646019.0593,
-      "updatedAt": "2026-10-02T11:28:09.997Z",
+      "updatedAt": "2026-10-02T15:41:29.841Z",
       "source": "scan"
     },
     "docs/02-catalog-and-products/performance-and-scalability/search-and-capacity.md": {
@@ -268,7 +286,7 @@
       "hash": "df7130514bd503b1",
       "size": 4542,
       "mtimeMs": 1790799619832.073,
-      "updatedAt": "2026-10-02T11:28:09.998Z",
+      "updatedAt": "2026-10-02T15:41:29.841Z",
       "source": "scan"
     },
     "docs/02-catalog-and-products/README.md": {
@@ -277,7 +295,7 @@
       "hash": "128780064b095a1a",
       "size": 5208,
       "mtimeMs": 1790798906711.8472,
-      "updatedAt": "2026-10-02T11:28:09.998Z",
+      "updatedAt": "2026-10-02T15:41:29.842Z",
       "source": "scan"
     },
     "docs/02-catalog-and-products/reliability-and-failure-scenarios/failure-behavior.md": {
@@ -286,7 +304,7 @@
       "hash": "b8deb216c45ceaf1",
       "size": 5194,
       "mtimeMs": 1790799427616.9104,
-      "updatedAt": "2026-10-02T11:28:09.998Z",
+      "updatedAt": "2026-10-02T15:41:29.842Z",
       "source": "scan"
     },
     "docs/02-catalog-and-products/security/threat-model-and-controls.md": {
@@ -295,7 +313,7 @@
       "hash": "2db488f6c81115db",
       "size": 6066,
       "mtimeMs": 1790799619850.1824,
-      "updatedAt": "2026-10-02T11:28:09.999Z",
+      "updatedAt": "2026-10-02T15:41:29.842Z",
       "source": "scan"
     },
     "docs/02-catalog-and-products/system-design-prerequisites.md": {
@@ -304,7 +322,7 @@
       "hash": "6d1f44f0ee31d54a",
       "size": 7581,
       "mtimeMs": 1790798895276.9917,
-      "updatedAt": "2026-10-02T11:28:09.999Z",
+      "updatedAt": "2026-10-02T15:41:29.843Z",
       "source": "scan"
     },
     "docs/02-catalog-and-products/testing-strategy/verification-scenarios.md": {
@@ -313,7 +331,7 @@
       "hash": "d8d59bf368a4ec37",
       "size": 6001,
       "mtimeMs": 1790799427633.4705,
-      "updatedAt": "2026-10-02T11:28:09.999Z",
+      "updatedAt": "2026-10-02T15:41:29.843Z",
       "source": "scan"
     },
     "docs/03-inventory-and-stock/architecture-decisions.md": {
@@ -322,7 +340,7 @@
       "hash": "690cdc4d1b184004",
       "size": 8342,
       "mtimeMs": 1790801159021.4958,
-      "updatedAt": "2026-10-02T11:28:09.999Z",
+      "updatedAt": "2026-10-02T15:41:29.843Z",
       "source": "scan"
     },
     "docs/03-inventory-and-stock/database/schema-and-transactions.md": {
@@ -331,7 +349,7 @@
       "hash": "398e3f911386e5c2",
       "size": 15148,
       "mtimeMs": 1790801202214.346,
-      "updatedAt": "2026-10-02T11:28:10.000Z",
+      "updatedAt": "2026-10-02T15:41:29.844Z",
       "source": "scan"
     },
     "docs/03-inventory-and-stock/deployment-and-devops/configuration-and-operations.md": {
@@ -340,7 +358,7 @@
       "hash": "67104c641d9effe0",
       "size": 6919,
       "mtimeMs": 1790801078389.9155,
-      "updatedAt": "2026-10-02T11:28:10.000Z",
+      "updatedAt": "2026-10-02T15:41:29.844Z",
       "source": "scan"
     },
     "docs/03-inventory-and-stock/functional-requirements/api-and-module-contracts.md": {
@@ -349,7 +367,7 @@
       "hash": "10a86ef4740e858d",
       "size": 11105,
       "mtimeMs": 1790801262008.2566,
-      "updatedAt": "2026-10-02T11:28:10.000Z",
+      "updatedAt": "2026-10-02T15:41:29.845Z",
       "source": "scan"
     },
     "docs/03-inventory-and-stock/functional-requirements/inventory-workflows.md": {
@@ -358,7 +376,7 @@
       "hash": "413a9508430aedf3",
       "size": 12260,
       "mtimeMs": 1790801159054.2139,
-      "updatedAt": "2026-10-02T11:28:10.000Z",
+      "updatedAt": "2026-10-02T15:41:29.845Z",
       "source": "scan"
     },
     "docs/03-inventory-and-stock/non-functional-requirements/quality-targets.md": {
@@ -367,7 +385,7 @@
       "hash": "deee820f93183fd1",
       "size": 5412,
       "mtimeMs": 1790800616956.3137,
-      "updatedAt": "2026-10-02T11:28:10.001Z",
+      "updatedAt": "2026-10-02T15:41:29.846Z",
       "source": "scan"
     },
     "docs/03-inventory-and-stock/performance-and-scalability/capacity-and-contention.md": {
@@ -376,7 +394,7 @@
       "hash": "958f9a7d44cb49d6",
       "size": 4463,
       "mtimeMs": 1790800616983.808,
-      "updatedAt": "2026-10-02T11:28:10.001Z",
+      "updatedAt": "2026-10-02T15:41:29.846Z",
       "source": "scan"
     },
     "docs/03-inventory-and-stock/README.md": {
@@ -385,7 +403,7 @@
       "hash": "91319c1c98c68d57",
       "size": 4899,
       "mtimeMs": 1790800224154.5564,
-      "updatedAt": "2026-10-02T11:28:10.001Z",
+      "updatedAt": "2026-10-02T15:41:29.847Z",
       "source": "scan"
     },
     "docs/03-inventory-and-stock/reliability-and-failure-scenarios/failure-behavior.md": {
@@ -394,7 +412,7 @@
       "hash": "07a2f7fa4438f92e",
       "size": 5716,
       "mtimeMs": 1790800959293.0554,
-      "updatedAt": "2026-10-02T11:28:10.001Z",
+      "updatedAt": "2026-10-02T15:41:29.847Z",
       "source": "scan"
     },
     "docs/03-inventory-and-stock/security/threat-model-and-controls.md": {
@@ -403,7 +421,7 @@
       "hash": "f774b753b2ceaf8e",
       "size": 5287,
       "mtimeMs": 1790800714837.6707,
-      "updatedAt": "2026-10-02T11:28:10.002Z",
+      "updatedAt": "2026-10-02T15:41:29.848Z",
       "source": "scan"
     },
     "docs/03-inventory-and-stock/system-design-prerequisites.md": {
@@ -412,7 +430,7 @@
       "hash": "97fa7f37d03490d8",
       "size": 7655,
       "mtimeMs": 1790799982285.4966,
-      "updatedAt": "2026-10-02T11:28:10.002Z",
+      "updatedAt": "2026-10-02T15:41:29.848Z",
       "source": "scan"
     },
     "docs/03-inventory-and-stock/testing-strategy/verification-scenarios.md": {
@@ -421,7 +439,7 @@
       "hash": "ad5aaaf4fff1a35e",
       "size": 6627,
       "mtimeMs": 1790800959315.9763,
-      "updatedAt": "2026-10-02T11:28:10.002Z",
+      "updatedAt": "2026-10-02T15:41:29.849Z",
       "source": "scan"
     },
     "docs/04-shopping-cart/architecture-decisions.md": {
@@ -430,7 +448,7 @@
       "hash": "21ff40a70bfe6c9f",
       "size": 10097,
       "mtimeMs": 1790835669611.7258,
-      "updatedAt": "2026-10-02T11:28:10.002Z",
+      "updatedAt": "2026-10-02T15:41:29.849Z",
       "source": "scan"
     },
     "docs/04-shopping-cart/database/schema-and-transactions.md": {
@@ -439,7 +457,7 @@
       "hash": "50befed77b3c2ee0",
       "size": 13046,
       "mtimeMs": 1790835715767.3289,
-      "updatedAt": "2026-10-02T11:28:10.003Z",
+      "updatedAt": "2026-10-02T15:41:29.850Z",
       "source": "scan"
     },
     "docs/04-shopping-cart/deployment-and-devops/configuration-and-operations.md": {
@@ -448,7 +466,7 @@
       "hash": "510b9aeb0ec8c640",
       "size": 8399,
       "mtimeMs": 1790835669703.734,
-      "updatedAt": "2026-10-02T11:28:10.004Z",
+      "updatedAt": "2026-10-02T15:41:29.851Z",
       "source": "scan"
     },
     "docs/04-shopping-cart/functional-requirements/api-and-module-contracts.md": {
@@ -457,7 +475,7 @@
       "hash": "4ea498549d52628c",
       "size": 15180,
       "mtimeMs": 1790874522577.8523,
-      "updatedAt": "2026-10-02T11:28:10.004Z",
+      "updatedAt": "2026-10-02T15:41:29.851Z",
       "source": "scan"
     },
     "docs/04-shopping-cart/functional-requirements/cart-workflows.md": {
@@ -466,7 +484,7 @@
       "hash": "1e11af270207a097",
       "size": 11851,
       "mtimeMs": 1790834748439.6172,
-      "updatedAt": "2026-10-02T11:28:10.004Z",
+      "updatedAt": "2026-10-02T15:41:29.852Z",
       "source": "scan"
     },
     "docs/04-shopping-cart/non-functional-requirements/quality-targets.md": {
@@ -475,7 +493,7 @@
       "hash": "017fb62b2eb0f5e0",
       "size": 6071,
       "mtimeMs": 1790835167334.759,
-      "updatedAt": "2026-10-02T11:28:10.004Z",
+      "updatedAt": "2026-10-02T15:41:29.852Z",
       "source": "scan"
     },
     "docs/04-shopping-cart/performance-and-scalability/capacity-and-concurrency.md": {
@@ -484,7 +502,7 @@
       "hash": "d1118dc22c527285",
       "size": 5778,
       "mtimeMs": 1790835167376.014,
-      "updatedAt": "2026-10-02T11:28:10.005Z",
+      "updatedAt": "2026-10-02T15:41:29.853Z",
       "source": "scan"
     },
     "docs/04-shopping-cart/README.md": {
@@ -493,7 +511,7 @@
       "hash": "281402212282f107",
       "size": 5738,
       "mtimeMs": 1790834640686.3394,
-      "updatedAt": "2026-10-02T11:28:10.005Z",
+      "updatedAt": "2026-10-02T15:41:29.853Z",
       "source": "scan"
     },
     "docs/04-shopping-cart/reliability-and-failure-scenarios/failure-behavior.md": {
@@ -502,7 +520,7 @@
       "hash": "32059ca4ce6ff4ca",
       "size": 7652,
       "mtimeMs": 1790835301157.4585,
-      "updatedAt": "2026-10-02T11:28:10.005Z",
+      "updatedAt": "2026-10-02T15:41:29.854Z",
       "source": "scan"
     },
     "docs/04-shopping-cart/security/threat-model-and-controls.md": {
@@ -511,7 +529,7 @@
       "hash": "dec1a8aa89ef8e5f",
       "size": 7224,
       "mtimeMs": 1790835301124.4998,
-      "updatedAt": "2026-10-02T11:28:10.005Z",
+      "updatedAt": "2026-10-02T15:41:29.854Z",
       "source": "scan"
     },
     "docs/04-shopping-cart/system-design-prerequisites.md": {
@@ -520,7 +538,7 @@
       "hash": "ec3cd062b9242f84",
       "size": 9977,
       "mtimeMs": 1790834476240.7207,
-      "updatedAt": "2026-10-02T11:28:10.006Z",
+      "updatedAt": "2026-10-02T15:41:29.854Z",
       "source": "scan"
     },
     "docs/04-shopping-cart/testing-strategy/verification-scenarios.md": {
@@ -529,7 +547,7 @@
       "hash": "5e9f008b125e8bb3",
       "size": 9391,
       "mtimeMs": 1790835455868.1372,
-      "updatedAt": "2026-10-02T11:28:10.006Z",
+      "updatedAt": "2026-10-02T15:41:29.855Z",
       "source": "scan"
     },
     "docs/05-orders/architecture-decisions.md": {
@@ -538,7 +556,7 @@
       "hash": "c3fb8df6cd57cc54",
       "size": 9698,
       "mtimeMs": 1790836488832.8303,
-      "updatedAt": "2026-10-02T11:28:10.006Z",
+      "updatedAt": "2026-10-02T15:41:29.856Z",
       "source": "scan"
     },
     "docs/05-orders/database/schema-and-transactions.md": {
@@ -547,7 +565,7 @@
       "hash": "edab9baa36b34088",
       "size": 17824,
       "mtimeMs": 1790837694726.8813,
-      "updatedAt": "2026-10-02T11:28:10.006Z",
+      "updatedAt": "2026-10-02T15:41:29.856Z",
       "source": "scan"
     },
     "docs/05-orders/deployment-and-devops/configuration-and-operations.md": {
@@ -556,7 +574,7 @@
       "hash": "e36c00de976beac9",
       "size": 8930,
       "mtimeMs": 1790837628948.8098,
-      "updatedAt": "2026-10-02T11:28:10.007Z",
+      "updatedAt": "2026-10-02T15:41:29.857Z",
       "source": "scan"
     },
     "docs/05-orders/functional-requirements/api-and-module-contracts.md": {
@@ -565,7 +583,7 @@
       "hash": "ba11c619c5a74ba0",
       "size": 20556,
       "mtimeMs": 1790874522595.813,
-      "updatedAt": "2026-10-02T11:28:10.008Z",
+      "updatedAt": "2026-10-02T15:41:29.857Z",
       "source": "scan"
     },
     "docs/05-orders/functional-requirements/order-workflows.md": {
@@ -574,7 +592,7 @@
       "hash": "db0c0250b9ea0487",
       "size": 17110,
       "mtimeMs": 1790838130201.1443,
-      "updatedAt": "2026-10-02T11:28:10.008Z",
+      "updatedAt": "2026-10-02T15:41:29.858Z",
       "source": "scan"
     },
     "docs/05-orders/non-functional-requirements/quality-targets.md": {
@@ -583,7 +601,7 @@
       "hash": "8b30a5cccf796b49",
       "size": 6385,
       "mtimeMs": 1790837324288.0056,
-      "updatedAt": "2026-10-02T11:28:10.009Z",
+      "updatedAt": "2026-10-02T15:41:29.858Z",
       "source": "scan"
     },
     "docs/05-orders/performance-and-scalability/history-and-contention.md": {
@@ -592,7 +610,7 @@
       "hash": "cbcae5b480aadf5a",
       "size": 5607,
       "mtimeMs": 1790837324306.28,
-      "updatedAt": "2026-10-02T11:28:10.009Z",
+      "updatedAt": "2026-10-02T15:41:29.859Z",
       "source": "scan"
     },
     "docs/05-orders/README.md": {
@@ -601,7 +619,7 @@
       "hash": "88686a8eb6cd6120",
       "size": 6721,
       "mtimeMs": 1790836488817.9873,
-      "updatedAt": "2026-10-02T11:28:10.009Z",
+      "updatedAt": "2026-10-02T15:41:29.859Z",
       "source": "scan"
     },
     "docs/05-orders/reliability-and-failure-scenarios/failure-behavior.md": {
@@ -610,7 +628,7 @@
       "hash": "0220c9b6b87da366",
       "size": 8794,
       "mtimeMs": 1790837628900.6655,
-      "updatedAt": "2026-10-02T11:28:10.009Z",
+      "updatedAt": "2026-10-02T15:41:29.860Z",
       "source": "scan"
     },
     "docs/05-orders/security/threat-model-and-controls.md": {
@@ -619,7 +637,7 @@
       "hash": "870d9857ffa68c1b",
       "size": 6982,
       "mtimeMs": 1790837324335.546,
-      "updatedAt": "2026-10-02T11:28:10.009Z",
+      "updatedAt": "2026-10-02T15:41:29.861Z",
       "source": "scan"
     },
     "docs/05-orders/system-design-prerequisites.md": {
@@ -628,7 +646,7 @@
       "hash": "647c3c5d56d5ca38",
       "size": 9886,
       "mtimeMs": 1790836168377.3364,
-      "updatedAt": "2026-10-02T11:28:10.010Z",
+      "updatedAt": "2026-10-02T15:41:29.861Z",
       "source": "scan"
     },
     "docs/05-orders/testing-strategy/verification-scenarios.md": {
@@ -637,7 +655,7 @@
       "hash": "f42a71491352bc83",
       "size": 10680,
       "mtimeMs": 1790837628922.1865,
-      "updatedAt": "2026-10-02T11:28:10.010Z",
+      "updatedAt": "2026-10-02T15:41:29.861Z",
       "source": "scan"
     },
     "docs/06-checkout/architecture-decisions.md": {
@@ -646,7 +664,7 @@
       "hash": "6defa9c056a8206f",
       "size": 9985,
       "mtimeMs": 1790839529403.218,
-      "updatedAt": "2026-10-02T11:28:10.010Z",
+      "updatedAt": "2026-10-02T15:41:29.862Z",
       "source": "scan"
     },
     "docs/06-checkout/database/schema-and-transactions.md": {
@@ -655,7 +673,7 @@
       "hash": "4f2a981997767bfa",
       "size": 27219,
       "mtimeMs": 1790874161731.1587,
-      "updatedAt": "2026-10-02T11:28:10.010Z",
+      "updatedAt": "2026-10-02T15:41:29.863Z",
       "source": "scan"
     },
     "docs/06-checkout/deployment-and-devops/configuration-and-operations.md": {
@@ -664,7 +682,7 @@
       "hash": "0bc9925f39f182d3",
       "size": 12088,
       "mtimeMs": 1790874161710.782,
-      "updatedAt": "2026-10-02T11:28:10.011Z",
+      "updatedAt": "2026-10-02T15:41:29.863Z",
       "source": "scan"
     },
     "docs/06-checkout/functional-requirements/api-and-module-contracts.md": {
@@ -673,7 +691,7 @@
       "hash": "e29d53dd0610b71f",
       "size": 18928,
       "mtimeMs": 1790874522618.3215,
-      "updatedAt": "2026-10-02T11:28:10.011Z",
+      "updatedAt": "2026-10-02T15:41:29.864Z",
       "source": "scan"
     },
     "docs/06-checkout/functional-requirements/checkout-workflows.md": {
@@ -682,7 +700,7 @@
       "hash": "2187c018cb34572b",
       "size": 20227,
       "mtimeMs": 1790841837100.442,
-      "updatedAt": "2026-10-02T11:28:10.011Z",
+      "updatedAt": "2026-10-02T15:41:29.865Z",
       "source": "scan"
     },
     "docs/06-checkout/functional-requirements/payment-boundary-and-simulator.md": {
@@ -691,7 +709,7 @@
       "hash": "37a212e27d2fa8c3",
       "size": 12276,
       "mtimeMs": 1790874161752.7986,
-      "updatedAt": "2026-10-02T11:28:10.012Z",
+      "updatedAt": "2026-10-02T15:41:29.865Z",
       "source": "scan"
     },
     "docs/06-checkout/non-functional-requirements/quality-targets.md": {
@@ -700,7 +718,7 @@
       "hash": "cbf8c54b9e80c60f",
       "size": 6897,
       "mtimeMs": 1790840900985.4602,
-      "updatedAt": "2026-10-02T11:28:10.012Z",
+      "updatedAt": "2026-10-02T15:41:29.866Z",
       "source": "scan"
     },
     "docs/06-checkout/performance-and-scalability/capacity-and-contention.md": {
@@ -709,7 +727,7 @@
       "hash": "7dd662e808b84c51",
       "size": 6184,
       "mtimeMs": 1790840901035.976,
-      "updatedAt": "2026-10-02T11:28:10.012Z",
+      "updatedAt": "2026-10-02T15:41:29.868Z",
       "source": "scan"
     },
     "docs/06-checkout/README.md": {
@@ -718,7 +736,7 @@
       "hash": "f114ed7330312ce2",
       "size": 7050,
       "mtimeMs": 1790839529356.6042,
-      "updatedAt": "2026-10-02T11:28:10.013Z",
+      "updatedAt": "2026-10-02T15:41:29.868Z",
       "source": "scan"
     },
     "docs/06-checkout/reliability-and-failure-scenarios/failure-behavior.md": {
@@ -727,7 +745,7 @@
       "hash": "174cc98ae61dfd83",
       "size": 10727,
       "mtimeMs": 1790841338565.9146,
-      "updatedAt": "2026-10-02T11:28:10.013Z",
+      "updatedAt": "2026-10-02T15:41:29.869Z",
       "source": "scan"
     },
     "docs/06-checkout/security/threat-model-and-controls.md": {
@@ -736,7 +754,7 @@
       "hash": "cd8a660cc63a32c8",
       "size": 7305,
       "mtimeMs": 1790840901070.4048,
-      "updatedAt": "2026-10-02T11:28:10.013Z",
+      "updatedAt": "2026-10-02T15:41:29.869Z",
       "source": "scan"
     },
     "docs/06-checkout/system-design-prerequisites.md": {
@@ -745,7 +763,7 @@
       "hash": "b5b4bfb988b73ea3",
       "size": 9439,
       "mtimeMs": 1790839529379.8264,
-      "updatedAt": "2026-10-02T11:28:10.013Z",
+      "updatedAt": "2026-10-02T15:41:29.869Z",
       "source": "scan"
     },
     "docs/06-checkout/testing-strategy/verification-scenarios.md": {
@@ -754,7 +772,7 @@
       "hash": "14b79acb3436f849",
       "size": 11983,
       "mtimeMs": 1790874161769.8857,
-      "updatedAt": "2026-10-02T11:28:10.014Z",
+      "updatedAt": "2026-10-02T15:41:29.870Z",
       "source": "scan"
     },
     "docs/07-payments-and-refunds/architecture-decisions.md": {
@@ -763,7 +781,7 @@
       "hash": "2b6a5d8753c0f232",
       "size": 9800,
       "mtimeMs": 1790872526364.2341,
-      "updatedAt": "2026-10-02T11:28:10.014Z",
+      "updatedAt": "2026-10-02T15:41:29.870Z",
       "source": "scan"
     },
     "docs/07-payments-and-refunds/database/schema-and-transactions.md": {
@@ -772,7 +790,7 @@
       "hash": "95c4ea3972a9cbde",
       "size": 30680,
       "mtimeMs": 1790872679643.7512,
-      "updatedAt": "2026-10-02T11:28:10.015Z",
+      "updatedAt": "2026-10-02T15:41:29.871Z",
       "source": "scan"
     },
     "docs/07-payments-and-refunds/deployment-and-devops/configuration-and-operations.md": {
@@ -781,7 +799,7 @@
       "hash": "685703abc9c55c65",
       "size": 16642,
       "mtimeMs": 1790872526451.2327,
-      "updatedAt": "2026-10-02T11:28:10.015Z",
+      "updatedAt": "2026-10-02T15:41:29.872Z",
       "source": "scan"
     },
     "docs/07-payments-and-refunds/functional-requirements/api-contracts.md": {
@@ -790,7 +808,7 @@
       "hash": "c8a77ef9e927c17b",
       "size": 21358,
       "mtimeMs": 1790872526471.386,
-      "updatedAt": "2026-10-02T11:28:10.015Z",
+      "updatedAt": "2026-10-02T15:41:29.873Z",
       "source": "scan"
     },
     "docs/07-payments-and-refunds/functional-requirements/payment-and-refund-workflows.md": {
@@ -799,7 +817,7 @@
       "hash": "eb148b93b0ada79f",
       "size": 19706,
       "mtimeMs": 1790872526490.6829,
-      "updatedAt": "2026-10-02T11:28:10.016Z",
+      "updatedAt": "2026-10-02T15:41:29.873Z",
       "source": "scan"
     },
     "docs/07-payments-and-refunds/functional-requirements/stripe-provider-contract.md": {
@@ -808,7 +826,7 @@
       "hash": "d1aa9a07a98aa85f",
       "size": 16827,
       "mtimeMs": 1790872526511.2305,
-      "updatedAt": "2026-10-02T11:28:10.016Z",
+      "updatedAt": "2026-10-02T15:41:29.873Z",
       "source": "scan"
     },
     "docs/07-payments-and-refunds/non-functional-requirements/quality-targets.md": {
@@ -817,7 +835,7 @@
       "hash": "bb38b8f7d7738965",
       "size": 10689,
       "mtimeMs": 1790872526532.5808,
-      "updatedAt": "2026-10-02T11:28:10.016Z",
+      "updatedAt": "2026-10-02T15:41:29.874Z",
       "source": "scan"
     },
     "docs/07-payments-and-refunds/performance-and-scalability/capacity-and-provider-budgets.md": {
@@ -826,7 +844,7 @@
       "hash": "f7ade7f869374b38",
       "size": 10250,
       "mtimeMs": 1790872526552.2312,
-      "updatedAt": "2026-10-02T11:28:10.016Z",
+      "updatedAt": "2026-10-02T15:41:29.875Z",
       "source": "scan"
     },
     "docs/07-payments-and-refunds/README.md": {
@@ -835,7 +853,7 @@
       "hash": "2f93006aa358de1e",
       "size": 7486,
       "mtimeMs": 1790874161781.465,
-      "updatedAt": "2026-10-02T11:28:10.017Z",
+      "updatedAt": "2026-10-02T15:41:29.876Z",
       "source": "scan"
     },
     "docs/07-payments-and-refunds/reliability-and-failure-scenarios/failure-behavior.md": {
@@ -844,7 +862,7 @@
       "hash": "211e9321e75289d8",
       "size": 11758,
       "mtimeMs": 1790872526575.2017,
-      "updatedAt": "2026-10-02T11:28:10.017Z",
+      "updatedAt": "2026-10-02T15:41:29.877Z",
       "source": "scan"
     },
     "docs/07-payments-and-refunds/security/threat-model-and-controls.md": {
@@ -853,7 +871,7 @@
       "hash": "d956c5c1c14a074b",
       "size": 14040,
       "mtimeMs": 1790872526599.7886,
-      "updatedAt": "2026-10-02T11:28:10.017Z",
+      "updatedAt": "2026-10-02T15:41:29.878Z",
       "source": "scan"
     },
     "docs/07-payments-and-refunds/system-design-prerequisites.md": {
@@ -862,7 +880,7 @@
       "hash": "a7579bff651f2609",
       "size": 5693,
       "mtimeMs": 1790872526388.1555,
-      "updatedAt": "2026-10-02T11:28:10.018Z",
+      "updatedAt": "2026-10-02T15:41:29.878Z",
       "source": "scan"
     },
     "docs/07-payments-and-refunds/system-design.md": {
@@ -871,7 +889,7 @@
       "hash": "a3f697e5c06c7bbd",
       "size": 12340,
       "mtimeMs": 1790872526406.269,
-      "updatedAt": "2026-10-02T11:28:10.018Z",
+      "updatedAt": "2026-10-02T15:41:29.879Z",
       "source": "scan"
     },
     "docs/07-payments-and-refunds/testing-strategy/verification-scenarios.md": {
@@ -880,7 +898,7 @@
       "hash": "91e6798ea03d33e5",
       "size": 12568,
       "mtimeMs": 1790872526620.7185,
-      "updatedAt": "2026-10-02T11:28:10.018Z",
+      "updatedAt": "2026-10-02T15:41:29.879Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/architecture-decisions.md": {
@@ -889,7 +907,7 @@
       "hash": "1575343d38a87856",
       "size": 7779,
       "mtimeMs": 1790876402654.2527,
-      "updatedAt": "2026-10-02T11:28:10.018Z",
+      "updatedAt": "2026-10-02T15:41:29.880Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/database/query-plans-migrations-and-integrity.md": {
@@ -898,7 +916,7 @@
       "hash": "d40f5a1ab44462ee",
       "size": 11385,
       "mtimeMs": 1790876677649.044,
-      "updatedAt": "2026-10-02T11:28:10.020Z",
+      "updatedAt": "2026-10-02T15:41:29.881Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/deployment-and-devops/backup-and-restore.md": {
@@ -907,7 +925,7 @@
       "hash": "8f2c2c5c9571929f",
       "size": 16567,
       "mtimeMs": 1790881119161.266,
-      "updatedAt": "2026-10-02T11:28:10.021Z",
+      "updatedAt": "2026-10-02T15:41:29.882Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/deployment-and-devops/configuration-and-operations.md": {
@@ -916,7 +934,7 @@
       "hash": "f5ba92a452ae11df",
       "size": 14033,
       "mtimeMs": 1790880026773.0146,
-      "updatedAt": "2026-10-02T11:28:10.021Z",
+      "updatedAt": "2026-10-02T15:41:29.882Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/deployment-and-devops/observability-and-alerts.md": {
@@ -925,7 +943,7 @@
       "hash": "8b4b49321ddb9254",
       "size": 16273,
       "mtimeMs": 1790880992402.3215,
-      "updatedAt": "2026-10-02T11:28:10.021Z",
+      "updatedAt": "2026-10-02T15:41:29.883Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/functional-requirements/api-and-operating-contracts.md": {
@@ -934,7 +952,7 @@
       "hash": "30ad1f96b9e68a49",
       "size": 10881,
       "mtimeMs": 1790880431750.372,
-      "updatedAt": "2026-10-02T11:28:10.021Z",
+      "updatedAt": "2026-10-02T15:41:29.883Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/functional-requirements/operational-workflows.md": {
@@ -943,7 +961,7 @@
       "hash": "638f3386c017d2b7",
       "size": 12182,
       "mtimeMs": 1790875878158.1096,
-      "updatedAt": "2026-10-02T11:28:10.022Z",
+      "updatedAt": "2026-10-02T15:41:29.884Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/non-functional-requirements/quality-targets.md": {
@@ -952,7 +970,7 @@
       "hash": "eca2247efccd5b7e",
       "size": 8479,
       "mtimeMs": 1790876114547.8452,
-      "updatedAt": "2026-10-02T11:28:10.022Z",
+      "updatedAt": "2026-10-02T15:41:29.884Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/performance-and-scalability/baseline-and-capacity.md": {
@@ -961,7 +979,7 @@
       "hash": "e0a84dee75e46feb",
       "size": 12132,
       "mtimeMs": 1790880992444.1782,
-      "updatedAt": "2026-10-02T11:28:10.022Z",
+      "updatedAt": "2026-10-02T15:41:29.886Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/README.md": {
@@ -970,7 +988,7 @@
       "hash": "31c1eeae034a7eda",
       "size": 7372,
       "mtimeMs": 1790880431810.9604,
-      "updatedAt": "2026-10-02T11:28:10.022Z",
+      "updatedAt": "2026-10-02T15:41:29.886Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/reliability-and-failure-scenarios/failure-behavior.md": {
@@ -979,7 +997,7 @@
       "hash": "1c9af4b49fe66064",
       "size": 9220,
       "mtimeMs": 1790876896215.1177,
-      "updatedAt": "2026-10-02T11:28:10.023Z",
+      "updatedAt": "2026-10-02T15:41:29.888Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/security/threat-model-and-controls.md": {
@@ -988,7 +1006,7 @@
       "hash": "4cdaa767af4f7d86",
       "size": 11010,
       "mtimeMs": 1790880992421.2346,
-      "updatedAt": "2026-10-02T11:28:10.023Z",
+      "updatedAt": "2026-10-02T15:41:29.889Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/system-design-prerequisites.md": {
@@ -997,7 +1015,7 @@
       "hash": "26588650949a9659",
       "size": 8759,
       "mtimeMs": 1790876402674.003,
-      "updatedAt": "2026-10-02T11:28:10.023Z",
+      "updatedAt": "2026-10-02T15:41:29.889Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/system-design.md": {
@@ -1006,7 +1024,7 @@
       "hash": "456eb288f2a29af7",
       "size": 9177,
       "mtimeMs": 1790880431789.9966,
-      "updatedAt": "2026-10-02T11:28:10.023Z",
+      "updatedAt": "2026-10-02T15:41:29.890Z",
       "source": "scan"
     },
     "docs/08-production-ready-monolith/testing-strategy/verification-scenarios.md": {
@@ -1015,7 +1033,7 @@
       "hash": "3533ec2269f13987",
       "size": 14965,
       "mtimeMs": 1790880327157.031,
-      "updatedAt": "2026-10-02T11:28:10.023Z",
+      "updatedAt": "2026-10-02T15:41:29.890Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/architecture-decisions.md": {
@@ -1024,7 +1042,7 @@
       "hash": "b49fc79923348958",
       "size": 5317,
       "mtimeMs": 1790882692627.2395,
-      "updatedAt": "2026-10-02T11:28:10.024Z",
+      "updatedAt": "2026-10-02T15:41:29.891Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/database/schema-and-transactions.md": {
@@ -1033,7 +1051,7 @@
       "hash": "fd2f08446c655b37",
       "size": 17825,
       "mtimeMs": 1790884613541.285,
-      "updatedAt": "2026-10-02T11:28:10.025Z",
+      "updatedAt": "2026-10-02T15:41:29.892Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/deployment-and-devops/backup-and-restore.md": {
@@ -1042,7 +1060,7 @@
       "hash": "fc98629b4f214a29",
       "size": 15221,
       "mtimeMs": 1790884309990.9507,
-      "updatedAt": "2026-10-02T11:28:10.025Z",
+      "updatedAt": "2026-10-02T15:41:29.893Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/deployment-and-devops/configuration-and-operations.md": {
@@ -1051,7 +1069,7 @@
       "hash": "f7beeac813bc8aed",
       "size": 7707,
       "mtimeMs": 1790884309915.5095,
-      "updatedAt": "2026-10-02T11:28:10.025Z",
+      "updatedAt": "2026-10-02T15:41:29.893Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/deployment-and-devops/observability-and-alerts.md": {
@@ -1060,7 +1078,7 @@
       "hash": "91fa79ba2ab74049",
       "size": 5317,
       "mtimeMs": 1790883791634.725,
-      "updatedAt": "2026-10-02T11:28:10.025Z",
+      "updatedAt": "2026-10-02T15:41:29.893Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/functional-requirements/event-and-notification-workflows.md": {
@@ -1069,7 +1087,7 @@
       "hash": "ec55e6c400bd2bcc",
       "size": 9660,
       "mtimeMs": 1790882872746.9446,
-      "updatedAt": "2026-10-02T11:28:10.025Z",
+      "updatedAt": "2026-10-02T15:41:29.894Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/functional-requirements/event-contracts.md": {
@@ -1078,7 +1096,7 @@
       "hash": "0470eca2ef78881a",
       "size": 13842,
       "mtimeMs": 1790884309896.2095,
-      "updatedAt": "2026-10-02T11:28:10.026Z",
+      "updatedAt": "2026-10-02T15:41:29.895Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/functional-requirements/module-and-operating-contracts.md": {
@@ -1087,7 +1105,7 @@
       "hash": "3416d2ac4bb3b5c7",
       "size": 8779,
       "mtimeMs": 1790884613517.6736,
-      "updatedAt": "2026-10-02T11:28:10.026Z",
+      "updatedAt": "2026-10-02T15:41:29.895Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/non-functional-requirements/quality-targets.md": {
@@ -1096,7 +1114,7 @@
       "hash": "eacf6ffdfa12a2af",
       "size": 4745,
       "mtimeMs": 1790883474637.6814,
-      "updatedAt": "2026-10-02T11:28:10.026Z",
+      "updatedAt": "2026-10-02T15:41:29.896Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/performance-and-scalability/delivery-and-capacity.md": {
@@ -1105,7 +1123,7 @@
       "hash": "980684cb317d2f4c",
       "size": 6359,
       "mtimeMs": 1790883474673.2158,
-      "updatedAt": "2026-10-02T11:28:10.026Z",
+      "updatedAt": "2026-10-02T15:41:29.896Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/README.md": {
@@ -1114,7 +1132,7 @@
       "hash": "de55b22b5dbbb563",
       "size": 6080,
       "mtimeMs": 1790882692579.1821,
-      "updatedAt": "2026-10-02T11:28:10.026Z",
+      "updatedAt": "2026-10-02T15:41:29.897Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/reliability-and-failure-scenarios/failure-behavior.md": {
@@ -1123,7 +1141,7 @@
       "hash": "617b8a810d68548e",
       "size": 6060,
       "mtimeMs": 1790883791621.399,
-      "updatedAt": "2026-10-02T11:28:10.027Z",
+      "updatedAt": "2026-10-02T15:41:29.897Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/security/threat-model-and-controls.md": {
@@ -1132,7 +1150,7 @@
       "hash": "d01a9c12c6b8a47c",
       "size": 6420,
       "mtimeMs": 1790884309877.4058,
-      "updatedAt": "2026-10-02T11:28:10.027Z",
+      "updatedAt": "2026-10-02T15:41:29.898Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/system-design-prerequisites.md": {
@@ -1141,7 +1159,7 @@
       "hash": "fa3721201fd3bdd0",
       "size": 3097,
       "mtimeMs": 1790882692639.409,
-      "updatedAt": "2026-10-02T11:28:10.027Z",
+      "updatedAt": "2026-10-02T15:41:29.898Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/system-design.md": {
@@ -1150,7 +1168,7 @@
       "hash": "63ededcdd26ce07e",
       "size": 8423,
       "mtimeMs": 1790882692617.1123,
-      "updatedAt": "2026-10-02T11:28:10.027Z",
+      "updatedAt": "2026-10-02T15:41:29.898Z",
       "source": "scan"
     },
     "docs/09-event-driven-architecture/testing-strategy/verification-scenarios.md": {
@@ -1159,7 +1177,7 @@
       "hash": "0533ae68d5d99550",
       "size": 7016,
       "mtimeMs": 1790883791655.8386,
-      "updatedAt": "2026-10-02T11:28:10.027Z",
+      "updatedAt": "2026-10-02T15:41:29.898Z",
       "source": "scan"
     },
     "docs/10-microservices/architecture-decisions.md": {
@@ -1168,7 +1186,7 @@
       "hash": "5ab9f48bbb842753",
       "size": 7601,
       "mtimeMs": 1790888886436.7478,
-      "updatedAt": "2026-10-02T11:28:10.028Z",
+      "updatedAt": "2026-10-02T15:41:29.901Z",
       "source": "scan"
     },
     "docs/10-microservices/database/migration-and-cutover.md": {
@@ -1177,7 +1195,7 @@
       "hash": "545302758c494475",
       "size": 8180,
       "mtimeMs": 1790887863871.296,
-      "updatedAt": "2026-10-02T11:28:10.028Z",
+      "updatedAt": "2026-10-02T15:41:29.902Z",
       "source": "scan"
     },
     "docs/10-microservices/database/schema-and-ownership.md": {
@@ -1186,7 +1204,7 @@
       "hash": "5e02f4a35c575462",
       "size": 29445,
       "mtimeMs": 1790890132485.8196,
-      "updatedAt": "2026-10-02T11:28:10.028Z",
+      "updatedAt": "2026-10-02T15:41:29.902Z",
       "source": "scan"
     },
     "docs/10-microservices/deployment-and-devops/backup-and-restore.md": {
@@ -1195,7 +1213,7 @@
       "hash": "1b6b60186a21a332",
       "size": 18830,
       "mtimeMs": 1790889089824.3755,
-      "updatedAt": "2026-10-02T11:28:10.028Z",
+      "updatedAt": "2026-10-02T15:41:29.903Z",
       "source": "scan"
     },
     "docs/10-microservices/deployment-and-devops/configuration-and-operations.md": {
@@ -1204,7 +1222,7 @@
       "hash": "65df1ef71b88d4d5",
       "size": 7237,
       "mtimeMs": 1790888259336.7559,
-      "updatedAt": "2026-10-02T11:28:10.028Z",
+      "updatedAt": "2026-10-02T15:41:29.903Z",
       "source": "scan"
     },
     "docs/10-microservices/deployment-and-devops/observability-and-alerts.md": {
@@ -1213,7 +1231,7 @@
       "hash": "9c20ba246128295f",
       "size": 6073,
       "mtimeMs": 1790888259350.934,
-      "updatedAt": "2026-10-02T11:28:10.029Z",
+      "updatedAt": "2026-10-02T15:41:29.903Z",
       "source": "scan"
     },
     "docs/10-microservices/functional-requirements/compatibility-and-authority.md": {
@@ -1222,7 +1240,7 @@
       "hash": "f963ad32e40ffc16",
       "size": 6260,
       "mtimeMs": 1790886788344.7527,
-      "updatedAt": "2026-10-02T11:28:10.029Z",
+      "updatedAt": "2026-10-02T15:41:29.904Z",
       "source": "scan"
     },
     "docs/10-microservices/functional-requirements/extraction-workflows.md": {
@@ -1231,7 +1249,7 @@
       "hash": "68a158a3ec19fe51",
       "size": 10725,
       "mtimeMs": 1790887193792.3848,
-      "updatedAt": "2026-10-02T11:28:10.029Z",
+      "updatedAt": "2026-10-02T15:41:29.904Z",
       "source": "scan"
     },
     "docs/10-microservices/functional-requirements/integration-events.md": {
@@ -1240,7 +1258,7 @@
       "hash": "85485b0874174afd",
       "size": 11438,
       "mtimeMs": 1790889881446.0151,
-      "updatedAt": "2026-10-02T11:28:10.029Z",
+      "updatedAt": "2026-10-02T15:41:29.904Z",
       "source": "scan"
     },
     "docs/10-microservices/functional-requirements/service-api-contracts.md": {
@@ -1249,7 +1267,7 @@
       "hash": "da902cbf0d3082ad",
       "size": 42141,
       "mtimeMs": 1790890132532.042,
-      "updatedAt": "2026-10-02T11:28:10.029Z",
+      "updatedAt": "2026-10-02T15:41:29.904Z",
       "source": "scan"
     },
     "docs/10-microservices/non-functional-requirements/quality-targets.md": {
@@ -1258,7 +1276,7 @@
       "hash": "083a41ba19825411",
       "size": 5618,
       "mtimeMs": 1790889089745.5073,
-      "updatedAt": "2026-10-02T11:28:10.030Z",
+      "updatedAt": "2026-10-02T15:41:29.905Z",
       "source": "scan"
     },
     "docs/10-microservices/performance-and-scalability/capacity-and-service-budgets.md": {
@@ -1267,7 +1285,7 @@
       "hash": "3503d3b6940123b8",
       "size": 9591,
       "mtimeMs": 1790889246100.9685,
-      "updatedAt": "2026-10-02T11:28:10.030Z",
+      "updatedAt": "2026-10-02T15:41:29.906Z",
       "source": "scan"
     },
     "docs/10-microservices/phase-11-handoff.md": {
@@ -1276,7 +1294,7 @@
       "hash": "146550f80815ba35",
       "size": 3780,
       "mtimeMs": 1790888560680.0508,
-      "updatedAt": "2026-10-02T11:28:10.030Z",
+      "updatedAt": "2026-10-02T15:41:29.906Z",
       "source": "scan"
     },
     "docs/10-microservices/README.md": {
@@ -1285,7 +1303,7 @@
       "hash": "c32f3ae4db22df0a",
       "size": 7112,
       "mtimeMs": 1790887193745.002,
-      "updatedAt": "2026-10-02T11:28:10.030Z",
+      "updatedAt": "2026-10-02T15:41:29.906Z",
       "source": "scan"
     },
     "docs/10-microservices/reliability-and-failure-scenarios/failure-behavior.md": {
@@ -1294,7 +1312,7 @@
       "hash": "473180e5eecea8b9",
       "size": 8720,
       "mtimeMs": 1790888259320.568,
-      "updatedAt": "2026-10-02T11:28:10.030Z",
+      "updatedAt": "2026-10-02T15:41:29.907Z",
       "source": "scan"
     },
     "docs/10-microservices/reliability-and-failure-scenarios/workflow-coordination.md": {
@@ -1303,7 +1321,7 @@
       "hash": "42354fe5ec560233",
       "size": 17122,
       "mtimeMs": 1790889679900.6953,
-      "updatedAt": "2026-10-02T11:28:10.030Z",
+      "updatedAt": "2026-10-02T15:41:29.908Z",
       "source": "scan"
     },
     "docs/10-microservices/security/service-identity-and-authorization.md": {
@@ -1312,7 +1330,7 @@
       "hash": "b1124b5cfc1bdd26",
       "size": 6230,
       "mtimeMs": 1790889246130.532,
-      "updatedAt": "2026-10-02T11:28:10.031Z",
+      "updatedAt": "2026-10-02T15:41:29.908Z",
       "source": "scan"
     },
     "docs/10-microservices/security/threat-model-and-controls.md": {
@@ -1321,7 +1339,7 @@
       "hash": "85f5fca92d9cc14f",
       "size": 6127,
       "mtimeMs": 1790890003574.292,
-      "updatedAt": "2026-10-02T11:28:10.031Z",
+      "updatedAt": "2026-10-02T15:41:29.908Z",
       "source": "scan"
     },
     "docs/10-microservices/system-design-prerequisites.md": {
@@ -1330,7 +1348,7 @@
       "hash": "361a43b29193d5da",
       "size": 4455,
       "mtimeMs": 1790886371014.7183,
-      "updatedAt": "2026-10-02T11:28:10.031Z",
+      "updatedAt": "2026-10-02T15:41:29.908Z",
       "source": "scan"
     },
     "docs/10-microservices/system-design.md": {
@@ -1339,7 +1357,7 @@
       "hash": "435924d580c22e92",
       "size": 7742,
       "mtimeMs": 1790886788324.911,
-      "updatedAt": "2026-10-02T11:28:10.031Z",
+      "updatedAt": "2026-10-02T15:41:29.909Z",
       "source": "scan"
     },
     "docs/10-microservices/testing-strategy/verification-scenarios.md": {
@@ -1348,7 +1366,7 @@
       "hash": "9474f6b4fa574754",
       "size": 9235,
       "mtimeMs": 1790888560646.5176,
-      "updatedAt": "2026-10-02T11:28:10.031Z",
+      "updatedAt": "2026-10-02T15:41:29.909Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/architecture-decisions.md": {
@@ -1357,7 +1375,7 @@
       "hash": "9848207f2e92bc6d",
       "size": 6778,
       "mtimeMs": 1790929135046.427,
-      "updatedAt": "2026-10-02T11:28:10.031Z",
+      "updatedAt": "2026-10-02T15:41:29.909Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/database/leases-recovery-and-integrity.md": {
@@ -1366,7 +1384,7 @@
       "hash": "f5adf3ead8222f2c",
       "size": 11443,
       "mtimeMs": 1790929161928.0034,
-      "updatedAt": "2026-10-02T11:28:10.032Z",
+      "updatedAt": "2026-10-02T15:41:29.910Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/deployment-and-devops/backup-and-restore.md": {
@@ -1375,7 +1393,7 @@
       "hash": "2aa97a6bfbb96649",
       "size": 7764,
       "mtimeMs": 1790928479434.746,
-      "updatedAt": "2026-10-02T11:28:10.032Z",
+      "updatedAt": "2026-10-02T15:41:29.910Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/deployment-and-devops/configuration-and-operations.md": {
@@ -1384,7 +1402,7 @@
       "hash": "6ad58e3ac92a17dd",
       "size": 6519,
       "mtimeMs": 1790928243588.2717,
-      "updatedAt": "2026-10-02T11:28:10.032Z",
+      "updatedAt": "2026-10-02T15:41:29.910Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/deployment-and-devops/incident-and-recovery-runbooks.md": {
@@ -1393,7 +1411,7 @@
       "hash": "735399a121a5c7d1",
       "size": 9714,
       "mtimeMs": 1790928479415.1873,
-      "updatedAt": "2026-10-02T11:28:10.032Z",
+      "updatedAt": "2026-10-02T15:41:29.910Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/deployment-and-devops/observability-and-alerts.md": {
@@ -1402,7 +1420,7 @@
       "hash": "de5bae65cb95d576",
       "size": 8489,
       "mtimeMs": 1790928990819.796,
-      "updatedAt": "2026-10-02T11:28:10.032Z",
+      "updatedAt": "2026-10-02T15:41:29.911Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/functional-requirements/event-and-compatibility-contracts.md": {
@@ -1411,7 +1429,7 @@
       "hash": "50310503aea7cf2f",
       "size": 6220,
       "mtimeMs": 1790927538160.2715,
-      "updatedAt": "2026-10-02T11:28:10.032Z",
+      "updatedAt": "2026-10-02T15:41:29.911Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/functional-requirements/recovery-and-operating-contracts.md": {
@@ -1420,7 +1438,7 @@
       "hash": "ea603181e3d1b358",
       "size": 11314,
       "mtimeMs": 1790927198041.0894,
-      "updatedAt": "2026-10-02T11:28:10.033Z",
+      "updatedAt": "2026-10-02T15:41:29.911Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/functional-requirements/reliability-workflows.md": {
@@ -1429,7 +1447,7 @@
       "hash": "55a2f702988b0d66",
       "size": 11435,
       "mtimeMs": 1790927198024.7705,
-      "updatedAt": "2026-10-02T11:28:10.033Z",
+      "updatedAt": "2026-10-02T15:41:29.911Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/non-functional-requirements/quality-targets.md": {
@@ -1438,7 +1456,7 @@
       "hash": "4ee9adc8bca41309",
       "size": 7775,
       "mtimeMs": 1790927809366.8074,
-      "updatedAt": "2026-10-02T11:28:10.033Z",
+      "updatedAt": "2026-10-02T15:41:29.912Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/performance-and-scalability/retry-amplification-and-recovery-capacity.md": {
@@ -1447,7 +1465,7 @@
       "hash": "a6653e31fd0bb28c",
       "size": 8087,
       "mtimeMs": 1790927809378.0806,
-      "updatedAt": "2026-10-02T11:28:10.033Z",
+      "updatedAt": "2026-10-02T15:41:29.912Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/phase-12-handoff.md": {
@@ -1456,7 +1474,7 @@
       "hash": "7341e7cee4eda40f",
       "size": 4102,
       "mtimeMs": 1790928990781.2124,
-      "updatedAt": "2026-10-02T11:28:10.033Z",
+      "updatedAt": "2026-10-02T15:41:29.912Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/README.md": {
@@ -1465,7 +1483,7 @@
       "hash": "c79eb9acc87e93ae",
       "size": 7404,
       "mtimeMs": 1790928990797.9236,
-      "updatedAt": "2026-10-02T11:28:10.033Z",
+      "updatedAt": "2026-10-02T15:41:29.913Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/reliability-and-failure-scenarios/failure-matrix.md": {
@@ -1474,7 +1492,7 @@
       "hash": "70133b6609144d58",
       "size": 7180,
       "mtimeMs": 1790927538115.4148,
-      "updatedAt": "2026-10-02T11:28:10.034Z",
+      "updatedAt": "2026-10-02T15:41:29.913Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/reliability-and-failure-scenarios/retry-timeout-and-breaker-policy.md": {
@@ -1483,7 +1501,7 @@
       "hash": "957289b8866b6d66",
       "size": 13508,
       "mtimeMs": 1790928927052.9504,
-      "updatedAt": "2026-10-02T11:28:10.034Z",
+      "updatedAt": "2026-10-02T15:41:29.913Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/reliability-and-failure-scenarios/workflow-and-compensation-analysis.md": {
@@ -1492,7 +1510,7 @@
       "hash": "6b98c26324471bd6",
       "size": 8588,
       "mtimeMs": 1790927538101.087,
-      "updatedAt": "2026-10-02T11:28:10.034Z",
+      "updatedAt": "2026-10-02T15:41:29.914Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/security/threat-model-and-controls.md": {
@@ -1501,7 +1519,7 @@
       "hash": "bd1f198c5886709e",
       "size": 7037,
       "mtimeMs": 1790927809391.8376,
-      "updatedAt": "2026-10-02T11:28:10.034Z",
+      "updatedAt": "2026-10-02T15:41:29.914Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/system-design-prerequisites.md": {
@@ -1510,7 +1528,7 @@
       "hash": "1776eb95f628777f",
       "size": 6119,
       "mtimeMs": 1790926752688.1548,
-      "updatedAt": "2026-10-02T11:28:10.034Z",
+      "updatedAt": "2026-10-02T15:41:29.914Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/system-design.md": {
@@ -1519,7 +1537,7 @@
       "hash": "33d74d9ba93b51f3",
       "size": 6941,
       "mtimeMs": 1790926752663.3718,
-      "updatedAt": "2026-10-02T11:28:10.034Z",
+      "updatedAt": "2026-10-02T15:41:29.914Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/testing-strategy/fault-experiment-catalog.md": {
@@ -1528,7 +1546,7 @@
       "hash": "dd14b81490417df0",
       "size": 16006,
       "mtimeMs": 1790928061713.251,
-      "updatedAt": "2026-10-02T11:28:10.034Z",
+      "updatedAt": "2026-10-02T15:41:29.915Z",
       "source": "scan"
     },
     "docs/11-distributed-system-reliability/testing-strategy/verification-scenarios.md": {
@@ -1537,7 +1555,7 @@
       "hash": "458971db560e9db4",
       "size": 8324,
       "mtimeMs": 1790928990765.1633,
-      "updatedAt": "2026-10-02T11:28:10.035Z",
+      "updatedAt": "2026-10-02T15:41:29.915Z",
       "source": "scan"
     },
     "docs/12-scalability/architecture-decisions.md": {
@@ -1546,7 +1564,7 @@
       "hash": "0337f3edfd4835ea",
       "size": 5598,
       "mtimeMs": 1790932940996.4053,
-      "updatedAt": "2026-10-02T11:28:10.035Z",
+      "updatedAt": "2026-10-02T15:41:29.916Z",
       "source": "scan"
     },
     "docs/12-scalability/database/migration-and-rollback.md": {
@@ -1555,7 +1573,7 @@
       "hash": "1020eda25a8a230e",
       "size": 5153,
       "mtimeMs": 1790932768713.3286,
-      "updatedAt": "2026-10-02T11:28:10.035Z",
+      "updatedAt": "2026-10-02T15:41:29.916Z",
       "source": "scan"
     },
     "docs/12-scalability/database/partitioning-and-retained-data.md": {
@@ -1564,7 +1582,7 @@
       "hash": "3330bb609cc72f56",
       "size": 6064,
       "mtimeMs": 1790933033047.781,
-      "updatedAt": "2026-10-02T11:28:10.035Z",
+      "updatedAt": "2026-10-02T15:41:29.916Z",
       "source": "scan"
     },
     "docs/12-scalability/database/query-plans-and-maintenance.md": {
@@ -1573,7 +1591,7 @@
       "hash": "e8783632a04768ae",
       "size": 6171,
       "mtimeMs": 1790932941060.1165,
-      "updatedAt": "2026-10-02T11:28:10.035Z",
+      "updatedAt": "2026-10-02T15:41:29.916Z",
       "source": "scan"
     },
     "docs/12-scalability/database/read-replicas-and-consistency.md": {
@@ -1582,7 +1600,7 @@
       "hash": "0a3f300c04616123",
       "size": 6897,
       "mtimeMs": 1790933160046.4253,
-      "updatedAt": "2026-10-02T11:28:10.035Z",
+      "updatedAt": "2026-10-02T15:41:29.916Z",
       "source": "scan"
     },
     "docs/12-scalability/deployment-and-devops/backup-and-restore.md": {
@@ -1591,7 +1609,7 @@
       "hash": "fc0690b3ac0c569a",
       "size": 4989,
       "mtimeMs": 1790932941129.7998,
-      "updatedAt": "2026-10-02T11:28:10.037Z",
+      "updatedAt": "2026-10-02T15:41:29.917Z",
       "source": "scan"
     },
     "docs/12-scalability/deployment-and-devops/configuration-and-operations.md": {
@@ -1600,7 +1618,7 @@
       "hash": "e49a7299fa1099b9",
       "size": 6292,
       "mtimeMs": 1790932941164.1975,
-      "updatedAt": "2026-10-02T11:28:10.037Z",
+      "updatedAt": "2026-10-02T15:41:29.917Z",
       "source": "scan"
     },
     "docs/12-scalability/deployment-and-devops/observability-and-alerts.md": {
@@ -1609,7 +1627,7 @@
       "hash": "c2e7381f62e74ce6",
       "size": 6593,
       "mtimeMs": 1790932941172.084,
-      "updatedAt": "2026-10-02T11:28:10.037Z",
+      "updatedAt": "2026-10-02T15:41:29.917Z",
       "source": "scan"
     },
     "docs/12-scalability/functional-requirements/api-and-operating-contracts.md": {
@@ -1618,7 +1636,7 @@
       "hash": "451b7fa815cec263",
       "size": 10254,
       "mtimeMs": 1790933033116.2834,
-      "updatedAt": "2026-10-02T11:28:10.037Z",
+      "updatedAt": "2026-10-02T15:41:29.917Z",
       "source": "scan"
     },
     "docs/12-scalability/functional-requirements/scalability-workflows.md": {
@@ -1627,7 +1645,7 @@
       "hash": "e2f0491193bbdaee",
       "size": 8652,
       "mtimeMs": 1790932941238.4753,
-      "updatedAt": "2026-10-02T11:28:10.038Z",
+      "updatedAt": "2026-10-02T15:41:29.918Z",
       "source": "scan"
     },
     "docs/12-scalability/non-functional-requirements/quality-targets.md": {
@@ -1636,7 +1654,7 @@
       "hash": "d72c55c0018a8c0f",
       "size": 7472,
       "mtimeMs": 1790933160101.9763,
-      "updatedAt": "2026-10-02T11:28:10.038Z",
+      "updatedAt": "2026-10-02T15:41:29.918Z",
       "source": "scan"
     },
     "docs/12-scalability/performance-and-scalability/cache-design-and-admission-gates.md": {
@@ -1645,7 +1663,7 @@
       "hash": "50ee9ea818cc08e9",
       "size": 7198,
       "mtimeMs": 1790932941276.5146,
-      "updatedAt": "2026-10-02T11:28:10.038Z",
+      "updatedAt": "2026-10-02T15:41:29.918Z",
       "source": "scan"
     },
     "docs/12-scalability/performance-and-scalability/flash-sales-and-hot-rows.md": {
@@ -1654,7 +1672,7 @@
       "hash": "66efa92d245760c8",
       "size": 5419,
       "mtimeMs": 1790933033086.136,
-      "updatedAt": "2026-10-02T11:28:10.038Z",
+      "updatedAt": "2026-10-02T15:41:29.919Z",
       "source": "scan"
     },
     "docs/12-scalability/performance-and-scalability/horizontal-scaling-and-connection-budgets.md": {
@@ -1663,7 +1681,7 @@
       "hash": "afd936729e05da51",
       "size": 5818,
       "mtimeMs": 1790933160077.1138,
-      "updatedAt": "2026-10-02T11:28:10.039Z",
+      "updatedAt": "2026-10-02T15:41:29.919Z",
       "source": "scan"
     },
     "docs/12-scalability/performance-and-scalability/queue-throughput-and-consumer-scaling.md": {
@@ -1672,7 +1690,7 @@
       "hash": "dc5953b24f6f151c",
       "size": 6025,
       "mtimeMs": 1790932941376.778,
-      "updatedAt": "2026-10-02T11:28:10.039Z",
+      "updatedAt": "2026-10-02T15:41:29.919Z",
       "source": "scan"
     },
     "docs/12-scalability/performance-and-scalability/workload-model-and-capacity-tiers.md": {
@@ -1681,7 +1699,7 @@
       "hash": "81030669587ca9cf",
       "size": 8562,
       "mtimeMs": 1790932941383.2983,
-      "updatedAt": "2026-10-02T11:28:10.039Z",
+      "updatedAt": "2026-10-02T15:41:29.919Z",
       "source": "scan"
     },
     "docs/12-scalability/phase-13-handoff.md": {
@@ -1690,7 +1708,7 @@
       "hash": "d0a85e7c83b37a4b",
       "size": 3886,
       "mtimeMs": 1790932941414.7993,
-      "updatedAt": "2026-10-02T11:28:10.039Z",
+      "updatedAt": "2026-10-02T15:41:29.919Z",
       "source": "scan"
     },
     "docs/12-scalability/README.md": {
@@ -1699,7 +1717,7 @@
       "hash": "519d9e3a861ad5ec",
       "size": 6788,
       "mtimeMs": 1790932940987.772,
-      "updatedAt": "2026-10-02T11:28:10.039Z",
+      "updatedAt": "2026-10-02T15:41:29.919Z",
       "source": "scan"
     },
     "docs/12-scalability/reliability-and-failure-scenarios/failure-matrix.md": {
@@ -1708,7 +1726,7 @@
       "hash": "d9a072e96a89e833",
       "size": 4453,
       "mtimeMs": 1790932941449.9287,
-      "updatedAt": "2026-10-02T11:28:10.039Z",
+      "updatedAt": "2026-10-02T15:41:29.920Z",
       "source": "scan"
     },
     "docs/12-scalability/security/threat-model-and-controls.md": {
@@ -1717,7 +1735,7 @@
       "hash": "f3aaef1f5b672fa6",
       "size": 6162,
       "mtimeMs": 1790932941483.3823,
-      "updatedAt": "2026-10-02T11:28:10.040Z",
+      "updatedAt": "2026-10-02T15:41:29.920Z",
       "source": "scan"
     },
     "docs/12-scalability/system-design-prerequisites.md": {
@@ -1726,7 +1744,7 @@
       "hash": "26779091f586a060",
       "size": 5265,
       "mtimeMs": 1790932769125.2917,
-      "updatedAt": "2026-10-02T11:28:10.040Z",
+      "updatedAt": "2026-10-02T15:41:29.921Z",
       "source": "scan"
     },
     "docs/12-scalability/system-design.md": {
@@ -1735,7 +1753,7 @@
       "hash": "b99d8cdb2d233b16",
       "size": 5317,
       "mtimeMs": 1790932941517.9966,
-      "updatedAt": "2026-10-02T11:28:10.040Z",
+      "updatedAt": "2026-10-02T15:41:29.921Z",
       "source": "scan"
     },
     "docs/12-scalability/testing-strategy/experiment-catalog.md": {
@@ -1744,7 +1762,7 @@
       "hash": "e85dae91b067e6ee",
       "size": 10553,
       "mtimeMs": 1790932941528.6355,
-      "updatedAt": "2026-10-02T11:28:10.040Z",
+      "updatedAt": "2026-10-02T15:41:29.921Z",
       "source": "scan"
     },
     "docs/12-scalability/testing-strategy/verification-scenarios.md": {
@@ -1753,7 +1771,7 @@
       "hash": "9cef9cbbe1425698",
       "size": 7431,
       "mtimeMs": 1790932941566.1636,
-      "updatedAt": "2026-10-02T11:28:10.040Z",
+      "updatedAt": "2026-10-02T15:41:29.921Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/architecture-decisions.md": {
@@ -1762,7 +1780,7 @@
       "hash": "bdb3fdf3c3aca571",
       "size": 6090,
       "mtimeMs": 1790936449114.663,
-      "updatedAt": "2026-10-02T11:28:10.041Z",
+      "updatedAt": "2026-10-02T15:41:29.922Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/database/migrations-and-compatibility.md": {
@@ -1771,7 +1789,7 @@
       "hash": "bc062ef24a28f813",
       "size": 4621,
       "mtimeMs": 1790936844114.2192,
-      "updatedAt": "2026-10-02T11:28:10.041Z",
+      "updatedAt": "2026-10-02T15:41:29.922Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/database/persistent-state-and-ownership.md": {
@@ -1780,7 +1798,7 @@
       "hash": "994ec832a416ac88",
       "size": 4679,
       "mtimeMs": 1790936844077.9768,
-      "updatedAt": "2026-10-02T11:28:10.041Z",
+      "updatedAt": "2026-10-02T15:41:29.922Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/deployment-and-devops/backup-and-restore.md": {
@@ -1789,7 +1807,7 @@
       "hash": "d065543f8ec62e69",
       "size": 6898,
       "mtimeMs": 1790937427342.7976,
-      "updatedAt": "2026-10-02T11:28:10.041Z",
+      "updatedAt": "2026-10-02T15:41:29.923Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/deployment-and-devops/ci-cd-and-promotion.md": {
@@ -1798,7 +1816,7 @@
       "hash": "34b719c70340b8d0",
       "size": 5286,
       "mtimeMs": 1790937071756.5295,
-      "updatedAt": "2026-10-02T11:28:10.041Z",
+      "updatedAt": "2026-10-02T15:41:29.923Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/deployment-and-devops/configuration-health-and-lifecycle.md": {
@@ -1807,7 +1825,7 @@
       "hash": "2da2c60a2ec41b8a",
       "size": 6086,
       "mtimeMs": 1790937980738.6958,
-      "updatedAt": "2026-10-02T11:28:10.042Z",
+      "updatedAt": "2026-10-02T15:41:29.923Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/deployment-and-devops/container-artifacts.md": {
@@ -1816,7 +1834,7 @@
       "hash": "ca855cf9390e8092",
       "size": 4569,
       "mtimeMs": 1790937071669.8337,
-      "updatedAt": "2026-10-02T11:28:10.042Z",
+      "updatedAt": "2026-10-02T15:41:29.924Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/deployment-and-devops/gateway-tls-and-routing.md": {
@@ -1825,7 +1843,7 @@
       "hash": "c7a5e9292a26c41c",
       "size": 6585,
       "mtimeMs": 1790937257958.1257,
-      "updatedAt": "2026-10-02T11:28:10.042Z",
+      "updatedAt": "2026-10-02T15:41:29.924Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/deployment-and-devops/incident-and-recovery-runbooks.md": {
@@ -1834,7 +1852,7 @@
       "hash": "7d9d2671c2499cb4",
       "size": 6476,
       "mtimeMs": 1790937427375.086,
-      "updatedAt": "2026-10-02T11:28:10.042Z",
+      "updatedAt": "2026-10-02T15:41:29.924Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/deployment-and-devops/local-kubernetes-topology.md": {
@@ -1843,7 +1861,7 @@
       "hash": "350e6f5f8fc3ea8a",
       "size": 5614,
       "mtimeMs": 1790937071709.7727,
-      "updatedAt": "2026-10-02T11:28:10.042Z",
+      "updatedAt": "2026-10-02T15:41:29.924Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/deployment-and-devops/observability-and-alerts.md": {
@@ -1852,7 +1870,7 @@
       "hash": "cc3b9211758da541",
       "size": 6120,
       "mtimeMs": 1790937796052.2744,
-      "updatedAt": "2026-10-02T11:28:10.042Z",
+      "updatedAt": "2026-10-02T15:41:29.924Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/deployment-and-devops/rollout-rollback-and-executor-handoff.md": {
@@ -1861,7 +1879,7 @@
       "hash": "d7f1ab05b907c3f1",
       "size": 6385,
       "mtimeMs": 1790937980803.2307,
-      "updatedAt": "2026-10-02T11:28:10.042Z",
+      "updatedAt": "2026-10-02T15:41:29.924Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/functional-requirements/infrastructure-workflows.md": {
@@ -1870,7 +1888,7 @@
       "hash": "eae858a126ed771b",
       "size": 8977,
       "mtimeMs": 1790936672567.5042,
-      "updatedAt": "2026-10-02T11:28:10.043Z",
+      "updatedAt": "2026-10-02T15:41:29.925Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/functional-requirements/release-and-operating-contracts.md": {
@@ -1879,7 +1897,7 @@
       "hash": "a2a19443f9b478d3",
       "size": 10839,
       "mtimeMs": 1790937796024.1262,
-      "updatedAt": "2026-10-02T11:28:10.043Z",
+      "updatedAt": "2026-10-02T15:41:29.925Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/non-functional-requirements/quality-targets.md": {
@@ -1888,7 +1906,7 @@
       "hash": "7a2fa179ef3999c3",
       "size": 6581,
       "mtimeMs": 1790936672612.6826,
-      "updatedAt": "2026-10-02T11:28:10.043Z",
+      "updatedAt": "2026-10-02T15:41:29.925Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/performance-and-scalability/autoscaling-and-capacity-gates.md": {
@@ -1897,7 +1915,7 @@
       "hash": "bba452c231eda8f3",
       "size": 4295,
       "mtimeMs": 1790936844063.2017,
-      "updatedAt": "2026-10-02T11:28:10.043Z",
+      "updatedAt": "2026-10-02T15:41:29.926Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/performance-and-scalability/resource-and-connection-budgets.md": {
@@ -1906,7 +1924,7 @@
       "hash": "777b695ae50f91a3",
       "size": 5005,
       "mtimeMs": 1790936844050.739,
-      "updatedAt": "2026-10-02T11:28:10.043Z",
+      "updatedAt": "2026-10-02T15:41:29.926Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/project-completion-and-release-readiness.md": {
@@ -1915,7 +1933,7 @@
       "hash": "8f8dcc628d66505b",
       "size": 4918,
       "mtimeMs": 1790937692260.3713,
-      "updatedAt": "2026-10-02T11:28:10.043Z",
+      "updatedAt": "2026-10-02T15:41:29.926Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/README.md": {
@@ -1924,7 +1942,7 @@
       "hash": "c41a096a70c699f6",
       "size": 6741,
       "mtimeMs": 1790937980826.461,
-      "updatedAt": "2026-10-02T11:28:10.044Z",
+      "updatedAt": "2026-10-02T15:41:29.926Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/reliability-and-failure-scenarios/failure-matrix.md": {
@@ -1933,7 +1951,7 @@
       "hash": "fc3aff4eccaba710",
       "size": 4641,
       "mtimeMs": 1790937692208.3723,
-      "updatedAt": "2026-10-02T11:28:10.044Z",
+      "updatedAt": "2026-10-02T15:41:29.927Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/security/identities-secrets-and-access.md": {
@@ -1942,7 +1960,7 @@
       "hash": "e617d48f1e5d0c3d",
       "size": 6883,
       "mtimeMs": 1790937980777.0295,
-      "updatedAt": "2026-10-02T11:28:10.044Z",
+      "updatedAt": "2026-10-02T15:41:29.927Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/security/threat-model-and-controls.md": {
@@ -1951,7 +1969,7 @@
       "hash": "776b6ba7a378fbab",
       "size": 5393,
       "mtimeMs": 1790936951640.1367,
-      "updatedAt": "2026-10-02T11:28:10.044Z",
+      "updatedAt": "2026-10-02T15:41:29.927Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/system-design-prerequisites.md": {
@@ -1960,7 +1978,7 @@
       "hash": "1510975c891a5c5d",
       "size": 5307,
       "mtimeMs": 1790936449100.6653,
-      "updatedAt": "2026-10-02T11:28:10.044Z",
+      "updatedAt": "2026-10-02T15:41:29.928Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/system-design.md": {
@@ -1969,7 +1987,7 @@
       "hash": "39e29c1d971f1acd",
       "size": 5553,
       "mtimeMs": 1790936449084.1536,
-      "updatedAt": "2026-10-02T11:28:10.044Z",
+      "updatedAt": "2026-10-02T15:41:29.928Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/testing-strategy/experiment-catalog.md": {
@@ -1978,7 +1996,7 @@
       "hash": "a261a4f928d1f478",
       "size": 9582,
       "mtimeMs": 1790937692238.7876,
-      "updatedAt": "2026-10-02T11:28:10.045Z",
+      "updatedAt": "2026-10-02T15:41:29.928Z",
       "source": "scan"
     },
     "docs/13-production-infrastructure/testing-strategy/verification-scenarios.md": {
@@ -1987,16 +2005,16 @@
       "hash": "c5969fce867306e5",
       "size": 7699,
       "mtimeMs": 1790937692252.0361,
-      "updatedAt": "2026-10-02T11:28:10.045Z",
+      "updatedAt": "2026-10-02T15:41:29.928Z",
       "source": "scan"
     },
     "ecommerce.slnx": {
       "description": "",
-      "tokens": 96,
-      "hash": "d3d622f45ae09fed",
-      "size": 359,
-      "mtimeMs": 1790940347609.149,
-      "updatedAt": "2026-10-02T11:28:10.046Z",
+      "tokens": 1299,
+      "hash": "683df660d3618fd5",
+      "size": 4869,
+      "mtimeMs": 1790955628775.553,
+      "updatedAt": "2026-10-02T15:41:29.929Z",
       "source": "scan"
     },
     "projectSchema.dbml": {
@@ -2005,7 +2023,7 @@
       "hash": "e3b0c44298fc1c14",
       "size": 0,
       "mtimeMs": 1790940209900.584,
-      "updatedAt": "2026-10-02T11:28:10.046Z",
+      "updatedAt": "2026-10-02T15:41:29.929Z",
       "source": "scan"
     },
     "src/Ecommerce.Api/appsettings.Development.json": {
@@ -2013,8 +2031,8 @@
       "tokens": 37,
       "hash": "73f95f9e0ceb205f",
       "size": 127,
-      "mtimeMs": 1790939624168.6877,
-      "updatedAt": "2026-10-02T11:28:10.046Z",
+      "mtimeMs": 1790939624000,
+      "updatedAt": "2026-10-02T15:41:29.929Z",
       "source": "scan"
     },
     "src/Ecommerce.Api/appsettings.json": {
@@ -2022,26 +2040,26 @@
       "tokens": 44,
       "hash": "200332b434757a00",
       "size": 151,
-      "mtimeMs": 1790939624169.8542,
-      "updatedAt": "2026-10-02T11:28:10.046Z",
+      "mtimeMs": 1790939624000,
+      "updatedAt": "2026-10-02T15:41:29.929Z",
       "source": "scan"
     },
     "src/Ecommerce.Api/Ecommerce.Api.csproj": {
       "description": "",
-      "tokens": 269,
-      "hash": "5ed09887f28ae8ae",
-      "size": 1008,
-      "mtimeMs": 1790940140442.7566,
-      "updatedAt": "2026-10-02T11:28:10.047Z",
+      "tokens": 709,
+      "hash": "de42750f24906293",
+      "size": 2657,
+      "mtimeMs": 1790955440904.1995,
+      "updatedAt": "2026-10-02T15:41:29.930Z",
       "source": "scan"
     },
     "src/Ecommerce.Api/Program.cs": {
       "description": "Application entry point",
-      "tokens": 221,
-      "hash": "b64f69ad9bd6f0d8",
-      "size": 826,
-      "mtimeMs": 1790939628069.1836,
-      "updatedAt": "2026-10-02T11:28:10.047Z",
+      "tokens": 315,
+      "hash": "6aa0c304d3b0c223",
+      "size": 1178,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.930Z",
       "source": "scan"
     },
     "src/Ecommerce.Api/Properties/launchSettings.json": {
@@ -2049,35 +2067,638 @@
       "tokens": 256,
       "hash": "c8b1817ee7dd0482",
       "size": 893,
-      "mtimeMs": 1790939629922.651,
-      "updatedAt": "2026-10-02T11:28:10.047Z",
+      "mtimeMs": 1790939629000,
+      "updatedAt": "2026-10-02T15:41:29.930Z",
       "source": "scan"
     },
-    "src/Ecommerce.Application/Ecommerce.Application.csproj": {
+    "src/Modules/Cart/Ecommerce.Modules.Cart.Application/Abstractions/.gitkeep": {
       "description": "",
-      "tokens": 85,
-      "hash": "979ea88c63bdc5c9",
-      "size": 316,
-      "mtimeMs": 1790939939151.8916,
-      "updatedAt": "2026-10-02T11:28:10.048Z",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.932Z",
       "source": "scan"
     },
-    "src/Ecommerce.Domain/Ecommerce.Domain.csproj": {
+    "src/Modules/Cart/Ecommerce.Modules.Cart.Application/Ecommerce.Modules.Cart.Application.csproj": {
       "description": "",
-      "tokens": 56,
-      "hash": "4cde5171342fce73",
-      "size": 207,
-      "mtimeMs": 1790939939138.604,
-      "updatedAt": "2026-10-02T11:28:10.048Z",
+      "tokens": 78,
+      "hash": "da27ff792e5d90f3",
+      "size": 292,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.932Z",
       "source": "scan"
     },
-    "src/Ecommerce.Infrastructure/Ecommerce.Infrastructure.csproj": {
+    "src/Modules/Cart/Ecommerce.Modules.Cart.Application/Features/.gitkeep": {
       "description": "",
-      "tokens": 87,
-      "hash": "ca8c00e28617baa5",
-      "size": 326,
-      "mtimeMs": 1790939939160.2437,
-      "updatedAt": "2026-10-02T11:28:10.048Z",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.932Z",
+      "source": "scan"
+    },
+    "src/Modules/Cart/Ecommerce.Modules.Cart.Contracts/Ecommerce.Modules.Cart.Contracts.csproj": {
+      "description": "",
+      "tokens": 13,
+      "hash": "0e18f178a380a51c",
+      "size": 46,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.933Z",
+      "source": "scan"
+    },
+    "src/Modules/Cart/Ecommerce.Modules.Cart.Domain/Ecommerce.Modules.Cart.Domain.csproj": {
+      "description": "",
+      "tokens": 13,
+      "hash": "0e18f178a380a51c",
+      "size": 46,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.933Z",
+      "source": "scan"
+    },
+    "src/Modules/Cart/Ecommerce.Modules.Cart.Infrastructure/Ecommerce.Modules.Cart.Infrastructure.csproj": {
+      "description": "",
+      "tokens": 51,
+      "hash": "c2524cc22d8ae28f",
+      "size": 191,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.934Z",
+      "source": "scan"
+    },
+    "src/Modules/Cart/Ecommerce.Modules.Cart.Infrastructure/Persistence/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.934Z",
+      "source": "scan"
+    },
+    "src/Modules/Cart/Ecommerce.Modules.Cart.Presentation/CartModule.cs": {
+      "description": "CartModule: AddCartPresentation",
+      "tokens": 78,
+      "hash": "4a4bbc8297a0165d",
+      "size": 292,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.935Z",
+      "source": "scan"
+    },
+    "src/Modules/Cart/Ecommerce.Modules.Cart.Presentation/Ecommerce.Modules.Cart.Presentation.csproj": {
+      "description": "",
+      "tokens": 106,
+      "hash": "6a35edb06cbd3b0a",
+      "size": 394,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.935Z",
+      "source": "scan"
+    },
+    "src/Modules/Cart/Ecommerce.Modules.Cart.Presentation/Features/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.936Z",
+      "source": "scan"
+    },
+    "src/Modules/Catalog/Ecommerce.Modules.Catalog.Application/Abstractions/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.937Z",
+      "source": "scan"
+    },
+    "src/Modules/Catalog/Ecommerce.Modules.Catalog.Application/Ecommerce.Modules.Catalog.Application.csproj": {
+      "description": "",
+      "tokens": 82,
+      "hash": "90cc5101487962c2",
+      "size": 304,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.937Z",
+      "source": "scan"
+    },
+    "src/Modules/Catalog/Ecommerce.Modules.Catalog.Application/Features/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.938Z",
+      "source": "scan"
+    },
+    "src/Modules/Catalog/Ecommerce.Modules.Catalog.Contracts/Ecommerce.Modules.Catalog.Contracts.csproj": {
+      "description": "",
+      "tokens": 13,
+      "hash": "0e18f178a380a51c",
+      "size": 46,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.938Z",
+      "source": "scan"
+    },
+    "src/Modules/Catalog/Ecommerce.Modules.Catalog.Domain/Ecommerce.Modules.Catalog.Domain.csproj": {
+      "description": "",
+      "tokens": 13,
+      "hash": "0e18f178a380a51c",
+      "size": 46,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.939Z",
+      "source": "scan"
+    },
+    "src/Modules/Catalog/Ecommerce.Modules.Catalog.Infrastructure/Ecommerce.Modules.Catalog.Infrastructure.csproj": {
+      "description": "",
+      "tokens": 53,
+      "hash": "212b51ac4d106959",
+      "size": 197,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.939Z",
+      "source": "scan"
+    },
+    "src/Modules/Catalog/Ecommerce.Modules.Catalog.Infrastructure/Persistence/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.940Z",
+      "source": "scan"
+    },
+    "src/Modules/Catalog/Ecommerce.Modules.Catalog.Presentation/CatalogModule.cs": {
+      "description": "CatalogModule: AddCatalogPresentation",
+      "tokens": 82,
+      "hash": "71b0bf36b41a2e21",
+      "size": 304,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.941Z",
+      "source": "scan"
+    },
+    "src/Modules/Catalog/Ecommerce.Modules.Catalog.Presentation/Ecommerce.Modules.Catalog.Presentation.csproj": {
+      "description": "",
+      "tokens": 109,
+      "hash": "abeb19a22b0ee49e",
+      "size": 406,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.941Z",
+      "source": "scan"
+    },
+    "src/Modules/Catalog/Ecommerce.Modules.Catalog.Presentation/Features/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.942Z",
+      "source": "scan"
+    },
+    "src/Modules/Checkout/Ecommerce.Modules.Checkout.Application/Abstractions/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.944Z",
+      "source": "scan"
+    },
+    "src/Modules/Checkout/Ecommerce.Modules.Checkout.Application/Ecommerce.Modules.Checkout.Application.csproj": {
+      "description": "",
+      "tokens": 83,
+      "hash": "6eaf787dfbc74edd",
+      "size": 308,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.944Z",
+      "source": "scan"
+    },
+    "src/Modules/Checkout/Ecommerce.Modules.Checkout.Application/Features/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.945Z",
+      "source": "scan"
+    },
+    "src/Modules/Checkout/Ecommerce.Modules.Checkout.Contracts/Ecommerce.Modules.Checkout.Contracts.csproj": {
+      "description": "",
+      "tokens": 13,
+      "hash": "0e18f178a380a51c",
+      "size": 46,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.945Z",
+      "source": "scan"
+    },
+    "src/Modules/Checkout/Ecommerce.Modules.Checkout.Domain/Ecommerce.Modules.Checkout.Domain.csproj": {
+      "description": "",
+      "tokens": 13,
+      "hash": "0e18f178a380a51c",
+      "size": 46,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.946Z",
+      "source": "scan"
+    },
+    "src/Modules/Checkout/Ecommerce.Modules.Checkout.Infrastructure/Ecommerce.Modules.Checkout.Infrastructure.csproj": {
+      "description": "",
+      "tokens": 54,
+      "hash": "5ba7bc9067b26a91",
+      "size": 199,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.947Z",
+      "source": "scan"
+    },
+    "src/Modules/Checkout/Ecommerce.Modules.Checkout.Infrastructure/Persistence/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.948Z",
+      "source": "scan"
+    },
+    "src/Modules/Checkout/Ecommerce.Modules.Checkout.Presentation/CheckoutModule.cs": {
+      "description": "CheckoutModule: AddCheckoutPresentation",
+      "tokens": 83,
+      "hash": "78695a58373fc62b",
+      "size": 308,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.949Z",
+      "source": "scan"
+    },
+    "src/Modules/Checkout/Ecommerce.Modules.Checkout.Presentation/Ecommerce.Modules.Checkout.Presentation.csproj": {
+      "description": "",
+      "tokens": 110,
+      "hash": "2e73941b9874d493",
+      "size": 410,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.950Z",
+      "source": "scan"
+    },
+    "src/Modules/Checkout/Ecommerce.Modules.Checkout.Presentation/Features/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.950Z",
+      "source": "scan"
+    },
+    "src/Modules/Identity/Ecommerce.Modules.Identity.Application/Abstractions/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.951Z",
+      "source": "scan"
+    },
+    "src/Modules/Identity/Ecommerce.Modules.Identity.Application/Ecommerce.Modules.Identity.Application.csproj": {
+      "description": "",
+      "tokens": 83,
+      "hash": "6f8318a5abcb17c7",
+      "size": 308,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.951Z",
+      "source": "scan"
+    },
+    "src/Modules/Identity/Ecommerce.Modules.Identity.Application/Features/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.952Z",
+      "source": "scan"
+    },
+    "src/Modules/Identity/Ecommerce.Modules.Identity.Contracts/Ecommerce.Modules.Identity.Contracts.csproj": {
+      "description": "",
+      "tokens": 13,
+      "hash": "0e18f178a380a51c",
+      "size": 46,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.952Z",
+      "source": "scan"
+    },
+    "src/Modules/Identity/Ecommerce.Modules.Identity.Domain/Ecommerce.Modules.Identity.Domain.csproj": {
+      "description": "",
+      "tokens": 13,
+      "hash": "0e18f178a380a51c",
+      "size": 46,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.953Z",
+      "source": "scan"
+    },
+    "src/Modules/Identity/Ecommerce.Modules.Identity.Infrastructure/Ecommerce.Modules.Identity.Infrastructure.csproj": {
+      "description": "",
+      "tokens": 54,
+      "hash": "41de5f1a9eb15fba",
+      "size": 199,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.953Z",
+      "source": "scan"
+    },
+    "src/Modules/Identity/Ecommerce.Modules.Identity.Infrastructure/Persistence/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.954Z",
+      "source": "scan"
+    },
+    "src/Modules/Identity/Ecommerce.Modules.Identity.Presentation/Ecommerce.Modules.Identity.Presentation.csproj": {
+      "description": "",
+      "tokens": 110,
+      "hash": "d0ef21745956e181",
+      "size": 410,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.954Z",
+      "source": "scan"
+    },
+    "src/Modules/Identity/Ecommerce.Modules.Identity.Presentation/Features/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.955Z",
+      "source": "scan"
+    },
+    "src/Modules/Identity/Ecommerce.Modules.Identity.Presentation/IdentityModule.cs": {
+      "description": "IdentityModule: AddIdentityPresentation",
+      "tokens": 83,
+      "hash": "be7bb36b5b2183a8",
+      "size": 308,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.955Z",
+      "source": "scan"
+    },
+    "src/Modules/Inventory/Ecommerce.Modules.Inventory.Application/Abstractions/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.958Z",
+      "source": "scan"
+    },
+    "src/Modules/Inventory/Ecommerce.Modules.Inventory.Application/Ecommerce.Modules.Inventory.Application.csproj": {
+      "description": "",
+      "tokens": 84,
+      "hash": "8a46d82a62a4663f",
+      "size": 312,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.958Z",
+      "source": "scan"
+    },
+    "src/Modules/Inventory/Ecommerce.Modules.Inventory.Application/Features/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.959Z",
+      "source": "scan"
+    },
+    "src/Modules/Inventory/Ecommerce.Modules.Inventory.Contracts/Ecommerce.Modules.Inventory.Contracts.csproj": {
+      "description": "",
+      "tokens": 13,
+      "hash": "0e18f178a380a51c",
+      "size": 46,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.959Z",
+      "source": "scan"
+    },
+    "src/Modules/Inventory/Ecommerce.Modules.Inventory.Domain/Ecommerce.Modules.Inventory.Domain.csproj": {
+      "description": "",
+      "tokens": 13,
+      "hash": "0e18f178a380a51c",
+      "size": 46,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.959Z",
+      "source": "scan"
+    },
+    "src/Modules/Inventory/Ecommerce.Modules.Inventory.Infrastructure/Ecommerce.Modules.Inventory.Infrastructure.csproj": {
+      "description": "",
+      "tokens": 54,
+      "hash": "2716956d7b429aeb",
+      "size": 201,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.960Z",
+      "source": "scan"
+    },
+    "src/Modules/Inventory/Ecommerce.Modules.Inventory.Infrastructure/Persistence/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.961Z",
+      "source": "scan"
+    },
+    "src/Modules/Inventory/Ecommerce.Modules.Inventory.Presentation/Ecommerce.Modules.Inventory.Presentation.csproj": {
+      "description": "",
+      "tokens": 111,
+      "hash": "17a53ebd3970b384",
+      "size": 414,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.962Z",
+      "source": "scan"
+    },
+    "src/Modules/Inventory/Ecommerce.Modules.Inventory.Presentation/Features/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.963Z",
+      "source": "scan"
+    },
+    "src/Modules/Inventory/Ecommerce.Modules.Inventory.Presentation/InventoryModule.cs": {
+      "description": "InventoryModule: AddInventoryPresentation",
+      "tokens": 84,
+      "hash": "610bcc14459eddbe",
+      "size": 312,
+      "mtimeMs": 1790954541000,
+      "updatedAt": "2026-10-02T15:41:29.963Z",
+      "source": "scan"
+    },
+    "src/Modules/Orders/Ecommerce.Modules.Orders.Application/Abstractions/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.964Z",
+      "source": "scan"
+    },
+    "src/Modules/Orders/Ecommerce.Modules.Orders.Application/Ecommerce.Modules.Orders.Application.csproj": {
+      "description": "",
+      "tokens": 80,
+      "hash": "5e97ddf47206f9c3",
+      "size": 300,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.966Z",
+      "source": "scan"
+    },
+    "src/Modules/Orders/Ecommerce.Modules.Orders.Application/Features/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.966Z",
+      "source": "scan"
+    },
+    "src/Modules/Orders/Ecommerce.Modules.Orders.Contracts/Ecommerce.Modules.Orders.Contracts.csproj": {
+      "description": "",
+      "tokens": 13,
+      "hash": "0e18f178a380a51c",
+      "size": 46,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.967Z",
+      "source": "scan"
+    },
+    "src/Modules/Orders/Ecommerce.Modules.Orders.Domain/Ecommerce.Modules.Orders.Domain.csproj": {
+      "description": "",
+      "tokens": 13,
+      "hash": "0e18f178a380a51c",
+      "size": 46,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.967Z",
+      "source": "scan"
+    },
+    "src/Modules/Orders/Ecommerce.Modules.Orders.Infrastructure/Ecommerce.Modules.Orders.Infrastructure.csproj": {
+      "description": "",
+      "tokens": 52,
+      "hash": "8ece1b24ff493207",
+      "size": 195,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.968Z",
+      "source": "scan"
+    },
+    "src/Modules/Orders/Ecommerce.Modules.Orders.Infrastructure/Persistence/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.968Z",
+      "source": "scan"
+    },
+    "src/Modules/Orders/Ecommerce.Modules.Orders.Presentation/Ecommerce.Modules.Orders.Presentation.csproj": {
+      "description": "",
+      "tokens": 108,
+      "hash": "fc54d1b134762010",
+      "size": 402,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.969Z",
+      "source": "scan"
+    },
+    "src/Modules/Orders/Ecommerce.Modules.Orders.Presentation/Features/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.969Z",
+      "source": "scan"
+    },
+    "src/Modules/Orders/Ecommerce.Modules.Orders.Presentation/OrdersModule.cs": {
+      "description": "OrdersModule: AddOrdersPresentation",
+      "tokens": 80,
+      "hash": "42503010f481c982",
+      "size": 300,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.969Z",
+      "source": "scan"
+    },
+    "src/Modules/Payments/Ecommerce.Modules.Payments.Application/Abstractions/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.971Z",
+      "source": "scan"
+    },
+    "src/Modules/Payments/Ecommerce.Modules.Payments.Application/Ecommerce.Modules.Payments.Application.csproj": {
+      "description": "",
+      "tokens": 83,
+      "hash": "4af097f06e29903f",
+      "size": 308,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.971Z",
+      "source": "scan"
+    },
+    "src/Modules/Payments/Ecommerce.Modules.Payments.Application/Features/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.971Z",
+      "source": "scan"
+    },
+    "src/Modules/Payments/Ecommerce.Modules.Payments.Contracts/Ecommerce.Modules.Payments.Contracts.csproj": {
+      "description": "",
+      "tokens": 13,
+      "hash": "0e18f178a380a51c",
+      "size": 46,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.972Z",
+      "source": "scan"
+    },
+    "src/Modules/Payments/Ecommerce.Modules.Payments.Domain/Ecommerce.Modules.Payments.Domain.csproj": {
+      "description": "",
+      "tokens": 13,
+      "hash": "0e18f178a380a51c",
+      "size": 46,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.972Z",
+      "source": "scan"
+    },
+    "src/Modules/Payments/Ecommerce.Modules.Payments.Infrastructure/Ecommerce.Modules.Payments.Infrastructure.csproj": {
+      "description": "",
+      "tokens": 54,
+      "hash": "81f33e74ee2dc8d3",
+      "size": 199,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.973Z",
+      "source": "scan"
+    },
+    "src/Modules/Payments/Ecommerce.Modules.Payments.Infrastructure/Persistence/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.973Z",
+      "source": "scan"
+    },
+    "src/Modules/Payments/Ecommerce.Modules.Payments.Presentation/Ecommerce.Modules.Payments.Presentation.csproj": {
+      "description": "",
+      "tokens": 110,
+      "hash": "3c38509ebf3741ab",
+      "size": 410,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.974Z",
+      "source": "scan"
+    },
+    "src/Modules/Payments/Ecommerce.Modules.Payments.Presentation/Features/.gitkeep": {
+      "description": "",
+      "tokens": 0,
+      "hash": "e3b0c44298fc1c14",
+      "size": 0,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.974Z",
+      "source": "scan"
+    },
+    "src/Modules/Payments/Ecommerce.Modules.Payments.Presentation/PaymentsModule.cs": {
+      "description": "PaymentsModule: AddPaymentsPresentation",
+      "tokens": 83,
+      "hash": "713138633784b923",
+      "size": 308,
+      "mtimeMs": 1790954542000,
+      "updatedAt": "2026-10-02T15:41:29.974Z",
       "source": "scan"
     }
   },

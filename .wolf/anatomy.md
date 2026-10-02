@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-10-02T11:28:10.078Z
-> Files: 230 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-10-02T15:41:30.036Z
+> Files: 299 tracked | Anatomy hits: 0 | Misses: 0
 
 > Project structure index. Auto-maintained by OpenWolf hooks and daemon.
 > Run `openwolf scan` to generate, or wait for the first Claude Code session.
@@ -13,13 +13,15 @@
 - `.gitignore` — Git ignore rules (~80 tok)
 - `AGENTS.md` — OpenWolf (~75 tok)
 - `CLAUDE.md` — OpenWolf (~99 tok)
-- `Dockerfile` — Docker container definition (~413 tok)
-- `ecommerce.slnx` (~96 tok)
+- `Directory.Build.props` (~49 tok)
+- `docker-compose.yml` — Docker Compose services (~75 tok)
+- `Dockerfile` — Docker container definition (~331 tok)
+- `ecommerce.slnx` (~1299 tok)
 - `projectSchema.dbml` (~0 tok)
 
 ## docs/00-project-overview/
 
-- `global-architecture-and-evolution.md` — Global Architecture and Evolution (~8090 tok)
+- `global-architecture-and-evolution.md` — Global Architecture and Evolution (~8169 tok)
 - `global-definition-of-done.md` — Global Definition of Done (~4765 tok)
 - `overview-and-learning-objectives.md` — Project Overview and Learning Objectives (~4370 tok)
 - `phase-roadmap-and-scrum-plan.md` — Phase Roadmap and Scrum Plan (~6703 tok)
@@ -590,21 +592,268 @@
 
 - `appsettings.Development.json` (~37 tok)
 - `appsettings.json` — .NET application settings (~44 tok)
-- `Ecommerce.Api.csproj` (~269 tok)
-- `Program.cs` — Application entry point (~221 tok)
+- `Ecommerce.Api.csproj` (~709 tok)
+- `Program.cs` — Application entry point (~315 tok)
 
 ## src/Ecommerce.Api/Properties/
 
 - `launchSettings.json` (~256 tok)
 
-## src/Ecommerce.Application/
+## src/Modules/Cart/Ecommerce.Modules.Cart.Application/
 
-- `Ecommerce.Application.csproj` (~85 tok)
+- `Ecommerce.Modules.Cart.Application.csproj` (~78 tok)
 
-## src/Ecommerce.Domain/
+## src/Modules/Cart/Ecommerce.Modules.Cart.Application/Abstractions/
 
-- `Ecommerce.Domain.csproj` (~56 tok)
+- `.gitkeep` (~0 tok)
 
-## src/Ecommerce.Infrastructure/
+## src/Modules/Cart/Ecommerce.Modules.Cart.Application/Features/
 
-- `Ecommerce.Infrastructure.csproj` (~87 tok)
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Cart/Ecommerce.Modules.Cart.Contracts/
+
+- `Ecommerce.Modules.Cart.Contracts.csproj` (~13 tok)
+
+## src/Modules/Cart/Ecommerce.Modules.Cart.Domain/
+
+- `Ecommerce.Modules.Cart.Domain.csproj` (~13 tok)
+
+## src/Modules/Cart/Ecommerce.Modules.Cart.Infrastructure/
+
+- `Ecommerce.Modules.Cart.Infrastructure.csproj` (~51 tok)
+
+## src/Modules/Cart/Ecommerce.Modules.Cart.Infrastructure/Persistence/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Cart/Ecommerce.Modules.Cart.Presentation/
+
+- `CartModule.cs` — CartModule: AddCartPresentation (~78 tok)
+- `Ecommerce.Modules.Cart.Presentation.csproj` (~106 tok)
+
+## src/Modules/Cart/Ecommerce.Modules.Cart.Presentation/Features/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Catalog/Ecommerce.Modules.Catalog.Application/
+
+- `Ecommerce.Modules.Catalog.Application.csproj` (~82 tok)
+
+## src/Modules/Catalog/Ecommerce.Modules.Catalog.Application/Abstractions/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Catalog/Ecommerce.Modules.Catalog.Application/Features/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Catalog/Ecommerce.Modules.Catalog.Contracts/
+
+- `Ecommerce.Modules.Catalog.Contracts.csproj` (~13 tok)
+
+## src/Modules/Catalog/Ecommerce.Modules.Catalog.Domain/
+
+- `Ecommerce.Modules.Catalog.Domain.csproj` (~13 tok)
+
+## src/Modules/Catalog/Ecommerce.Modules.Catalog.Infrastructure/
+
+- `Ecommerce.Modules.Catalog.Infrastructure.csproj` (~53 tok)
+
+## src/Modules/Catalog/Ecommerce.Modules.Catalog.Infrastructure/Persistence/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Catalog/Ecommerce.Modules.Catalog.Presentation/
+
+- `CatalogModule.cs` — CatalogModule: AddCatalogPresentation (~82 tok)
+- `Ecommerce.Modules.Catalog.Presentation.csproj` (~109 tok)
+
+## src/Modules/Catalog/Ecommerce.Modules.Catalog.Presentation/Features/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Checkout/Ecommerce.Modules.Checkout.Application/
+
+- `Ecommerce.Modules.Checkout.Application.csproj` (~83 tok)
+
+## src/Modules/Checkout/Ecommerce.Modules.Checkout.Application/Abstractions/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Checkout/Ecommerce.Modules.Checkout.Application/Features/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Checkout/Ecommerce.Modules.Checkout.Contracts/
+
+- `Ecommerce.Modules.Checkout.Contracts.csproj` (~13 tok)
+
+## src/Modules/Checkout/Ecommerce.Modules.Checkout.Domain/
+
+- `Ecommerce.Modules.Checkout.Domain.csproj` (~13 tok)
+
+## src/Modules/Checkout/Ecommerce.Modules.Checkout.Infrastructure/
+
+- `Ecommerce.Modules.Checkout.Infrastructure.csproj` (~54 tok)
+
+## src/Modules/Checkout/Ecommerce.Modules.Checkout.Infrastructure/Persistence/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Checkout/Ecommerce.Modules.Checkout.Presentation/
+
+- `CheckoutModule.cs` — CheckoutModule: AddCheckoutPresentation (~83 tok)
+- `Ecommerce.Modules.Checkout.Presentation.csproj` (~110 tok)
+
+## src/Modules/Checkout/Ecommerce.Modules.Checkout.Presentation/Features/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Identity/Ecommerce.Modules.Identity.Application/
+
+- `Ecommerce.Modules.Identity.Application.csproj` (~83 tok)
+
+## src/Modules/Identity/Ecommerce.Modules.Identity.Application/Abstractions/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Identity/Ecommerce.Modules.Identity.Application/Features/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Identity/Ecommerce.Modules.Identity.Contracts/
+
+- `Ecommerce.Modules.Identity.Contracts.csproj` (~13 tok)
+
+## src/Modules/Identity/Ecommerce.Modules.Identity.Domain/
+
+- `Ecommerce.Modules.Identity.Domain.csproj` (~13 tok)
+
+## src/Modules/Identity/Ecommerce.Modules.Identity.Infrastructure/
+
+- `Ecommerce.Modules.Identity.Infrastructure.csproj` (~54 tok)
+
+## src/Modules/Identity/Ecommerce.Modules.Identity.Infrastructure/Persistence/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Identity/Ecommerce.Modules.Identity.Presentation/
+
+- `Ecommerce.Modules.Identity.Presentation.csproj` (~110 tok)
+- `IdentityModule.cs` — IdentityModule: AddIdentityPresentation (~83 tok)
+
+## src/Modules/Identity/Ecommerce.Modules.Identity.Presentation/Features/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Inventory/Ecommerce.Modules.Inventory.Application/
+
+- `Ecommerce.Modules.Inventory.Application.csproj` (~84 tok)
+
+## src/Modules/Inventory/Ecommerce.Modules.Inventory.Application/Abstractions/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Inventory/Ecommerce.Modules.Inventory.Application/Features/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Inventory/Ecommerce.Modules.Inventory.Contracts/
+
+- `Ecommerce.Modules.Inventory.Contracts.csproj` (~13 tok)
+
+## src/Modules/Inventory/Ecommerce.Modules.Inventory.Domain/
+
+- `Ecommerce.Modules.Inventory.Domain.csproj` (~13 tok)
+
+## src/Modules/Inventory/Ecommerce.Modules.Inventory.Infrastructure/
+
+- `Ecommerce.Modules.Inventory.Infrastructure.csproj` (~54 tok)
+
+## src/Modules/Inventory/Ecommerce.Modules.Inventory.Infrastructure/Persistence/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Inventory/Ecommerce.Modules.Inventory.Presentation/
+
+- `Ecommerce.Modules.Inventory.Presentation.csproj` (~111 tok)
+- `InventoryModule.cs` — InventoryModule: AddInventoryPresentation (~84 tok)
+
+## src/Modules/Inventory/Ecommerce.Modules.Inventory.Presentation/Features/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Orders/Ecommerce.Modules.Orders.Application/
+
+- `Ecommerce.Modules.Orders.Application.csproj` (~80 tok)
+
+## src/Modules/Orders/Ecommerce.Modules.Orders.Application/Abstractions/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Orders/Ecommerce.Modules.Orders.Application/Features/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Orders/Ecommerce.Modules.Orders.Contracts/
+
+- `Ecommerce.Modules.Orders.Contracts.csproj` (~13 tok)
+
+## src/Modules/Orders/Ecommerce.Modules.Orders.Domain/
+
+- `Ecommerce.Modules.Orders.Domain.csproj` (~13 tok)
+
+## src/Modules/Orders/Ecommerce.Modules.Orders.Infrastructure/
+
+- `Ecommerce.Modules.Orders.Infrastructure.csproj` (~52 tok)
+
+## src/Modules/Orders/Ecommerce.Modules.Orders.Infrastructure/Persistence/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Orders/Ecommerce.Modules.Orders.Presentation/
+
+- `Ecommerce.Modules.Orders.Presentation.csproj` (~108 tok)
+- `OrdersModule.cs` — OrdersModule: AddOrdersPresentation (~80 tok)
+
+## src/Modules/Orders/Ecommerce.Modules.Orders.Presentation/Features/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Payments/Ecommerce.Modules.Payments.Application/
+
+- `Ecommerce.Modules.Payments.Application.csproj` (~83 tok)
+
+## src/Modules/Payments/Ecommerce.Modules.Payments.Application/Abstractions/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Payments/Ecommerce.Modules.Payments.Application/Features/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Payments/Ecommerce.Modules.Payments.Contracts/
+
+- `Ecommerce.Modules.Payments.Contracts.csproj` (~13 tok)
+
+## src/Modules/Payments/Ecommerce.Modules.Payments.Domain/
+
+- `Ecommerce.Modules.Payments.Domain.csproj` (~13 tok)
+
+## src/Modules/Payments/Ecommerce.Modules.Payments.Infrastructure/
+
+- `Ecommerce.Modules.Payments.Infrastructure.csproj` (~54 tok)
+
+## src/Modules/Payments/Ecommerce.Modules.Payments.Infrastructure/Persistence/
+
+- `.gitkeep` (~0 tok)
+
+## src/Modules/Payments/Ecommerce.Modules.Payments.Presentation/
+
+- `Ecommerce.Modules.Payments.Presentation.csproj` (~110 tok)
+- `PaymentsModule.cs` — PaymentsModule: AddPaymentsPresentation (~83 tok)
+
+## src/Modules/Payments/Ecommerce.Modules.Payments.Presentation/Features/
+
+- `.gitkeep` (~0 tok)
