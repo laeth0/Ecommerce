@@ -5,13 +5,4 @@
     <Project Path="src/Ecommerce.Domain/Ecommerce.Domain.csproj" />
     <Project Path="src/Ecommerce.Infrastructure/Ecommerce.Infrastructure.csproj" />
   </Folder>
-  <Folder Name="/test/">
-    <Project Path="test/Ecommerce.Api.IntegrationTests/Ecommerce.Api.IntegrationTests.csproj" />
-    <Project Path="test/Ecommerce.Api.UnitTests/Ecommerce.Api.UnitTests.csproj" />
-    <Project Path="test/Ecommerce.Application.IntegrationTests/Ecommerce.Application.IntegrationTests.csproj" />
-    <Project Path="test/Ecommerce.Application.UnitTests/Ecommerce.Application.UnitTests.csproj" />
-    <Project Path="test/Ecommerce.Domain.UnitTests/Ecommerce.Domain.UnitTests.csproj" />
-    <Project Path="test/Ecommerce.Infrastructure.IntegrationTests/Ecommerce.Infrastructure.IntegrationTests.csproj" />
-    <Project Path="test/Ecommerce.Infrastructure.UnitTests/Ecommerce.Infrastructure.UnitTests.csproj" />
-  </Folder>
 </Solution>
