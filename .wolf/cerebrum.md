@@ -35,6 +35,10 @@ budget_tokens: 2000
 
 ## Decision Log
 
+- [2026-10-02] Identity plan recommendations: feature-local command/query handlers with direct DI, one primary database, manual FluentValidation in Application, and startup-frozen nested Options at host/Infrastructure boundaries. Admin lookup remains an audited read transaction. EF/Npgsql/signing stay in Infrastructure; Bearer/validated JWT inspection stay in Presentation via neutral Application ports. The user requested these choices and package installation steps in the plan; no packages were installed during this planning pass.
+
+- [2026-10-02] Identity execution is planned in `docs/01-identity-and-auth/implementation plan.md`. Its 11 phases stay within project Phase 01; phase numbers in that plan do not authorize later modules. Essential audit/admission precede exposed account entry, and the first complete client increment includes refresh/logout. The password blocklist, protected keys, role grants and private HTTPS/network topology are real setup prerequisites, not embedded fallbacks.
+
 - [2026-10-02] Seven modules match the overview ownership table. Each has Domain, Application, Infrastructure, Presentation, and Contracts projects to establish inward dependencies and an explicit collaboration boundary. Do not add a shared business layer, mediator dependency, or unused registration abstraction.
 - [2026-10-02] Preserve existing authentication, package versions, launch profiles, and Compose behavior during restructuring. JWT identity and database semantics belong to subsequent explicitly requested feature work.
 

@@ -8,6 +8,10 @@ budget_tokens: 1000
 
 ## Done
 
+- Expanded the Identity implementation plan using the wider domain architecture requirements and official library documentation. It now specifies feature folders, logical CQRS without MediatR/separate stores, manual FluentValidation, typed startup-validated Options/DI lifetimes, and pinned EF Core/Npgsql/JWT libraries with phase-specific installation commands. Packages and application code remain unchanged.
+
+- Created `docs/01-identity-and-auth/implementation plan.md` after reviewing all 12 Identity specifications and the current scaffold. The plan has 11 ordered phases, 28 tasks, requirement/scenario traceability, and manual/non-test verification gates. No application code, dependencies, tests, or deployment changes were made.
+
 - Corrected the source layout per user request: this repository is already the backend, so removed the redundant `backend/` directory. Source is under root `src` and shared build settings are at the root.
 - Removed documentation solution folders/items per the latest user request. Files remain under `docs/`; all 36 source projects remain in the solution.
 - After this correction, Release solution build passed with zero warnings/errors; Docker image build/publish and Compose configuration passed; all 36 project paths/references and 216 documentation entries resolved; diff whitespace passed. IDE rendering was not inspected.
@@ -23,7 +27,7 @@ budget_tokens: 1000
 
 ## Next phase
 
-Await the next user-requested feature or change. No business implementation is implied by this restructuring.
+Await the user's implementation request. Start with Phase 0 of `docs/01-identity-and-auth/implementation plan.md`: resolve draft-policy/artifact/environment prerequisites before implementing the next task. The plan does not authorize application implementation, new automated tests, or later-domain work.
 
 ## Active architecture
 

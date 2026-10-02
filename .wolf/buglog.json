@@ -60,6 +60,37 @@
       ],
       "occurrences": 1,
       "last_seen": "2026-10-02T15:40:31.967832+00:00"
+    },
+    {
+      "id": "identity-plan-traceability-20261002",
+      "timestamp": "2026-10-02T18:25:19.218003+00:00",
+      "error_message": "Implementation-plan static coverage check omitted literal ID-FR-06 because the document used ID-FR-05/06 shorthand.",
+      "file": "docs/01-identity-and-auth/implementation plan.md",
+      "root_cause": "A combined shorthand requirement label was readable to a person but did not independently identify the Admin lookup requirement to the ID inventory check.",
+      "fix": "Expanded both requirement IDs in the traceability table; rerun document/source/link coverage checks. The plan also received more than two editing passes during its initial review.",
+      "tags": [
+        "documentation",
+        "identity",
+        "traceability"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-10-02T18:25:19.218003+00:00"
+    },
+    {
+      "id": "identity-plan-architecture-review-20261002",
+      "timestamp": "2026-10-02T18:47:23.591872+00:00",
+      "error_message": "Identity plan refinement required more than two editing passes to align new architecture/library decisions with the phase tasks and numbering.",
+      "file": "docs/01-identity-and-auth/implementation plan.md",
+      "root_cause": "The requested CQRS, FluentValidation, Options and package details needed both new design sections and corresponding updates to existing file/task ownership and installation steps.",
+      "fix": "Added explicit decisions, feature tree, package versions/ownership and commands; updated consuming tasks; corrected the current-user validator exception and retained requirement traceability.",
+      "tags": [
+        "documentation",
+        "identity",
+        "planning",
+        "review"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-10-02T18:47:23.591872+00:00"
     }
   ]
 }
