@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../../src/Ecommerce.Api/Ecommerce.Api.csproj" />
+  </ItemGroup>
+</Project>
