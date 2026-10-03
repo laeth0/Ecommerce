@@ -35,6 +35,21 @@ Use HMAC-SHA256 over `scope + canonical bucket identity` with a dedicated shared
 
 SQL arguments must be bound parameters and scope names must come from server policy. Database failure returns `503`; there is no unlimited local fallback. The global/source stages run first to bound creation of attacker-controlled identifier rows. Failed authentication does not create user or session rows.
 
+### 2.1 Route-specific ordering
+
+The Phase 0 review makes the discovery dependency explicit without changing limits or public errors:
+
+| Route | Order after bounded transport/shape/semantic checks |
+| --- | --- |
+| Register/login | Global counter commit → source counter commit → normalized-email counter commit → hash-slot admission → password work → credential/network/state checks → business transaction |
+| Refresh | Global counter commit → source counter commit → digest discovery on primary → discovered-session counter commit when found → locked credential/account/session/network/replay checks and transaction. Unknown digest returns generic `401` after global/source allowance; discovery does not establish eligibility |
+| Logout | Global counter commit → source counter commit → retained digest discovery → locked revocation/no-op. No eligible-session bucket, Bearer check or Admin network condition |
+| Protected reads | Source counter commit → cryptographic Bearer validation → primary eligible-session check → role/network permission → eligible-session counter commit → authorized target validation/lookup and required audit transaction |
+
+Invalid Bearer credentials never create a session bucket. Admin target UUID/existence checks run only after requester authorization; generic body/query transport violations still follow protocol precedence. Public Authorization headers are irrelevant to body credential routes. Refresh's malformed secret returns its documented generic `401` before admission; logout's malformed secret returns `400`; structural JSON errors remain `400`.
+
+Release each counter transaction/connection before taking any user/session lock; also release the discovery read connection before admission if a new connection is needed. Protected admission does not extend inactivity or supersede authoritative state rules. A read checked before later revocation may finish under snapshot semantics; sensitive future mutations revalidate under shared locks as the database contract requires.
+
 ## 3. Resource budgets
 
 | Resource | Initial limit | Behavior at limit |

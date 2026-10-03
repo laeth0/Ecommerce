@@ -4,9 +4,11 @@ budget_tokens: 1000
 ---
 # STATUS — ecommerce
 
-> Last updated: 2026-10-02
+> Last updated: 2026-10-03
 
 ## Done
+
+- Completed Phase 0 source review, workflow traces, direct-pin/advisory and PostgreSQL 18.6-bookworm manifest checks; documented accepted configuration/mounts, minimal grants, admission ordering, uncertain-reset inspection and all-session restore maintenance. Static documentation checks passed; live database/artifact gates remain open.
 
 - Expanded the Identity implementation plan using the wider domain architecture requirements and official library documentation. It now specifies feature folders, logical CQRS without MediatR/separate stores, manual FluentValidation, typed startup-validated Options/DI lifetimes, and pinned EF Core/Npgsql/JWT libraries with phase-specific installation commands. Packages and application code remain unchanged.
 
@@ -27,7 +29,7 @@ budget_tokens: 1000
 
 ## Next phase
 
-Await the user's implementation request. Start with Phase 0 of `docs/01-identity-and-auth/implementation plan.md`: resolve draft-policy/artifact/environment prerequisites before implementing the next task. The plan does not authorize application implementation, new automated tests, or later-domain work.
+Phase 0 contract review and owner decisions are recorded in `docs/01-identity-and-auth/phase-0-readiness.md`. The owner explicitly accepted existing numerical/security policies and the concrete configuration/grant proposals, and selected an API/PostgreSQL Docker Compose sandbox with HTTPS and protected external secret-file mounts. No runtime code/packages/secrets were created. Artifact acquisition remains a prerequisite; generated-SQL/grant verification must run in Phase 2. Docker Desktop Linux engine was unavailable. Await an explicit Phase 1 request; do not create tests or later-domain work.
 
 ## Active architecture
 

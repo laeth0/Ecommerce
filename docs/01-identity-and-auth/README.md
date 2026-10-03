@@ -71,7 +71,7 @@ These are work packages, not a promise to complete the folder within one Sprint.
 
 ## 5. Fixed policy baseline
 
-The values are proposed project policy. Changing them requires updating the API, persistence, configuration, and verification contracts together.
+The project owner accepted the existing numerical/security policies and concrete Phase 0 integration seams on 2026-10-03; see [Phase 0 readiness](phase-0-readiness.md) for the acceptance record and remaining setup prerequisites. Changing them requires updating the API, persistence, configuration, and verification contracts together. Acceptance is not runtime verification.
 
 | Policy | Customer | Admin |
 | --- | --- | --- |

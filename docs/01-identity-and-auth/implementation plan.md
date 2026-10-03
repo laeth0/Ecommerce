@@ -10,11 +10,11 @@
 
 **Spec:** All twelve existing documents in this folder, listed in the source map below. This plan proposes implementation work; it does not approve unresolved specification decisions or authorize application implementation.
 
-**Status:** Planning complete; implementation not started. All execution checkboxes remain unchecked.
+**Status:** Phase 0 contract review and owner decisions completed on 2026-10-03; artifact acquisition and live SQL/grant verification remain explicit setup gates in [Phase 0 readiness](phase-0-readiness.md). Identity runtime implementation has not started. Checked execution items below record completed review work only.
 
 ## 1. Scope and current repository state
 
-The requested deliverable is this plan. Future execution implements the Identity behavior specified by `docs/01-identity-and-auth` inside the existing source projects, with necessary host/build/operating changes. Read the project overview for shared constraints; do not implement Catalog, Inventory, Cart, Orders, Checkout, or Payments.
+This plan was the original planning deliverable. The current request executes Phase 0 only, with review evidence in [Phase 0 readiness](phase-0-readiness.md). Later execution implements the Identity behavior specified by `docs/01-identity-and-auth` inside the existing source projects, with necessary host/build/operating changes. Read the project overview for shared constraints; do not implement Catalog, Inventory, Cart, Orders, Checkout, or Payments.
 
 The repository already has:
 
@@ -130,13 +130,13 @@ Use `AddOptions<T>().Bind(...).ValidateOnStart()` with focused `IValidateOptions
 | `I/Configuration/AdminAccessOptions.cs` | `Identity:AdminAccess` | Explicit allowed source CIDRs. |
 | `I/Configuration/IdentityRateLimitingOptions.cs` | `Identity:RateLimiting` | Bucket HMAC artifact and exact route policies. |
 | `I/Configuration/IdentityCapacityOptions.cs` | `Identity:Capacity` | Executing/hash slots and their bounded admission. |
-| `I/Configuration/IdentityDatabaseOptions.cs` | Proposed `Identity:Database` | API/cleanup pool budgets and pool/lock/statement/transaction deadlines from the capacity contract. |
+| `I/Configuration/IdentityDatabaseOptions.cs` | `Identity:Database` | API/cleanup pool budgets and pool/lock/statement/transaction deadlines from the capacity contract. |
 | `I/Configuration/IdentityCleanupOptions.cs` | `Identity:Cleanup` | Enablement, interval, retention and batch budgets. |
 | `H/Configuration/CorsOptions.cs` | `Cors` | Exact origins and permitted phase-specific negotiation. |
 | `H/Configuration/ReverseProxyOptions.cs` | `ReverseProxy` | Trusted proxies and forwarding depth. |
-| `H/Configuration/IdentityHostOptions.cs` | Proposed `Identity:Host` | Ten-second request deadline, restricted management binding, one-second readiness probe, 15-second shutdown, and drift-check interval. |
+| `H/Configuration/IdentityHostOptions.cs` | `Identity:Host` | Ten-second request deadline, restricted management binding, one-second readiness probe, 15-second shutdown, and drift-check interval. |
 
-The new database/host sections and `ConnectionStrings:IdentityMigration` / `ConnectionStrings:IdentityOperator` are proposed implementation configuration names. Task 0.2 must add their exact keys/defaults/validation to the owning operations document before use. Existing named keys and fixed policy values remain unchanged.
+The new database/host sections and `ConnectionStrings:IdentityMigration` / `ConnectionStrings:IdentityOperator`, including file-path companions, were accepted in Phase 0 on 2026-10-03. Their exact keys/defaults/validation are recorded in the owning [operations document](deployment-and-devops/configuration-and-operations.md#21-phase-0-configuration-seams). Existing named keys and fixed policy values remain unchanged.
 
 Use startup-frozen policy and explicit controlled key/artifact rotation. Do not introduce `IOptionsSnapshot`/`IOptionsMonitor` hot reload that can change security policy inconsistently across requests/replicas. Missing artifacts fail setup; invalidating a required runtime dependency fails closed.
 
@@ -274,7 +274,7 @@ The versions below were checked against NuGet's official package metadata on 202
 | [Microsoft.Extensions.Hosting.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Hosting.Abstractions/10.0.12) | 10.0.12 | I | `BackgroundService` / hosted cleanup lifecycle; Phase 8. |
 | [dotnet-ef](https://www.nuget.org/packages/dotnet-ef/10.0.12) | 10.0.12 | Local tool manifest | Migration generation/script/database tooling; Phase 2. |
 
-The provider's metadata requires EF Core/Relational `>=10.0.4` and `<11.0.0`, plus Npgsql `>=10.0.3`; selected EF `10.0.12` and Npgsql `10.0.3` fit those declared ranges. JsonWebTokens `8.23.0` requires Tokens `8.23.0`. This is metadata evidence, not a completed restore/runtime compatibility claim. Inspect the restored transitive IdentityModel graph as well as the direct pins. [Provider dependency metadata](https://www.nuget.org/packages/Npgsql.EntityFrameworkCore.PostgreSQL/10.0.3), [IdentityModel package](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/8.23.0).
+The provider's metadata requires EF Core/Relational `>=10.0.4` and `<11.0.0`, plus Npgsql `>=10.0.3`; selected EF `10.0.12` and Npgsql `10.0.3` fit those declared ranges. JsonWebTokens `8.23.0` requires Tokens `>=8.23.0`; both selected direct pins are `8.23.0`. This is metadata evidence, not a completed restore/runtime compatibility claim. Inspect the restored transitive IdentityModel graph as well as the direct pins. [Provider dependency metadata](https://www.nuget.org/packages/Npgsql.EntityFrameworkCore.PostgreSQL/10.0.3), [IdentityModel package](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/8.23.0).
 
 Do not install EF, Npgsql, JWT or FluentValidation in Domain/Contracts; do not put EF/JWT in Application. Shared-framework APIs remain in the API host/Presentation. Extensions packages supply the narrow capabilities needed by class libraries. No `FluentValidation.AspNetCore`, `FluentValidation.DependencyInjectionExtensions`, MediatR, Scrutor, AutoMapper, Dapper, Polly, EF InMemory/SQL Server provider, or full Identity EF store is selected. Existing OpenAPI/container tooling stays unchanged; remove Negotiate only when Bearer replaces it in Phase 6.
 
@@ -408,18 +408,20 @@ Presentation calls Application; Infrastructure implements narrow Application por
 
 **Files:** the twelve source documents above; existing Identity `.csproj` files; `H/Program.cs`; root build/container files.
 
-- [ ] Trace registration, login, refresh, logout, Admin lookup, and operator reset from request/input through committed state and public outcome. For each, name its authoritative rows, locks, audit, deadlines, and safe recovery action.
-- [ ] Confirm acceptance of the draft numerical/security policies before implementing them. Use the architecture/package selections in sections 2–4; verify the recorded pins/advisories and select the PostgreSQL 18 image patch. Reuse the existing .NET 10 scaffold; do not invent versions or upgrade unrelated tooling.
+- [x] Trace registration, login, refresh, logout, Admin lookup, and operator reset from request/input through committed state and public outcome. For each, name its authoritative rows, locks, audit, deadlines, and safe recovery action. See [review traces](phase-0-readiness.md#2-request-to-commit-traces).
+- [x] Confirm acceptance of the draft numerical/security policies before implementing them. Use the architecture/package selections in sections 2–4; verify the recorded pins/advisories and select the PostgreSQL 18 image patch. Reuse the existing .NET 10 scaffold; do not invent versions or upgrade unrelated tooling. Owner explicitly accepted the policies/proposals on 2026-10-03; retain the existing pins and the verified PostgreSQL 18.6-bookworm image digest in [readiness evidence](phase-0-readiness.md#3-version-and-advisory-evidence).
 - [ ] Obtain the local password-blocklist artifact/source/date/checksum; protected RSA/public-key and HMAC artifacts; deployment network/proxy/TLS topology; and separate database credentials. Missing artifacts remain setup blockers, rather than triggering embedded fallbacks.
 
 ### Task 0.2 — Resolve the concrete integration seams
 
 **Files:** owning specification documents if an approved clarification is necessary; planned Options and persistence registration.
 
-- [ ] Specify API, cleanup, migration, and operator connection configuration and role provisioning. Adopt the proposed `IdentityMigration`/`IdentityOperator` connection keys and `Identity:Database`/`Identity:Host` Options sections only after updating their exact contract in the operations document. Confirm the operator subject source and secret-input mechanism for the actual Windows/WSL/container execution environment; do not trust a caller-supplied application role.
+- [x] Specify API, cleanup, migration, and operator connection configuration and role provisioning. Adopt the proposed `IdentityMigration`/`IdentityOperator` connection keys and `Identity:Database`/`Identity:Host` Options sections only after updating their exact contract in the operations document. Confirm the operator subject source and secret-input mechanism for the actual Windows/WSL/container execution environment; do not trust a caller-supplied application role. The owner accepted the Docker configuration, mount/provisioning and operator-subject definitions in the [operations contract](deployment-and-devops/configuration-and-operations.md#21-phase-0-configuration-seams).
 - [ ] Review PostgreSQL lock privileges against the role matrix. Row locks need suitable UPDATE privileges; choose minimal column grants and verify real generated SQL while keeping API role/status/version administration and cleanup verifier changes prohibited.
-- [ ] Make admission ordering explicit: validate bounded input, apply global/source limits, resolve the session needed for a session bucket, and perform the route's credential/state checks. Protected session buckets require an eligible Bearer session. Never retain counter transaction locks across user/session locking.
-- [ ] Specify safe operator inspection for an uncertain request ID and a maintenance procedure for revoking **every** restored session, including disabled users and retained unrevoked sessions. Do not invent a public endpoint or infer rollback from an absent audit row while the operation is in flight.
+- [x] Make admission ordering explicit: validate bounded input, apply global/source limits, resolve the session needed for a session bucket, and perform the route's credential/state checks. Protected session buckets require an eligible Bearer session. Never retain counter transaction locks across user/session locking. See [route-specific ordering](performance-and-scalability/capacity-and-rate-limiting.md#21-route-specific-ordering).
+- [x] Specify safe operator inspection for an uncertain request ID and a maintenance procedure for revoking **every** restored session, including disabled users and retained unrevoked sessions. Do not invent a public endpoint or infer rollback from an absent audit row while the operation is in flight. See [inspection](deployment-and-devops/configuration-and-operations.md#41-inspecting-an-uncertain-operation) and [restore maintenance](deployment-and-devops/configuration-and-operations.md#71-restored-session-maintenance).
+
+**2026-10-03 execution record:** source review, SDK/direct-pin metadata and vulnerability-feed review, and PostgreSQL image manifest inspection were performed. The owner selected a containerized API/PostgreSQL Compose sandbox with protected external file mounts and HTTPS, then explicitly accepted the numerical/security policies and concrete seam proposals. Configuration names/defaults, minimal lock-grant columns, provisioning and maintenance procedures are recorded in the owning documents. Artifact acquisition remains a setup prerequisite as instructed by the owner; real generated-SQL/grant verification remains required in Phase 2 once mappings/migrations exist. Those two items and all later implementation checkboxes remain unchecked. No secrets, packages or runtime code were created. See [readiness evidence and prerequisites](phase-0-readiness.md).
 
 **Exit gate:** every decision needed by the next phase is resolved with its owner; remaining environment prerequisites are visible. Specification conflicts require an explicit resolution in their owning documents, not an implementation shortcut. Review the plan again if that resolution changes behavior or contracts.
 
